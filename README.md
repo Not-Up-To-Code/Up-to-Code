@@ -15,9 +15,9 @@ This project is a digital library of Essentialized practices that will allow the
 ## Help
 
 ## Authors
-Benjamin Keninger - kenibenj@isu.edu
-Braxton Soto - sotobrax@isu.edu
-Sina Khajeh Pour - sinakhajehpour@isu.edu
+Benjamin Keninger - kenibenj@isu.edu\
+Braxton Soto - sotobrax@isu.edu\
+Sina Khajeh Pour - sinakhajehpour@isu.edu\
 Thomas Evans - evanthom@isu.edu
 
 ## Version History
