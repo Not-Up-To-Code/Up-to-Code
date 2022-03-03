@@ -41,7 +41,7 @@ public class ui extends Application {
     //fxml change handlers
     public void showHome() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setController(new uiController());
+        loader.setController(new uiController(this));
         loader.setLocation(getClass().getResource(home_FXML));
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 680);
@@ -50,7 +50,7 @@ public class ui extends Application {
     }
     public void showPracticeCatalog() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setController(new uiController());
+        loader.setController(new uiController(this));
         loader.setLocation(getClass().getResource(practiceCatalog_FXML));
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 680);
@@ -58,25 +58,67 @@ public class ui extends Application {
         mainStage.setScene(scene);
     }
     public void showPracticeCreator() throws IOException {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new uiController(this));
+        loader.setLocation(getClass().getResource(practiceCreator_FXML));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 1000, 680);
+        mainStage.setTitle("Essence Practice Creator");
+        mainStage.setScene(scene);
     }
     public void showCardCatalog() throws IOException {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new uiController(this));
+        loader.setLocation(getClass().getResource(cardCatalog_FXML));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 1000, 680);
+        mainStage.setTitle("Essence Card Catalog");
+        mainStage.setScene(scene);
     }
     public void showCardCreator() throws IOException {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new uiController(this));
+        loader.setLocation(getClass().getResource(cardCreator_FXML));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 1000, 680);
+        mainStage.setTitle("Essence Card Creator");
+        mainStage.setScene(scene);
     }
     public void showProgressPoker() throws IOException {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new uiController(this));
+        loader.setLocation(getClass().getResource(progressPoker_FXML));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 1000, 680);
+        mainStage.setTitle("Essence Progress Poker");
+        mainStage.setScene(scene);
     }
     public void showChaseTheState() throws IOException {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new uiController(this));
+        loader.setLocation(getClass().getResource(chaseTheState_FXML));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 1000, 680);
+        mainStage.setTitle("Essence Chase the State");
+        mainStage.setScene(scene);
     }
     public void showObjectiveGo() throws IOException {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new uiController(this));
+        loader.setLocation(getClass().getResource(objectiveGo_FXML));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 1000, 680);
+        mainStage.setTitle("Essence Objective Go");
+        mainStage.setScene(scene);
     }
     public void showCheckpointConstruction() throws IOException {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new uiController(this));
+        loader.setLocation(getClass().getResource(checkpointConstruction_FXML));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 1000, 680);
+        mainStage.setTitle("Essence Checkpoint Construction");
+        mainStage.setScene(scene);
     }
 
 }

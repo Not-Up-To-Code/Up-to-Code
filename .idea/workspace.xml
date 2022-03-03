@@ -4,7 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9bb71c8-7e37-46af-a104-9cd3025321f8" name="Changes" comment="" />
+    <list default="true" id="b9bb71c8-7e37-46af-a104-9cd3025321f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/pluginUnderTestMetadata/plugin-under-test-metadata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/pluginUnderTestMetadata/plugin-under-test-metadata.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/resources/main/practiceCatalog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/resources/main/practiceCatalog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/edu/isu/cs3321/Up_to_Code/app/ui.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/edu/isu/cs3321/Up_to_Code/app/ui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/edu/isu/cs3321/Up_to_Code/app/uiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/edu/isu/cs3321/Up_to_Code/app/uiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/cardCatalog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/cardCatalog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/cardCreator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/cardCreator.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/chaseTheState.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/chaseTheState.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/checkpointConstruction.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/checkpointConstruction.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/objectiveGo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/objectiveGo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/practiceCatalog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/practiceCatalog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/practiceCreator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/practiceCreator.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/progressPoker.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/progressPoker.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +45,9 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="25r0aUfrgkhzrv4Z8PxlLwepe0X" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,7 +56,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.30482116" />
   </component>
   <component name="RunManager">
     <configuration name="ui" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -56,10 +93,24 @@
       <workItem from="1646269964053" duration="90000" />
       <workItem from="1646270154230" duration="852000" />
       <workItem from="1646271020688" duration="310000" />
+      <workItem from="1646272962744" duration="2034000" />
+      <workItem from="1646275592693" duration="1009000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

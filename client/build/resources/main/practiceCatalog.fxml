@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1000.0" style="-fx-background-color: #000E0F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane prefHeight="680.0" prefWidth="1000.0">
@@ -41,7 +40,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#practiceCatalogButton" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #1B5559;" text="Essence Practice Catalog" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#practiceCatalogButton" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #007982;" text="Essence Practice Catalog" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
