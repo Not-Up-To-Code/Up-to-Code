@@ -4,23 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d113f01-6385-4f68-8d42-4cb62649afc5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Up-to-Code.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b9bb71c8-7e37-46af-a104-9cd3025321f8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="25nFp3EwLyBXSLAPZBPS7P3bkx3" />
+  <component name="ProjectId" id="25r0aUfrgkhzrv4Z8PxlLwepe0X" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,34 +23,43 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/library" />
+  </component>
+  <component name="RunManager">
+    <configuration name="ui" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.isu.cs3321.Up_to_Code.app.ui" />
+      <module name="Up_to_Code.client.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.isu.cs3321.Up_to_Code.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ui" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2d113f01-6385-4f68-8d42-4cb62649afc5" name="Changes" comment="" />
-      <created>1646155126635</created>
+      <changelist id="b9bb71c8-7e37-46af-a104-9cd3025321f8" name="Changes" comment="" />
+      <created>1646269962663</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1646155126635</updated>
-      <workItem from="1646155131436" duration="156000" />
+      <updated>1646269962663</updated>
+      <workItem from="1646269964053" duration="90000" />
+      <workItem from="1646270154230" duration="852000" />
+      <workItem from="1646271020688" duration="310000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
