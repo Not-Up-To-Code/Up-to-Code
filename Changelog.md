@@ -8,7 +8,3 @@ and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 * Client, server, and web-app projects
 * Gradle Implementation for client, server, and web-app
-
-### Modified
-*
-*
