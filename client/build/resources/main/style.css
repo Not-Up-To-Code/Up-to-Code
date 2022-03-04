@@ -1,0 +1,26 @@
+#background{
+    -fx-background-color: #000E0F;
+}
+
+#menuBackground{
+    -fx-background-color: #1B5559;
+}
+
+#menuButton{
+    -fx-background-color:  #1B5559;
+}
+
+#menuButton:hover {
+    -fx-background-color:  #00B0BD;
+}
+
+#menuActive{
+    -fx-background-color:  #00B0BD;
+}
+
+#scrollPane{
+    -fx-background-color: #000E0F;
+}
+#scrollPane .viewport{
+    -fx-background-color: #000E0F;
+}
