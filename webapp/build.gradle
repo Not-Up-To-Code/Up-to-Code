@@ -21,7 +21,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'edu.isu.cs3321.Up_to_Code.client.App'
+    mainClass = 'edu.isu.cs3321.Up_to_Code.app.App'
 }
 tasks.named('test') {
     // Use JUnit Platform for unit tests.

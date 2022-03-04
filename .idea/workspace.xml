@@ -12,27 +12,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaApplicationConventionsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaApplicationConventionsPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaCommonConventionsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaCommonConventionsPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaLibraryConventionsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaLibraryConventionsPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-application-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-application-conventions.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-common-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-common-conventions.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-library-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-library-conventions.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/build/pluginUnderTestMetadata/plugin-under-test-metadata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/pluginUnderTestMetadata/plugin-under-test-metadata.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-application-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-application-conventions.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-common-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-common-conventions.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-library-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-library-conventions.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/edu/isu/cs3321/Up_to_Code/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/edu/isu/cs3321/Up_to_Code/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -126,8 +117,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.ui" />
-      <item itemvalue="Gradle.Up-to-Code [dependencies]" />
       <item itemvalue="Application.App" />
+      <item itemvalue="Gradle.Up-to-Code [dependencies]" />
     </list>
     <recent_temporary>
       <list>
@@ -151,6 +142,8 @@
       <workItem from="1646272962744" duration="2034000" />
       <workItem from="1646275592693" duration="1143000" />
       <workItem from="1646370618042" duration="2630000" />
+      <workItem from="1646437098738" duration="20000" />
+      <workItem from="1646437235790" duration="63000" />
     </task>
     <servers />
   </component>
@@ -167,5 +160,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
