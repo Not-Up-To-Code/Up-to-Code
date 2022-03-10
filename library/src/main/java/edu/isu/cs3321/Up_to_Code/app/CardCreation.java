@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CardCreation {
 
-    String alpha;
+    String title;
     String state1;
     String state2;
     String state3;
@@ -39,12 +39,12 @@ public class CardCreation {
         return stateCount;
     }
 
-    public String getAlpha() {
-        return alpha;
+    public String getTitle() {
+        return title;
     }
 
-    public void setAlpha(String alpha) {
-        this.alpha = alpha;
+    public void setTitle(String alpha) {
+        this.title = alpha;
     }
 
     public String getState1() {
@@ -103,9 +103,9 @@ public class CardCreation {
         this.description = description;
     }
 
-    public  void setCard(String al,String s1,String s2,String s3,String s4,String s5,String s6,String d,String s){
+    public  void setCard(String ti,String s1,String s2,String s3,String s4,String s5,String s6,String d,String s){
         if (!stateCount.equals(0)){
-            setAlpha(al);
+            setTitle(ti);
             setDescription(d);
             setSpecification(s);
             if(getCount().equals(1)){
