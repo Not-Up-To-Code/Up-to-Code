@@ -96,11 +96,112 @@
                   </VBox>
                </children>
             </GridPane>
-            <SVGPath fx:id="cardOutline" content="M 13.353516,0.125 C 6.0474485,0.125 0.125,6.0474484 0.125,13.353516 V 432.07031 c 0,7.30607 5.9224482,13.22852 13.228516,13.22852 H 639.24219 c 7.30607,0 13.22851,-5.92245 13.22851,-13.22852 V 13.353516 C 652.4707,6.0474494 646.54826,0.125 639.24219,0.125 Z m 0,2.6445313 H 639.24219 c 5.88605,0 10.58398,4.6979389 10.58398,10.5839847 V 432.07031 c 0,5.88605 -4.69793,10.58399 -10.58398,10.58399 H 13.353516 c -5.8860443,0 -10.5839847,-4.69795 -10.5839847,-10.58399 V 13.353516 c 0,-5.8860448 4.6979401,-10.5839847 10.5839847,-10.5839847 z" fill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets right="30.0" />
-               </GridPane.margin>
-            </SVGPath>
+            <SVGPath fx:id="wideCardBack" content="M 13.230292,1.3675576 H 639.24122 c 6.59606,0 11.90625,5.3101875 11.90625,11.9062504 V 432.04682 c 0,6.59606 -5.31019,11.90625 -11.90625,11.90625 H 13.230292 c -6.5960629,0 -11.9062504,-5.31019 -11.9062504,-11.90625 V 13.273808 c 0,-6.5960629 5.3101875,-11.9062504 11.9062504,-11.9062504 z" fill="WHITE" layoutX="271.0" layoutY="318.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <SVGPath fx:id="wideCardBanner" content="M 13.249837,1.3306681 H 639.22835 c 6.59607,0 11.90625,5.3101875 11.90625,11.9062499 v 38.205967 c 0,6.596063 -5.31018,11.90625 -11.90625,11.90625 H 13.249837 c -6.5960622,0 -11.9062497,-5.310187 -11.9062497,-11.90625 V 13.236918 c 0,-6.5960624 5.3101875,-11.9062499 11.9062497,-11.9062499 z" fill="#ffc8c8" translateY="-192.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <SVGPath fx:id="wideCardBorder" content="m 13.236328,0.00195313 c -7.306067,0 -13.2285155,5.92244817 -13.2285155,13.22851587 V 432.05859 c 0,7.30607 5.9224482,13.22852 13.2285155,13.22852 H 639.23047 c 7.30606,0 13.22851,-5.92245 13.22851,-13.22852 V 13.230469 c 0,-7.306068 -5.92245,-13.22851587 -13.22851,-13.22851587 z m 0,2.64453127 H 639.23047 c 5.88604,0 10.58203,4.6979401 10.58203,10.5839846 V 432.05859 c 0,5.88605 -4.69599,10.58399 -10.58203,10.58399 H 13.236328 c -5.8860438,0 -10.5820311,-4.69794 -10.5820311,-10.58399 V 13.230469 c 0,-5.8860449 4.695987,-10.5839846 10.5820311,-10.5839846 z" fill="#ff6464" strokeWidth="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <SVGPath fx:id="wideCardAlphaSymbol" content="m 54.189453,14.023438 c -3.551127,-0.01733 -5.87912,0.05722 -8.908203,0.738281 -3.029104,0.681061 -6.854586,1.927454 -9.574219,4.394531 -2.719637,2.467081 -3.942639,5.851619 -4.658203,8.427734 -0.71556,2.576101 -0.945638,4.687766 -0.628906,8.576172 0.316731,3.888394 1.053524,9.813293 3.939453,13.732422 2.885894,3.919081 7.612935,5.113988 12.492187,5.730469 4.879242,0.616479 10.21018,0.683401 15.671875,0.527344 5.461693,-0.156057 11.715279,-0.655919 16.548829,-6.941407 1.947326,-2.532279 3.623602,-6.040319 5.203125,-9.904297 1.439404,3.884529 2.823201,7.64147 4.412109,11.871094 l 2.476562,-0.929687 c -1.95835,-5.21307 -3.756769,-10.055487 -5.429687,-14.607422 1.763436,-4.848647 3.401317,-10.166807 5.042969,-15.546875 l -2.529297,-0.773438 c -1.305941,4.279865 -2.660786,8.312388 -4.021485,12.275391 -1.80555,-5.009618 -3.153121,-9.031834 -5.888671,-11.861328 -2.817787,-2.914554 -6.81571,-4.20795 -11.236329,-4.900391 -4.42064,-0.692444 -9.360985,-0.791263 -12.912109,-0.808593 z m -0.01172,2.646484 c 3.511426,0.01714 8.355915,0.126077 12.513672,0.777344 4.157779,0.65127 7.532274,1.837173 9.744141,4.125 2.211923,2.287884 3.559593,6.080872 5.458984,11.330078 0.282987,0.782069 0.706237,1.888645 1.011719,2.722656 -1.85966,4.975319 -3.812146,9.214539 -5.931641,11.970703 -4.226856,5.496551 -9.134961,5.756136 -14.52539,5.910156 -5.390427,0.154021 -10.60192,0.08143 -15.265625,-0.507812 -4.663694,-0.589246 -8.480231,-1.668371 -10.69336,-4.673828 -2.213093,-3.00541 -3.130143,-8.653546 -3.433593,-12.378907 -0.30345,-3.725347 -0.119505,-5.267361 0.542968,-7.652343 0.662469,-2.384968 1.780992,-5.269325 3.884766,-7.177735 2.103779,-1.908413 5.583709,-3.143453 8.376953,-3.771484 2.793266,-0.628036 4.804985,-0.690965 8.316406,-0.673828 z" translateX="-280.0" translateY="-192.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <GridPane GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="335.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="617.0" minHeight="10.0" prefHeight="602.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="616.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Color" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of States(Max 6)" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                     </children>
+                  </GridPane>
+                  <Button mnemonicParsing="false" text="Generate State Cards" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="0.0" prefWidth="86.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="695.0" minWidth="10.0" prefWidth="650.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="182.0" minWidth="10.0" prefWidth="89.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="190.0" minHeight="0.0" prefHeight="79.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="466.0" minHeight="10.0" prefHeight="435.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane fx:id="wideCardGridWrapper" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="390.0" minHeight="10.0" prefHeight="384.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <GridPane fx:id="wideCardGridContent" GridPane.rowIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="325.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="348.0" minWidth="10.0" prefWidth="326.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="178.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="282.0" minHeight="10.0" prefHeight="282.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Add a brief description of the alpha." wrapText="true">
+                                             <GridPane.margin>
+                                                <Insets top="15.0" />
+                                             </GridPane.margin>
+                                          </TextArea>
+                                          <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Add a Detailed description of the Alpha." wrapText="true" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets top="15.0" />
+                                             </GridPane.margin>
+                                          </TextArea>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </GridPane>
+                              <TextArea prefHeight="150.0" prefWidth="200.0" promptText="Alpha Name" wrapText="true">
+                                 <GridPane.margin>
+                                    <Insets left="100.0" right="100.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
          </children>
       </GridPane>
    </children>

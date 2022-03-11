@@ -90,8 +90,13 @@ public class ui extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 680);
 
-        SVGPath outline = (SVGPath) scene.lookup("#cardOutline");
-        outline.setFill(Paint.valueOf("#FFFF99"));
+        SVGPath border = (SVGPath) scene.lookup("#wideCardBorder");
+        SVGPath banner = (SVGPath) scene.lookup("#wideCardBanner");
+        SVGPath symbol = (SVGPath) scene.lookup("#wideCardAlphaSymbol");
+
+        border.setFill(Paint.valueOf("#EA7502"));
+        banner.setFill(Paint.valueOf("#FFFF99"));
+        symbol.setFill(Paint.valueOf("#EA7502"));
 
 //        ChoiceBox alphaColor = (ChoiceBox) scene.lookup("#colorDropdown");
 //        for(String color : colors){
