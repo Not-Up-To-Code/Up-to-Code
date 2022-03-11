@@ -58,4 +58,9 @@ public class uiController {
     public void playCheckpointConstruction(ActionEvent event) throws IOException{
         app.showCheckpointConstruction();
     }
+
+    @FXML
+    public void setCardColorButton(ActionEvent event) throws IOException{
+        app.updateCardColors();
+    }
 }

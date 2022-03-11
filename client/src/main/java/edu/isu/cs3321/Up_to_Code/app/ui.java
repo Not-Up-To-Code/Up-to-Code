@@ -27,7 +27,8 @@ public class ui extends Application {
     public static final String objectiveGo_FXML = "/objectiveGo.fxml";
     public static final String checkpointConstruction_FXML = "/checkpointConstruction.fxml";
 
-    List<String> colors = Arrays.asList("Yellow", "Green", "Blue");
+    List<String> borderColors = Arrays.asList("OrangeRed", "ForestGreen", "DodgerBlue");
+    List<String> cardColors = Arrays.asList("Khaki", "PaleGreen", "PowderBlue");
 
     Stage mainStage;
 
@@ -90,27 +91,46 @@ public class ui extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 680);
 
+        ChoiceBox borderColor = (ChoiceBox) scene.lookup("#borderColorChoice");
+        ChoiceBox cardColor = (ChoiceBox) scene.lookup("#cardColorChoice");
+
+        for(String color : borderColors){
+            borderColor.getItems().add(color);
+        }
+        for(String color :cardColors){
+            cardColor.getItems().add(color);
+        }
+
+        borderColor.setValue(borderColors.get(0));
+        cardColor.setValue(cardColors.get(0));
+
         SVGPath border = (SVGPath) scene.lookup("#wideCardBorder");
         SVGPath banner = (SVGPath) scene.lookup("#wideCardBanner");
         SVGPath symbol = (SVGPath) scene.lookup("#wideCardAlphaSymbol");
 
-        border.setFill(Paint.valueOf("#EA7502"));
-        banner.setFill(Paint.valueOf("#FFFF99"));
-        symbol.setFill(Paint.valueOf("#EA7502"));
-
-//        ChoiceBox alphaColor = (ChoiceBox) scene.lookup("#colorDropdown");
-//        for(String color : colors){
-//            alphaColor.getItems().add(color);
-//        }
-//
-//        ChoiceBox numberOfStates = (ChoiceBox) scene.lookup("#numOfStatesDropdown");
-//        for(int i = 1; i < 7; i++){
-//            numberOfStates.getItems().add(i);
-//        }
+        border.setFill(Paint.valueOf((String) borderColor.getValue()));
+        banner.setFill(Paint.valueOf((String) cardColor.getValue()));
+        symbol.setFill(Paint.valueOf((String) borderColor.getValue()));
 
         mainStage.setTitle("Essence Card Creator");
         mainStage.setScene(scene);
     }
+
+    public void updateCardColors(){
+        Scene scene = mainStage.getScene();
+
+        ChoiceBox borderColor = (ChoiceBox) scene.lookup("#borderColorChoice");
+        ChoiceBox cardColor = (ChoiceBox) scene.lookup("#cardColorChoice");
+
+        SVGPath border = (SVGPath) scene.lookup("#wideCardBorder");
+        SVGPath banner = (SVGPath) scene.lookup("#wideCardBanner");
+        SVGPath symbol = (SVGPath) scene.lookup("#wideCardAlphaSymbol");
+
+        border.setFill(Paint.valueOf((String) borderColor.getValue()));
+        banner.setFill(Paint.valueOf((String) cardColor.getValue()));
+        symbol.setFill(Paint.valueOf((String) borderColor.getValue()));
+    }
+
     public void showProgressPoker() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new uiController(this));
