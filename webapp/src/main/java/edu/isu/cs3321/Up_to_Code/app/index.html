@@ -14,17 +14,56 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body id="body">
-<!--
-<div id="test">
-    <h1>Testing {{ message }}</h1>
-</div>
 
+<div id="test">
+    <h1>Testing {{ string }}</h1>
+</div>
+<!--
 <script type="module">
     new Vue({
         el:"#test",
         data:{
             message: "Vue Testing"
         }
+    })
+</script>
+-->
+
+<script type = "module">
+
+    new Vue({
+        el:"#test",
+        data:{
+            string: 'loading'
+        },
+        created(){
+            this.search();
+        },
+        methods:{
+            search: function() {
+                fetch('http://localhost:7000/')
+                    .then(response => response.text())
+                    .then(text =>{
+                        this.string = text.result;
+                    })
+            }
+
+        }
+    })
+
+
+
+</script>
+
+
+<!--
+<script type="module">
+    new Vue({
+        el:"#test",
+        data: {
+            message: 'test'
+        }
+
     })
 </script>
 -->
