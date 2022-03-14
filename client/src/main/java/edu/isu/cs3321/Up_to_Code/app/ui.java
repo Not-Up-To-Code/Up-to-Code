@@ -116,6 +116,7 @@ public class ui extends Application {
         mainStage.setScene(scene);
     }
 
+    //pushes color changes to the card render
     public void updateCardColors(){
         Scene scene = mainStage.getScene();
 
