@@ -4,7 +4,7 @@
 
 
 
-
+import axios from "axios";
 
 
 <head>
@@ -16,7 +16,7 @@
 <body id="body">
 
 <div id="test">
-    <h1>Testing {{ string }}</h1>
+    <h1>Test {{ string }}</h1>
 </div>
 <!--
 <script type="module">
@@ -27,29 +27,59 @@
         }
     })
 </script>
+
+
+
+
+
+
 -->
 
 <script type = "module">
 
+    import axios from "axios";
+    const BASE_URL = 'http://localhost:7000';
+
+    const getHello = async () => {
+        try {
+            const response = await axios.get(`${BASE_URL}/`);
+
+            const hello = response.data;
+
+            return hello;
+        } catch (errors) {
+            console.error(errors);
+            const hello = 'loading...';
+            return hello;
+        }
+    };
+
     new Vue({
         el:"#test",
         data:{
-            string: 'loading'
+
+                string: this.search()
         },
         created(){
             this.search();
         },
-        methods:{
-            search: function() {
+        methods: {
+            search: function () {
                 fetch('http://localhost:7000/')
                     .then(response => response.text())
-                    .then(text =>{
-                        this.string = text.result;
+                    .then(text => {
+                        const data1 = text.result;
+                        this.string = data1;
                     })
-            }
 
+
+            }
         }
     })
+
+
+
+
 
 
 
