@@ -8,3 +8,9 @@ and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 * Client, server, and web-app projects
 * Gradle Implementation for client, server, and web-app
+
+## [0.2.0] - 2022-03-18
+### Added
+* Basics of card creation have been encoded into the game manager service
+* Basics of the UI have encoded into the Client
+* The connection between the Client and UI have been established.
