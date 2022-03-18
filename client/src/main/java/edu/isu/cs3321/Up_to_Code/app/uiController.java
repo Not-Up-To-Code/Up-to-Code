@@ -60,7 +60,7 @@ public class uiController {
     }
 
     @FXML
-    public void setCardColorButton(ActionEvent event) throws IOException{
-        app.updateCardColors();
+    public void updateCardButton(ActionEvent event) throws IOException{
+        app.updateCard();
     }
 }
