@@ -21,6 +21,7 @@ Thomas Evans - evanthom@isu.edu
 
 ## Version History
 0.1.0 - 3/6/2022
+0.2.0 - 3/18/2022
 
 ## License
 
