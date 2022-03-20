@@ -32,7 +32,7 @@ public class CardExportController implements Initializable {
         Rectangle rectangle=new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
         BufferedImage image=robot.createScreenCapture(rectangle);
         Image myImage= SwingFXUtils.toFXImage(image,null);
-        ImageIO.write(image,"jpg",new File("out.jpg"));
+        ImageIO.write(image,"png",new File("out.png"));
 
         display.setImage(myImage);
     }
