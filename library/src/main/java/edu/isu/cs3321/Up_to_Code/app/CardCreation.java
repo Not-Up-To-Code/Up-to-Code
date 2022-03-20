@@ -2,6 +2,8 @@ package edu.isu.cs3321.Up_to_Code.app;
 
 import java.util.Arrays;
 import java.util.List;
+// card cretiion conscrtuctor
+// move to card export
 
 public class CardCreation {
 
@@ -15,8 +17,22 @@ public class CardCreation {
     String description;
     String specification;
     List<String> states = Arrays.asList(state1, state2, state3, state4, state5, state6);
-
     Integer stateCount;
+
+
+    public CardCreation(String title, String state1, String state2, String state3, String state4, String state5, String state6, String description, String specification, List<String> states, Integer stateCount) {
+        this.title = title;
+        this.state1 = state1;
+        this.state2 = state2;
+        this.state3 = state3;
+        this.state4 = state4;
+        this.state5 = state5;
+        this.state6 = state6;
+        this.description = description;
+        this.specification = specification;
+        this.states = states;
+        this.stateCount = stateCount;
+    }
 
     public String getSpecification() {
         return specification;
@@ -103,82 +119,22 @@ public class CardCreation {
         this.description = description;
     }
 
-    public  void setCard(String ti,String s1,String s2,String s3,String s4,String s5,String s6,String d,String s){
-        if (!stateCount.equals(0)){
-            setTitle(ti);
-            setDescription(d);
-            setSpecification(s);
-            if(getCount().equals(1)){
-            setState1(s1);
-            states.set(0,state1);
-
-        }
-            if(getCount().equals(2)){
-                setState1(s1);
-                setState2(s2);
-                states.set(0,state1);
-                states.set(1,state2);
-        }
-            if(getCount().equals(3)){
-                setState1(s1);
-                setState2(s2);
-                setState3(s3);
-                states.set(0,state1);
-                states.set(1,state2);
-                states.set(2,state3);
-        }
-            if(getCount().equals(4)){
-                setState1(s1);
-                setState2(s2);
-                setState3(s3);
-                setState4(s4);
-                states.set(0,state1);
-                states.set(1,state2);
-                states.set(2,state3);
-                states.set(3,state4);
-        }
-            if(getCount().equals(5)){
-                setState1(s1);
-                setState2(s2);
-                setState3(s3);
-                setState4(s4);
-                setState5(s5);
-                states.set(0,state1);
-                states.set(1,state2);
-                states.set(2,state3);
-                states.set(3,state4);
-                states.set(4,state5);
-        }
-            if(getCount().equals(6)){
-                setState1(s1);
-                setState2(s2);
-                setState3(s3);
-                setState4(s4);
-                setState5(s5);
-                setState6(s6);
-                setState1(s1);
-                setState2(s2);
-                setState3(s3);
-                setState4(s4);
-                setState5(s5);
-                states.set(0,state1);
-                states.set(1,state2);
-                states.set(2,state3);
-                states.set(3,state4);
-                states.set(4,state5);
-                states.set(5,state6);
-            }
-        }
-        }
 
 
 
+    public void cardCreation(String ti, String s1, String s2, String s3, String s4, String s5, String s6, String d, String s){
+        title=ti;
+        description=d;
+        specification=s;
+        state1=s1;
+        state2=s2;
+        state3=s3;
+        state4=s4;
+        state5=s5;
+        state6=s6;
 
-    public static void main(String[] args) {
-        CardCreation c=new CardCreation();
-        c.setCard(null,"hello","hi",null,null,null,null,null,null);
-        System.out.println(c.states);
     }
+
 
 
 
