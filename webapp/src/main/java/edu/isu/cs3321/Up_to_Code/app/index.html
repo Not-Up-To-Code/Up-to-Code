@@ -4,7 +4,6 @@
 
 
 
-import axios from "axios";
 
 
 <head>
@@ -16,7 +15,7 @@ import axios from "axios";
 <body id="body">
 
 <div id="test">
-    <h1>Test {{ string }}</h1>
+    <h1>Test {{ testString }}</h1>
 </div>
 <!--
 <script type="module">
@@ -31,31 +30,7 @@ import axios from "axios";
 
 
 
-
-
--->
-
-<script type = "module">
-
-    import axios from "axios";
-    const BASE_URL = 'http://localhost:7000';
-
-    const getHello = async () => {
-        try {
-            const response = await axios.get(`${BASE_URL}/`);
-
-            const hello = response.data;
-
-            return hello;
-        } catch (errors) {
-            console.error(errors);
-            const hello = 'loading...';
-            return hello;
-        }
-    };
-
-    new Vue({
-        el:"#test",
+el:"#test",
         data:{
 
                 string: this.search()
@@ -76,13 +51,42 @@ import axios from "axios";
             }
         }
     })
+import axios from "axios";
+    const BASE_URL = 'http://localhost:7000';
+
+    const getHello = async () => {
+        try {
+            const response = await axios.get(`${BASE_URL}/`);
+
+            const hello = response.data;
+
+            return hello;
+        } catch (errors) {
+            console.error(errors);
+            const hello = 'loading...';
+            return hello;
+        }
+    };
+
+-->
+
+<script type = "module">
 
 
+    new Vue({
+        el: "#test",
+        data() {
+            return {
+                testString: ''
+            };
+        },
+        created(){
+            fetch("http://localhost:7000/")
+                .then(response => response.text())
+                .then(data => {console.log(data); this.testString = data;})
+        },
 
-
-
-
-
+    });
 </script>
 
 
