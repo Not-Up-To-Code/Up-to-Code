@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b9bb71c8-7e37-46af-a104-9cd3025321f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/library/src/main/resources/CardExportDocument.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaApplicationConventionsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaApplicationConventionsPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaCommonConventionsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaCommonConventionsPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaLibraryConventionsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/groovy-dsl-plugins/output/adapter-src/EduIsuCs3321Up_to_codeJavaLibraryConventionsPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-application-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-application-conventions.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-common-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-common-conventions.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-library-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/pluginDescriptors/edu.isu.cs3321.Up_to_Code.java-library-conventions.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/pluginUnderTestMetadata/plugin-under-test-metadata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/pluginUnderTestMetadata/plugin-under-test-metadata.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-application-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-application-conventions.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-common-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-common-conventions.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-library-conventions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/resources/main/META-INF/gradle-plugins/edu.isu.cs3321.Up_to_Code.java-library-conventions.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/resources/main/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/resources/main/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/library/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/edu/isu/cs3321/Up_to_Code/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/edu/isu/cs3321/Up_to_Code/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/edu/isu/cs3321/Up_to_Code/app/CardCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/edu/isu/cs3321/Up_to_Code/app/CardCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/edu/isu/cs3321/Up_to_Code/app/CardExport.java" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/edu/isu/cs3321/Up_to_Code/app/CardExport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/edu/isu/cs3321/Up_to_Code/app/CardExportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/edu/isu/cs3321/Up_to_Code/app/CardExportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Class" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/Vue" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="25r0aUfrgkhzrv4Z8PxlLwepe0X" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.30482116" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="edu.isu.cs3321.Up_to_Code.app" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CardExport">
+    <configuration name="CardCreation (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.isu.cs3321.Up_to_Code.app.CardCreation" />
+      <module name="Up_to_Code.library.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.isu.cs3321.Up_to_Code.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CardCreation" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="edu.isu.cs3321.Up_to_Code.app.App" />
+      <module name="Up_to_Code.server.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.isu.cs3321.Up_to_Code.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CardExport" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="edu.isu.cs3321.Up_to_Code.app.CardExport" />
+      <module name="Up_to_Code.library.main" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;\Program Files\Java\javafx-sdk-17.0.0.1\lib&quot; --add-modules javafx.fxml,javafx.controls,javafx.graphics,javafx.swing,javafx.base" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.isu.cs3321.Up_to_Code.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Up-to-Code [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Up-to-Code" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.CardCreation" />
+      <item itemvalue="Application.CardCreation (1)" />
+      <item itemvalue="Application.CardExport" />
+      <item itemvalue="Gradle.Up-to-Code [dependencies]" />
+      <item itemvalue="Gradle.Up-to-Code" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Up-to-Code [dependencies]" />
+        <item itemvalue="Gradle.Up-to-Code" />
+        <item itemvalue="Application.CardExport" />
+        <item itemvalue="Application.CardCreation (1)" />
+        <item itemvalue="Application.CardCreation" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9bb71c8-7e37-46af-a104-9cd3025321f8" name="Changes" comment="" />
+      <created>1646269962663</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646269962663</updated>
+      <workItem from="1646269964053" duration="90000" />
+      <workItem from="1646270154230" duration="852000" />
+      <workItem from="1646271020688" duration="310000" />
+      <workItem from="1646272962744" duration="2034000" />
+      <workItem from="1646275592693" duration="1143000" />
+      <workItem from="1646370618042" duration="2630000" />
+      <workItem from="1646437098738" duration="20000" />
+      <workItem from="1646437235790" duration="63000" />
+      <workItem from="1646857095335" duration="6532000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Up_to_Code$test.ic" NAME="test Coverage Results" MODIFIED="1646695062403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.isu.cs3321.Up_to_Code.app.*</FILTER>
+    </SUITE>
+  </component>
+</project>
