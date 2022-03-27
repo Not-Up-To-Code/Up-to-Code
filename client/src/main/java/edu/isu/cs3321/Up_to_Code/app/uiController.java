@@ -63,4 +63,15 @@ public class uiController {
     public void updateCardButton(ActionEvent event) throws IOException{
         app.updateCard();
     }
+
+    @FXML
+    public void showWideCardButton(ActionEvent event) throws IOException{
+        app.showWideCard();
+    }
+    @FXML
+    public void hideWideCardButton(ActionEvent event) throws IOException{
+        app.hideWideCard();
+    }
+
+
 }
