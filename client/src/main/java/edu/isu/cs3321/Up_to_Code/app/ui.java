@@ -118,6 +118,7 @@ public class ui extends Application {
 
         borderColor.setValue(borderColors.get(0));
         cardColor.setValue(cardColors.get(0));
+        cardType.setValue("Alpha");
 
         SVGPath border = (SVGPath) scene.lookup("#wideCardBorder");
         SVGPath banner = (SVGPath) scene.lookup("#wideCardBanner");
