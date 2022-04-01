@@ -12,6 +12,7 @@ This project is a digital library of Essentialized practices that will allow the
 ### Executing program
 
 ## Help
+For assistance and other inquiries, please contact one of the develops using the emails below
 
 ## Authors
 Benjamin Keninger - kenibenj@isu.edu\
