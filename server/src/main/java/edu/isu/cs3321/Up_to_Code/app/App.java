@@ -4,10 +4,12 @@
 package edu.isu.cs3321.Up_to_Code.app;
 
 import io.javalin.Javalin;
+import io.javalin.plugin.rendering.vue.VueComponent;
 
 public class App {
     public static void main(String[] args) {
             Javalin app = Javalin.create().start(7000);
             app.get("/", ctx -> ctx.html("Hello World!"));
+
         }
 }
