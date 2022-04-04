@@ -4,6 +4,7 @@
 
 plugins {
     id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
 }
 
 repositories {
@@ -23,12 +24,26 @@ dependencies {
 
     implementation 'org.slf4j:slf4j-simple:1.7.36'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
+
+    implementation('org.controlsfx:controlsfx:11.1.0')
+
+    implementation 'com.eljavatar:SwingUtils:1.3.2'
+
+    implementation 'org.openjfx:javafx-swing:17.0.2'
+
+    implementation 'org.openjfx:javafx:19-ea+3'
 }
 
 application {
     // Define the main class for the application.
     mainClass = 'edu.isu.cs3321.Up_to_Code.app.App'
 }
+
+javafx {
+    version = "17"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.swing', 'javafx.base' ]
+}
+
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
