@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1000.0" style="-fx-background-color: #000E0F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1000.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane prefHeight="680.0" prefWidth="1000.0">
         <columnConstraints>
@@ -20,7 +19,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane style="-fx-background-color: #1B5559;">
+            <GridPane id="menuBackground">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -36,27 +35,27 @@
                   </Text>
                   <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#homeButton" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #1B5559;" text="Home" textFill="WHITE">
+                        <Button id="menuButton" mnemonicParsing="false" onAction="#homeButton" prefHeight="35.0" prefWidth="173.0" text="Home" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#practiceCatalogButton" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #1B5559;" text="Essence Practice Catalog" textFill="WHITE">
+                        <Button id="menuButton" mnemonicParsing="false" onAction="#practiceCatalogButton" prefHeight="35.0" prefWidth="173.0" text="Essence Practice Catalog" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#createPracticesButton" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #1B5559;" text="Create Essence Practice" textFill="WHITE">
+                        <Button id="menuButton" mnemonicParsing="false" onAction="#createPracticesButton" prefHeight="35.0" prefWidth="173.0" text="Create Essence Practice" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#cardCatalogButton" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #1B5559;" text="Essence Card Catalog" textFill="WHITE">
+                        <Button id="menuButton" mnemonicParsing="false" onAction="#cardCatalogButton" prefHeight="35.0" prefWidth="173.0" text="Essence Card Catalog" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#createCardsButton" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #1B5559;" text="Create Essence Cards" textFill="WHITE">
+                        <Button id="menuButton" mnemonicParsing="false" onAction="#createCardsButton" prefHeight="35.0" prefWidth="173.0" text="Create Essence Cards" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -72,22 +71,22 @@
                               <Insets top="100.0" />
                            </VBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#playProgressPokerButton" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #1B5559;" text="Progress Poker" textFill="WHITE">
+                        <Button id="menuButton" mnemonicParsing="false" onAction="#playProgressPokerButton" prefHeight="35.0" prefWidth="173.0" text="Progress Poker" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#playChaseTheStateButton" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #1B5559;" text="Chase the State" textFill="WHITE">
+                        <Button id="menuActive" mnemonicParsing="false" onAction="#playChaseTheStateButton" prefHeight="35.0" prefWidth="173.0" text="Chase the State" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#playObjectiveGoButton" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #1B5559;" text="Objective Go" textFill="WHITE">
+                        <Button id="menuButton" mnemonicParsing="false" onAction="#playObjectiveGoButton" prefHeight="35.0" prefWidth="173.0" text="Objective Go" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#playCheckpointConstruction" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #1B5559;" text="Checkpoint Construction" textFill="WHITE">
+                        <Button id="menuButton" mnemonicParsing="false" onAction="#playCheckpointConstruction" prefHeight="35.0" prefWidth="173.0" text="Checkpoint Construction" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
