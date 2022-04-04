@@ -14,3 +14,12 @@ and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Basics of card creation have been encoded into the game manager service
 * Basics of the UI have encoded into the Client
 * The connection between the Client and UI have been established.
+
+## [1.0.0] - 2022-04-10
+### Added
+* Card creation has been expanded upon
+* Cards can be exported as PNGs
+* Essence Diagram introduced
+
+## [1.1.0] - 2022-24-10
+### Added
