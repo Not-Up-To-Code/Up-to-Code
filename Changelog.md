@@ -4,11 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2022-03-06
+## [0.1.0] - 2022-03-06
 ### Added
 * Client, server, and web-app projects
 * Gradle Implementation for client, server, and web-app
 
-### Modified
-*
-*
+## [0.2.0] - 2022-03-18
+### Added
+* Basics of card creation have been encoded into the game manager service
+* Basics of the UI have encoded into the Client
+* The connection between the Client and UI have been established.
