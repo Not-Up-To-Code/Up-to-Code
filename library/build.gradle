@@ -30,6 +30,8 @@ dependencies {
 
     implementation 'org.openjfx:javafx-swing:17.0.2'
 
+
+    implementation group: 'org.apache.xmlgraphics', name: 'batik-transcoder', version: '1.7'
 }
 javafx {
     version = "17"

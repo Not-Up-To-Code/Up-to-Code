@@ -157,7 +157,7 @@
                         </Text>
                      </children>
                   </GridPane>
-                  <Button mnemonicParsing="false" text="Generate State Cards" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="hideWideCardButton" mnemonicParsing="false" onAction="#hideWideCardButton" text="hide wide" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="300.0" />
                      </GridPane.margin></Button>
@@ -200,19 +200,19 @@
                                         <RowConstraints maxHeight="282.0" minHeight="10.0" prefHeight="282.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Add a brief description of the alpha." wrapText="true">
+                                          <TextArea fx:id="wideBriefDesc" prefHeight="200.0" prefWidth="200.0" promptText="Add a brief description of the alpha." wrapText="true">
                                              <GridPane.margin>
                                                 <Insets top="15.0" />
                                              </GridPane.margin>
                                           </TextArea>
-                                          <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Add a Detailed description of the Alpha." wrapText="true" GridPane.rowIndex="1">
+                                          <TextArea fx:id="wideDetailedDesc" prefHeight="200.0" prefWidth="200.0" promptText="Add a Detailed description of the Alpha." wrapText="true" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets top="15.0" />
                                              </GridPane.margin>
                                           </TextArea>
                                        </children>
                                     </GridPane>
-                                    <TextArea prefHeight="10.0" prefWidth="200.0" promptText="State 1">
+                                    <TextArea fx:id="wideStateText1" prefHeight="10.0" prefWidth="200.0" promptText="State 1">
                                        <GridPane.margin>
                                           <Insets bottom="320.0" left="35.0" right="35.0" top="25.0" />
                                        </GridPane.margin>
@@ -220,7 +220,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </TextArea>
-                                    <TextArea prefHeight="10.0" prefWidth="200.0" promptText="State 2">
+                                    <TextArea fx:id="wideStateText2" prefHeight="10.0" prefWidth="200.0" promptText="State 2">
                                        <GridPane.margin>
                                           <Insets bottom="260.0" left="35.0" right="35.0" top="85.0" />
                                        </GridPane.margin>
@@ -228,7 +228,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </TextArea>
-                                    <TextArea prefHeight="10.0" prefWidth="200.0" promptText="State 3">
+                                    <TextArea fx:id="wideStateText3" prefHeight="10.0" prefWidth="200.0" promptText="State 3">
                                        <GridPane.margin>
                                           <Insets bottom="200.0" left="35.0" right="35.0" top="145.0" />
                                        </GridPane.margin>
@@ -236,7 +236,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </TextArea>
-                                    <TextArea prefHeight="10.0" prefWidth="200.0" promptText="State 4">
+                                    <TextArea fx:id="wideStateText4" prefHeight="10.0" prefWidth="200.0" promptText="State 4">
                                        <GridPane.margin>
                                           <Insets bottom="140.0" left="35.0" right="35.0" top="205.0" />
                                        </GridPane.margin>
@@ -244,7 +244,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </TextArea>
-                                    <TextArea prefHeight="10.0" prefWidth="200.0" promptText="State 5">
+                                    <TextArea fx:id="wideStateText5" prefHeight="10.0" prefWidth="200.0" promptText="State 5">
                                        <GridPane.margin>
                                           <Insets bottom="80.0" left="35.0" right="35.0" top="265.0" />
                                        </GridPane.margin>
@@ -252,7 +252,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </TextArea>
-                                    <TextArea prefHeight="10.0" prefWidth="200.0" promptText="State 6">
+                                    <TextArea fx:id="wideStateText6" prefHeight="10.0" prefWidth="200.0" promptText="State 6">
                                        <GridPane.margin>
                                           <Insets bottom="20.0" left="35.0" right="35.0" top="325.0" />
                                        </GridPane.margin>
@@ -264,7 +264,7 @@
                               </GridPane>
                            </children>
                         </GridPane>
-                        <TextArea prefHeight="17.0" prefWidth="451.0" promptText="Alpha Name" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextArea fx:id="cardName" prefHeight="17.0" prefWidth="451.0" promptText="Card Name" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
@@ -274,6 +274,11 @@
                         </TextArea>
                      </children>
                   </GridPane>
+                  <Button fx:id="showWideCardButton" mnemonicParsing="false" onAction="#showWideCardButton" text="show wide" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="100.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
             </GridPane>
          </children>
