@@ -4,10 +4,35 @@
 package edu.isu.cs3321.Up_to_Code.app;
 
 import io.javalin.Javalin;
+import io.javalin.core.util.FileUtil;
+
+import java.util.Locale;
 
 public class App {
     public static void main(String[] args) {
-            Javalin app = Javalin.create().start(7000);
-            app.get("/", ctx -> ctx.html("Hello World!"));
-        }
+        Javalin app = Javalin.create().start(7000);
+
+        //practice catalog - needs to return the json payload with all practices in folder
+        app.get("/api/practice/catalog", ctx -> ctx.json("temp"));
+
+        //practice creator - needs to provide server with screenshot for storage
+        app.post("/api/practice/upload", ctx -> {
+            ctx.uploadedFiles("file").forEach(file -> {
+                FileUtil.streamToFile(file.getContent(), "practices/" + file.getFilename());
+            });
+            ctx.result("done");
+        });
+
+        //card catalog - needs to return all a json payload with all cards in alpha or states tables
+        app.get("/api/card/catalog", ctx -> ctx.json("temp"));
+
+        //card creator - needs to provide server with wide and small card variable (alpha name, cardType, states1-6, brief, detailed, contents of each checklist)
+        app.post("/api/card/create/small", ctx -> System.out.println(ctx.body().toString()));
+
+        //games - need list of all available alphas, needs json payload with selected alpha and associated state cards
+        app.get("/api/card/list", ctx -> ctx.html("Hello World!"));
+
+        //chase the state - needs to provide server with array of played state card values to generate charts
+        app.get("/api/card/retrieve", ctx -> ctx.html("Hello World!"));
+    }
 }
