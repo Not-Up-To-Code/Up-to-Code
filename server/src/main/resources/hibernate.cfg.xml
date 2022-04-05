@@ -14,6 +14,8 @@
 
         <property name="hibernate.hibernate.hbm2ddl.auto">update</property>
 
-        <mapping class = "edu.isu.cs3321.Up_to_Code.app.DatabaseController"/>
+        <mapping resource = "AlphaTableController.hbm.xml"/>
+        <mapping resource = "StateTableController.hbm.xml"/>
+
     </session-factory>
 </hibernate-configuration>
