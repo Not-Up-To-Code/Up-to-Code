@@ -25,9 +25,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
@@ -40,6 +38,7 @@ import java.util.Vector;
 
 public class ui extends Application {
 
+    public static final String connection_FXML = "/connection.fxml";
     public static final String home_FXML = "/home.fxml";
     public static final String practiceCatalog_FXML = "/practiceCatalog.fxml";
     public static final String practiceCreator_FXML = "/practiceCreator.fxml";
@@ -63,6 +62,7 @@ public class ui extends Application {
     }};
 
     Stage mainStage;
+    uiController controller;
 
 
     public static void main(String[] args) {
@@ -74,12 +74,22 @@ public class ui extends Application {
         this.mainStage = primaryStage;
         primaryStage.setTitle("Essence Kernel Tools");
 
-        showHome();
+        showConnect();
 
         primaryStage.show();
     }
 
     //fxml change handlers
+    public void showConnect() throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new connectionController(this));
+        loader.setLocation(getClass().getResource(connection_FXML));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        mainStage.setTitle("Essence Kernel Tools");
+        mainStage.setScene(scene);
+    }
+
     public void showHome() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new uiController(this));
@@ -239,6 +249,30 @@ public class ui extends Application {
         Scene scene = new Scene(root, 1000, 680);
         mainStage.setTitle("Essence Checkpoint Construction");
         mainStage.setScene(scene);
+    }
+
+    public void showRequired() throws IOException{
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Connection invalid");
+        alert.setContentText("The Url and port can not be empty.");
+
+        alert.showAndWait();
+    }
+
+    public void showError() throws IOException{
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Error");
+        alert.setContentText("There was an Error when connecting to the server.");
+
+        alert.showAndWait();
+    }
+
+    public void showFailedConnection() throws IOException{
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Connection Failed");
+        alert.setContentText("Connection to the server has failed. Check that you've entered the Url and Port correctly.");
+
+        alert.showAndWait();
     }
 
     //SVG for wide card

@@ -34,5 +34,7 @@ public class App {
 
         //chase the state - needs to provide server with array of played state card values to generate charts
         app.get("/api/card/retrieve", ctx -> ctx.html("Hello World!"));
+
+        app.get("/api/status", ctx -> ctx.result("Online"));
     }
 }
