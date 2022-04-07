@@ -36,6 +36,8 @@ public class uiController {
         this.app = app;
     }
 
+
+    //Menu buttons ============================================
     @FXML
     public void homeButton(ActionEvent event) throws IOException{
         app.showHome();
@@ -81,6 +83,7 @@ public class uiController {
         app.showCheckpointConstruction();
     }
 
+    //Card creator buttons ========================================
     @FXML
     public void updateCardButton(ActionEvent event) throws IOException{
         app.updateCard();
@@ -89,6 +92,7 @@ public class uiController {
     @FXML
     public void showWideCardButton(ActionEvent event) throws IOException{
         app.showWideCard();
+        app.wideCardToJson();
     }
     @FXML
     public void hideWideCardButton(ActionEvent event) throws IOException{
