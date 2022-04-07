@@ -13,9 +13,10 @@
         <property name ="connection.password"></property>
 
         <property name="hibernate.hibernate.hbm2ddl.auto">update</property>
+        <property name="current_session_context_class">thread</property>
 
-        <mapping resource = "AlphaTableController.hbm.xml"/>
-        <mapping resource = "StateTableController.hbm.xml"/>
+        <mapping class = "edu.isu.cs3321.Up_to_Code.app.StateTableController"/>
+        <mapping class = "edu.isu.cs3321.Up_to_Code.app.AlphaTableController"/>
 
     </session-factory>
 </hibernate-configuration>
