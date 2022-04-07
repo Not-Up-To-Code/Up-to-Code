@@ -39,34 +39,7 @@ public class App {
         //chase the state - needs to provide server with array of played state card values to generate charts
         app.get("/api/card/retrieve", ctx -> ctx.html("Hello World!"));
 
-        AlphaTableController alpha1 = new AlphaTableController("Work", 1);
-        Transaction transaction = null;
-        try (Session session = HibernateController.getSessionFactory().openSession()){
-            // start a transaction
-            transaction = session.beginTransaction();
-            // save the student objects
-            session.save(alpha1);
-
-            // commit transaction
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
-        try (Session session = HibernateController.getSessionFactory().openSession()) {
-            List< AlphaTableController > alphas = session.createQuery("from AlphaTableController", AlphaTableController.class).list();
-
-            for(int i = 0; i < alphas.size(); i++){
-                System.out.println(alphas.get(i).getAlpha());
-            }
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    
     }
 
 }

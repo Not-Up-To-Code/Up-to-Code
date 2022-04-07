@@ -1,10 +1,5 @@
 package edu.isu.cs3321.Up_to_Code.app;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "states")
@@ -17,12 +12,37 @@ public class StateTableController {
     @Column(name = "stateID")
     private int stateID;
 
+
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "jsonString")
+    private String jsonString;
+
     public StateTableController(){
     }
 
-    public StateTableController(String state, int stateID) {
+    public StateTableController(String state, int stateID, int id, String jsonString) {
         this.state = state;
         this.stateID = stateID;
+        this.id = id;
+        this.jsonString = jsonString;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getJsonString() {
+        return jsonString;
+    }
+
+    public void setJsonString(String jsonString) {
+        this.jsonString = jsonString;
     }
 
     public String getState() {
@@ -41,11 +61,5 @@ public class StateTableController {
         this.stateID = stateID;
     }
 
-    @Override
-    public String toString() {
-        return "StateTableController{" +
-                "state='" + state + '\'' +
-                ", stateID=" + stateID +
-                '}';
-    }
+
 }
