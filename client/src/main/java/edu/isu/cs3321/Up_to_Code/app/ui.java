@@ -171,35 +171,35 @@ public class ui extends Application {
         mainStage.setScene(scene);
     }
 
-    public void wideCardToJson(){
+    public void cardToJson(){
         Scene scene = mainStage.getScene();
-        TextArea name = (TextArea) scene.lookup("#cardName");
-        TextArea briefDesc = (TextArea) scene.lookup("#wideBriefDesc");
-        TextArea detailedDesc = (TextArea) scene.lookup("#wideDetailedDesc");
-        ChoiceBox cardColor = (ChoiceBox) scene.lookup("#cardColorChoice");
-        TextArea stateText1 = (TextArea) scene.lookup("#wideStateText1");
-        TextArea stateText2 = (TextArea) scene.lookup("#wideStateText2");
-        TextArea stateText3 = (TextArea) scene.lookup("#wideStateText3");
-        TextArea stateText4 = (TextArea) scene.lookup("#wideStateText4");
-        TextArea stateText5 = (TextArea) scene.lookup("#wideStateText5");
-        TextArea stateText6 = (TextArea) scene.lookup("#wideStateText6");
+        String name = ((TextArea) scene.lookup("#cardName")).getText();
+        String briefDesc = ((TextArea) scene.lookup("#wideBriefDesc")).getText();
+        String detailedDesc = ((TextArea) scene.lookup("#wideDetailedDesc")).getText();
+        String cardColor = ((ChoiceBox) scene.lookup("#cardColorChoice")).getValue().toString();
 
-        Map<String, String> wideCard = new HashMap<>();
+        String stateText1 = ((TextArea) scene.lookup("#wideStateText1")).getText();
+        String stateText2 = ((TextArea) scene.lookup("#wideStateText2")).getText();
+        String stateText3 = ((TextArea) scene.lookup("#wideStateText3")).getText();
+        String stateText4 = ((TextArea) scene.lookup("#wideStateText4")).getText();
+        String stateText5 = ((TextArea) scene.lookup("#wideStateText5")).getText();
+        String stateText6 = ((TextArea) scene.lookup("#wideStateText6")).getText();
+        List<String> inStates = Arrays.asList(stateText1, stateText2, stateText3, stateText4, stateText5, stateText6);
 
-        wideCard.put("name", name.getText());
-        wideCard.put("briefDesc", briefDesc.getText());
-        wideCard.put("detailedDesc", detailedDesc.getText());
-        wideCard.put("cardColor", (String) cardColor.getValue());
-        wideCard.put("stateText1", stateText1.getText());
-        wideCard.put("stateText2", stateText2.getText());
-        wideCard.put("stateText3", stateText3.getText());
-        wideCard.put("stateText4", stateText4.getText());
-        wideCard.put("stateText5", stateText5.getText());
-        wideCard.put("stateText6", stateText6.getText());
+        Alpha alpha = new Alpha(name, briefDesc, detailedDesc, cardColor);
+
+        for (String state : inStates){
+            if (state != null){
+                State temptState = new State(state);
+                alpha.addState(temptState);
+                
+            }
+        }
+
 
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String output = gson.toJson(wideCard);
+        String output = gson.toJson("s");
 
         System.out.println(output);
 

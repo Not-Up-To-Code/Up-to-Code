@@ -2,12 +2,12 @@ package edu.isu.cs3321.Up_to_Code.app;
 
 import java.util.List;
 
-public class alpha {
+public class Alpha {
     private String alpha;
     private String briefDesc;
     private String detailedDesc;
     private String color;
-    private List<state> states;
+    private List<State> states;
 
     public String getAlpha() {
         return alpha;
@@ -25,7 +25,7 @@ public class alpha {
         return color;
     }
 
-    public List<state> getStates() {
+    public List<State> getStates() {
         return states;
     }
 
@@ -45,11 +45,11 @@ public class alpha {
         this.color = color;
     }
 
-    public void setStates(List<state> states) {
+    public void setStates(List<State> states) {
         this.states = states;
     }
 
-    public alpha(String alpha, String briefDesc, String detailedDesc, String color){
+    public Alpha(String alpha, String briefDesc, String detailedDesc, String color){
         setAlpha(alpha);
         setBriefDesc(briefDesc);
         setDetailedDesc(detailedDesc);
@@ -57,7 +57,7 @@ public class alpha {
 
     }
 
-    public void addState(state state){
+    public void addState(State state){
         this.states.add(state);
     }
 }

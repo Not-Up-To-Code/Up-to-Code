@@ -2,15 +2,15 @@ package edu.isu.cs3321.Up_to_Code.app;
 
 import java.util.List;
 
-public class state {
+public class State {
     private String name;
-    private List<checklistitem> checklist;
+    private List<CheckListItem> checklist;
 
     public String getName() {
         return name;
     }
 
-    public List<checklistitem> getChecklist() {
+    public List<CheckListItem> getChecklist() {
         return checklist;
     }
 
@@ -18,11 +18,15 @@ public class state {
         this.name = name;
     }
 
-    public void setChecklist(List<checklistitem> checklist) {
+    public void setChecklist(List<CheckListItem> checklist) {
         this.checklist = checklist;
     }
 
-    public state(String name){
+    public State(String name){
         setName(name);
+    }
+
+    public void addCheckListItem(CheckListItem item){
+        checklist.add(item);
     }
 }
