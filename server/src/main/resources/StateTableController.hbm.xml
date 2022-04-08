@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "edu.isu.cs3321.Up_to_Code.app.StateTableController" table = "states">
+        <meta attribute = "class-description">
+            This class contains all state card names and ids
+        </meta>
+
+        <id name = "stateID" type = "int" column = "stateID">
+            <generator class="native"/>
+        </id>
+
+        <property name = "state" column = "state" type = "string"/>
+    </class>
+</hibernate-mapping>
