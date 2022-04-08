@@ -92,7 +92,7 @@ public class uiController {
     @FXML
     public void showWideCardButton(ActionEvent event) throws IOException{
         app.showWideCard();
-        app.wideCardToJson();
+        app.cardToJson();
     }
     @FXML
     public void hideWideCardButton(ActionEvent event) throws IOException{
