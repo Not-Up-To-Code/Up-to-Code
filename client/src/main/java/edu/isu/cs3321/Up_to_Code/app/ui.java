@@ -48,9 +48,6 @@ public class ui extends Application {
     public static final String objectiveGo_FXML = "/objectiveGo.fxml";
     public static final String checkpointConstruction_FXML = "/checkpointConstruction.fxml";
 
-    public static final List<String> borderColors = Arrays.asList("OrangeRed", "ForestGreen", "DodgerBlue");
-    public static final List<String> cardColors = Arrays.asList("Khaki", "PaleGreen", "PowderBlue");
-
     public static final List<String> yellowCard = Arrays.asList("OrangeRed", "Khaki");
     public static final List<String> greenCard = Arrays.asList("ForestGreen", "PaleGreen");
     public static final List<String> blueCard = Arrays.asList("DodgerBlue", "PowderBlue");
