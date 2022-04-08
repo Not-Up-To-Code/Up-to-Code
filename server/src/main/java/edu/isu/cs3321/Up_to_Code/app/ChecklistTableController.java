@@ -1,14 +1,12 @@
 package edu.isu.cs3321.Up_to_Code.app;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "checklist")
 public class ChecklistTableController {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "checklistID")
     private int checklistID;
 
@@ -18,8 +16,8 @@ public class ChecklistTableController {
     @Column(name = "checklistItem")
     private String checklistItem;
 
-    public ChecklistTableController(int checklistID, int stateID, String checklistItem) {
-        this.checklistID = checklistID;
+    public ChecklistTableController(int stateID, String checklistItem) {
+
         this.stateID = stateID;
         this.checklistItem = checklistItem;
     }

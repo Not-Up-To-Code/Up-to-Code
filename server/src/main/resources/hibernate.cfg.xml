@@ -17,6 +17,8 @@
 
         <mapping class = "edu.isu.cs3321.Up_to_Code.app.StateTableController"/>
         <mapping class = "edu.isu.cs3321.Up_to_Code.app.AlphaTableController"/>
+        <mapping class = "edu.isu.cs3321.Up_to_Code.app.ChecklistTableController"/>
+
 
     </session-factory>
 </hibernate-configuration>

@@ -4,10 +4,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "states")
 public class StateTableController {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "state")
     private String state;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "stateID")
     private int stateID;
 
@@ -21,7 +23,7 @@ public class StateTableController {
     public StateTableController(){
     }
 
-    public StateTableController(String state, int stateID, int id, int stateOrder) {
+    public StateTableController(String state, int id, int stateOrder) {
         this.state = state;
         this.stateID = stateID;
         this.id = id;
