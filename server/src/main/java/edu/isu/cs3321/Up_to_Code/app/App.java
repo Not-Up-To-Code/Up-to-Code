@@ -6,7 +6,8 @@ package edu.isu.cs3321.Up_to_Code.app;
 import io.javalin.Javalin;
 import io.javalin.core.util.FileUtil;
 
-import java.util.Locale;
+import static edu.isu.cs3321.Up_to_Code.app.DatabaseManagement.*;
+
 
 public class App {
     public static void main(String[] args) {
@@ -36,5 +37,13 @@ public class App {
         app.get("/api/card/retrieve", ctx -> ctx.html("Hello World!"));
 
         app.get("/api/status", ctx -> ctx.result("Online"));
+
+        String test = "this currently does nothing";
+        addAlpha(test);
+        addState(test);
+        addItem(test);
+        System.out.print(getAlphas());
+        System.out.print(getStates());
+        System.out.print(getChecklistItems());
     }
 }

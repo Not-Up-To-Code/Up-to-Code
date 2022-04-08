@@ -9,12 +9,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "alphas")
 public class AlphaTableController {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "alpha")
     private String alpha;
 
+    @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "briefDescription")
@@ -30,7 +30,7 @@ public class AlphaTableController {
     @Column(name = "cardColor")
     private String cardColor;
 
-    public AlphaTableController(String alpha, int id, String briefDescription, String detailedDescription, boolean isCompetency, String cardColor) {
+    public AlphaTableController(String alpha, String briefDescription, String detailedDescription, boolean isCompetency, String cardColor) {
         this.alpha = alpha;
         this.id = id;
         this.briefDescription = briefDescription;
