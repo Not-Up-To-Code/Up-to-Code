@@ -192,7 +192,7 @@ public class ui extends Application {
             if (state != null){
                 State temptState = new State(state);
                 alpha.addState(temptState);
-                
+
             }
         }
 
