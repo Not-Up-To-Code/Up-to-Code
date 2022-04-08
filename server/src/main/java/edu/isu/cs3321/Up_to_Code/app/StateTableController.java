@@ -4,11 +4,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "states")
 public class StateTableController {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "state")
     private String state;
-
+    @Id
     @Column(name = "stateID")
     private int stateID;
 
@@ -16,17 +15,17 @@ public class StateTableController {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "jsonString")
-    private String jsonString;
+    @Column(name = "stateOrder")
+    private int stateOrder;
 
     public StateTableController(){
     }
 
-    public StateTableController(String state, int stateID, int id, String jsonString) {
+    public StateTableController(String state, int stateID, int id, int stateOrder) {
         this.state = state;
         this.stateID = stateID;
         this.id = id;
-        this.jsonString = jsonString;
+        this.stateOrder = stateOrder;
     }
 
     public int getId() {
@@ -37,12 +36,12 @@ public class StateTableController {
         this.id = id;
     }
 
-    public String getJsonString() {
-        return jsonString;
+    public int getStateOrder() {
+        return stateOrder;
     }
 
-    public void setJsonString(String jsonString) {
-        this.jsonString = jsonString;
+    public void setStateOrder(int stateOrder) {
+        this.stateOrder = stateOrder;
     }
 
     public String getState() {
@@ -61,5 +60,13 @@ public class StateTableController {
         this.stateID = stateID;
     }
 
-
+    @Override
+    public String toString() {
+        return "StateTableController{" +
+                "state='" + state + '\'' +
+                ", stateID=" + stateID +
+                ", id=" + id +
+                ", stateOrder=" + stateOrder +
+                '}';
+    }
 }

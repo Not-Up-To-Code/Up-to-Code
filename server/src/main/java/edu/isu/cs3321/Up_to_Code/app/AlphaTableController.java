@@ -17,18 +17,42 @@ public class AlphaTableController {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "jsonString")
-    private String jsonString;
+    @Column(name = "briefDescription")
+    private String briefDescription;
+
+    @Column(name = "detailedDescription")
+    private String detailedDescription;
+
 
     @Column(name = "isCompetency")
     private boolean isCompetency;
 
+    @Column(name = "cardColor")
+    private String cardColor;
 
-    public AlphaTableController(String alpha, int id, String jsonString, boolean isCompetency) {
+    public AlphaTableController(String alpha, int id, String briefDescription, String detailedDescription, boolean isCompetency, String cardColor) {
         this.alpha = alpha;
         this.id = id;
-        this.jsonString = jsonString;
+        this.briefDescription = briefDescription;
+        this.detailedDescription = detailedDescription;
         this.isCompetency = isCompetency;
+        this.cardColor = cardColor;
+    }
+
+    public String getBriefDescription() {
+        return briefDescription;
+    }
+
+    public void setBriefDescription(String briefDescription) {
+        this.briefDescription = briefDescription;
+    }
+
+    public String getDetailedDescription() {
+        return detailedDescription;
+    }
+
+    public void setDetailedDescription(String detailedDescription) {
+        this.detailedDescription = detailedDescription;
     }
 
     public AlphaTableController() {
@@ -51,13 +75,6 @@ public class AlphaTableController {
         this.id = id;
     }
 
-    public String getJsonString() {
-        return jsonString;
-    }
-
-    public void setJsonString(String jsonString) {
-        this.jsonString = jsonString;
-    }
 
     public boolean isCompetency() {
         return isCompetency;
@@ -67,13 +84,23 @@ public class AlphaTableController {
         isCompetency = competency;
     }
 
+    public String getCardColor() {
+        return cardColor;
+    }
+
+    public void setCardColor(String cardColor) {
+        this.cardColor = cardColor;
+    }
+
     @Override
     public String toString() {
         return "AlphaTableController{" +
                 "alpha='" + alpha + '\'' +
                 ", id=" + id +
-                ", jsonString='" + jsonString + '\'' +
+                ", briefDescription='" + briefDescription + '\'' +
+                ", detailedDescription='" + detailedDescription + '\'' +
                 ", isCompetency=" + isCompetency +
+                ", cardColor='" + cardColor + '\'' +
                 '}';
     }
 }
