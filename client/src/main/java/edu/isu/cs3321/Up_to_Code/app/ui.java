@@ -21,25 +21,23 @@
 //SOFTWARE.
 package edu.isu.cs3321.Up_to_Code.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 public class ui extends Application {
 
+    public static final String connection_FXML = "/connection.fxml";
     public static final String home_FXML = "/home.fxml";
     public static final String practiceCatalog_FXML = "/practiceCatalog.fxml";
     public static final String practiceCreator_FXML = "/practiceCreator.fxml";
@@ -53,6 +51,15 @@ public class ui extends Application {
     public static final List<String> borderColors = Arrays.asList("OrangeRed", "ForestGreen", "DodgerBlue");
     public static final List<String> cardColors = Arrays.asList("Khaki", "PaleGreen", "PowderBlue");
 
+    public static final List<String> yellowCard = Arrays.asList("OrangeRed", "Khaki");
+    public static final List<String> greenCard = Arrays.asList("ForestGreen", "PaleGreen");
+    public static final List<String> blueCard = Arrays.asList("DodgerBlue", "PowderBlue");
+    public static final Map<String, List<String>> colors = new HashMap<>(){{
+        put("Yellow", yellowCard);
+        put("Green", greenCard);
+        put("Blue", blueCard);
+    }};
+
     public static final List<String> wideCardSVGs = Arrays.asList("#wideCardBack", "#wideCardState1", "#wideCardState2", "#wideCardState3", "#wideCardState4", "#wideCardState5", "#wideCardState6", "#wideCardBanner", "#wideCardBorder", "#cardSymbol");
     public static final List<String> wideCardTexts = Arrays.asList("#cardName", "#wideStateText1", "#wideStateText2", "#wideStateText3", "#wideStateText4", "#wideStateText5", "#wideStateText6", "#wideBriefDesc", "#wideDetailedDesc");
 
@@ -63,6 +70,7 @@ public class ui extends Application {
     }};
 
     Stage mainStage;
+    uiController controller;
 
 
     public static void main(String[] args) {
@@ -74,12 +82,22 @@ public class ui extends Application {
         this.mainStage = primaryStage;
         primaryStage.setTitle("Essence Kernel Tools");
 
-        showHome();
+        showConnect();
 
         primaryStage.show();
     }
 
     //fxml change handlers
+    public void showConnect() throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(new connectionController(this));
+        loader.setLocation(getClass().getResource(connection_FXML));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        mainStage.setTitle("Essence Kernel Tools");
+        mainStage.setScene(scene);
+    }
+
     public void showHome() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new uiController(this));
@@ -116,6 +134,8 @@ public class ui extends Application {
         mainStage.setTitle("Essence Card Catalog");
         mainStage.setScene(scene);
     }
+
+    //card creator
     public void showCardCreator() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new uiController(this));
@@ -123,34 +143,69 @@ public class ui extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 680);
 
-        ChoiceBox borderColor = (ChoiceBox) scene.lookup("#borderColorChoice");
         ChoiceBox cardColor = (ChoiceBox) scene.lookup("#cardColorChoice");
         ChoiceBox cardType = (ChoiceBox) scene.lookup("#cardTypeChoice");
 
-        for(String color : borderColors){
-            borderColor.getItems().add(color);
+        for(String key : colors.keySet()){
+            cardColor.getItems().add(key);
         }
-        for(String color :cardColors){
-            cardColor.getItems().add(color);
-        }
+
         for(String key : cardSymbols.keySet()){
             cardType.getItems().add(key);
         }
-
-        borderColor.setValue(borderColors.get(0));
-        cardColor.setValue(cardColors.get(0));
+        
+        cardColor.setValue("Yellow");
         cardType.setValue("Alpha");
 
         SVGPath border = (SVGPath) scene.lookup("#wideCardBorder");
         SVGPath banner = (SVGPath) scene.lookup("#wideCardBanner");
         SVGPath symbol = (SVGPath) scene.lookup("#cardSymbol");
 
-        border.setFill(Paint.valueOf((String) borderColor.getValue()));
-        banner.setFill(Paint.valueOf((String) cardColor.getValue()));
-        symbol.setFill(Paint.valueOf((String) borderColor.getValue()));
+        border.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+        symbol.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+        banner.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(1))));
+
+        for(int i = 1; i < 7; i++){
+            SVGPath stateborder = (SVGPath) scene.lookup("#wideCardState" + i);
+            stateborder.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+        }
 
         mainStage.setTitle("Essence Card Creator");
         mainStage.setScene(scene);
+    }
+
+    public void wideCardToJson(){
+        Scene scene = mainStage.getScene();
+        TextArea name = (TextArea) scene.lookup("#cardName");
+        TextArea briefDesc = (TextArea) scene.lookup("#wideBriefDesc");
+        TextArea detailedDesc = (TextArea) scene.lookup("#wideDetailedDesc");
+        ChoiceBox cardColor = (ChoiceBox) scene.lookup("#cardColorChoice");
+        TextArea stateText1 = (TextArea) scene.lookup("#wideStateText1");
+        TextArea stateText2 = (TextArea) scene.lookup("#wideStateText2");
+        TextArea stateText3 = (TextArea) scene.lookup("#wideStateText3");
+        TextArea stateText4 = (TextArea) scene.lookup("#wideStateText4");
+        TextArea stateText5 = (TextArea) scene.lookup("#wideStateText5");
+        TextArea stateText6 = (TextArea) scene.lookup("#wideStateText6");
+
+        Map<String, String> wideCard = new HashMap<>();
+
+        wideCard.put("name", name.getText());
+        wideCard.put("briefDesc", briefDesc.getText());
+        wideCard.put("detailedDesc", detailedDesc.getText());
+        wideCard.put("cardColor", (String) cardColor.getValue());
+        wideCard.put("stateText1", stateText1.getText());
+        wideCard.put("stateText2", stateText2.getText());
+        wideCard.put("stateText3", stateText3.getText());
+        wideCard.put("stateText4", stateText4.getText());
+        wideCard.put("stateText5", stateText5.getText());
+        wideCard.put("stateText6", stateText6.getText());
+
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String output = gson.toJson(wideCard);
+
+        System.out.println(output);
+
     }
 
     public void showWideCard(){
@@ -189,7 +244,6 @@ public class ui extends Application {
     public void updateCard(){
         Scene scene = mainStage.getScene();
 
-        ChoiceBox borderColor = (ChoiceBox) scene.lookup("#borderColorChoice");
         ChoiceBox cardColor = (ChoiceBox) scene.lookup("#cardColorChoice");
         ChoiceBox cardType = (ChoiceBox) scene.lookup("#cardTypeChoice");
 
@@ -197,11 +251,17 @@ public class ui extends Application {
         SVGPath banner = (SVGPath) scene.lookup("#wideCardBanner");
         SVGPath symbol = (SVGPath) scene.lookup("#cardSymbol");
 
-        border.setFill(Paint.valueOf((String) borderColor.getValue()));
-        banner.setFill(Paint.valueOf((String) cardColor.getValue()));
+        border.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+        banner.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(1))));
+
+
+        for(int i = 1; i < 7; i++){
+            SVGPath stateborder = (SVGPath) scene.lookup("#wideCardState" + i);
+            stateborder.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+        }
 
         symbol.setContent(cardSymbols.get(cardType.getValue()));
-        symbol.setFill(Paint.valueOf((String) borderColor.getValue()));
+        symbol.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
     }
 
     public void showProgressPoker() throws IOException {
@@ -240,6 +300,33 @@ public class ui extends Application {
         mainStage.setTitle("Essence Checkpoint Construction");
         mainStage.setScene(scene);
     }
+
+    //connection handler responses
+    public void showRequired() throws IOException{
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Connection invalid");
+        alert.setContentText("The Url and port can not be empty.");
+
+        alert.showAndWait();
+    }
+
+    public void showError() throws IOException{
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Error");
+        alert.setContentText("There was an Error when connecting to the server.");
+
+        alert.showAndWait();
+    }
+
+    public void showFailedConnection() throws IOException{
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Connection Failed");
+        alert.setContentText("Connection to the server has failed. Check that you've entered the Url and Port correctly.");
+
+        alert.showAndWait();
+    }
+
+
 
     //SVG for wide card
     // M 13.353516,0.125 C 6.0474485,0.125 0.125,6.0474484 0.125,13.353516 V 432.07031 c 0,7.30607 5.9224482,13.22852 13.228516,13.22852 H 639.24219 c 7.30607,0 13.22851,-5.92245 13.22851,-13.22852 V 13.353516 C 652.4707,6.0474494 646.54826,0.125 639.24219,0.125 Z m 0,2.6445313 H 639.24219 c 5.88605,0 10.58398,4.6979389 10.58398,10.5839847 V 432.07031 c 0,5.88605 -4.69793,10.58399 -10.58398,10.58399 H 13.353516 c -5.8860443,0 -10.5839847,-4.69795 -10.5839847,-10.58399 V 13.353516 c 0,-5.8860448 4.6979401,-10.5839847 10.5839847,-10.5839847 z

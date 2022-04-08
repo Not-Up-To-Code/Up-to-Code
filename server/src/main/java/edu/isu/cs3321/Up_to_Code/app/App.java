@@ -5,11 +5,7 @@ package edu.isu.cs3321.Up_to_Code.app;
 
 import io.javalin.Javalin;
 import io.javalin.core.util.FileUtil;
-import org.hibernate.Transaction;
-import org.hibernate.Session;
 
-import java.awt.*;
-import java.util.List;
 import java.util.Locale;
 
 public class App {
@@ -39,7 +35,6 @@ public class App {
         //chase the state - needs to provide server with array of played state card values to generate charts
         app.get("/api/card/retrieve", ctx -> ctx.html("Hello World!"));
 
-    
+        app.get("/api/status", ctx -> ctx.result("Online"));
     }
-
 }
