@@ -28,6 +28,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
@@ -57,8 +58,39 @@ public class ui extends Application {
         put("Blue", blueCard);
     }};
 
-    public static final List<String> wideCardSVGs = Arrays.asList("#wideCardBack", "#wideCardState1", "#wideCardState2", "#wideCardState3", "#wideCardState4", "#wideCardState5", "#wideCardState6", "#wideCardBanner", "#wideCardBorder", "#cardSymbol");
-    public static final List<String> wideCardTexts = Arrays.asList("#cardName", "#wideStateText1", "#wideStateText2", "#wideStateText3", "#wideStateText4", "#wideStateText5", "#wideStateText6", "#wideBriefDesc", "#wideDetailedDesc");
+    public static final List<String> alphaCardSVGs = Arrays.asList(
+            "#alphaBackground", "#alphaBanner", "#alphaBorder", "#alphaCardSymbol",
+            "#alphaStateBorder1", "#alphaStateBorder2", "#alphaStateBorder3", "#alphaStateBorder4", "#alphaStateBorder5", "#alphaStateBorder6"
+    );
+
+    public static final List<String> alphaCardLabels = Arrays.asList(
+            "#cardTypeLabel", "#cardColorLabel"
+    );
+
+    public static final List<String> alphaCardTexts = Arrays.asList(
+            "#alphaCardName", "#alphaBriefDesc", "#alphaDetailedDesc",
+            "#alphaStateText1", "#alphaStateText2", "#alphaStateText3", "#alphaStateText4", "#alphaStateText5", "#alphaStateText6"
+    );
+
+    public static final List<String> stateCardSVGs = Arrays.asList(
+            "#stateBackground1", "#stateBackground2", "#stateBackground3", "#stateBackground4", "#stateBackground5", "#stateBackground6",
+            "#stateBanner1", "#stateBanner2", "#stateBanner3", "#stateBanner4", "#stateBanner5", "#stateBanner6",
+            "#stateBorder1", "#stateBorder2", "#stateBorder3", "#stateBorder4", "#stateBorder5", "#stateBorder6",
+            "#stateSymbol1", "#stateSymbol2", "#stateSymbol3", "#stateSymbol4", "#stateSymbol5", "#stateSymbol6",
+            "#stateLabelBorder1", "#stateLabelBorder2", "#stateLabelBorder3", "#stateLabelBorder4", "#stateLabelBorder5", "#stateLabelBorder6"
+    );
+
+    public static final List<String> stateCardLabels = Arrays.asList(
+            "#stateAlpha1", "#stateAlpha2", "#stateAlpha3", "#stateAlpha4", "#stateAlpha5", "#stateAlpha6",
+            "#stateName1", "#stateName2", "#stateName3", "#stateName4", "#stateName5", "#stateName6"
+    );
+
+    public static final List<String> stateCardText = Arrays.asList(
+            "#stateChecklist1", "#stateChecklist2", "#stateChecklist3", "#stateChecklist4", "#stateChecklist5", "#stateChecklist6"
+    );
+
+//    public static final List<String> wideCardSVGs = Arrays.asList("#wideCardBack", "#wideCardState1", "#wideCardState2", "#wideCardState3", "#wideCardState4", "#wideCardState5", "#wideCardState6", "#wideCardBanner", "#wideCardBorder", "#cardSymbol");
+//    public static final List<String> wideCardTexts = Arrays.asList("#cardName", "#wideStateText1", "#wideStateText2", "#wideStateText3", "#wideStateText4", "#wideStateText5", "#wideStateText6", "#wideBriefDesc", "#wideDetailedDesc");
 
 
     public static final HashMap<String,String> cardSymbols = new HashMap<>(){{
@@ -154,17 +186,30 @@ public class ui extends Application {
         cardColor.setValue("Yellow");
         cardType.setValue("Alpha");
 
-        SVGPath border = (SVGPath) scene.lookup("#wideCardBorder");
-        SVGPath banner = (SVGPath) scene.lookup("#wideCardBanner");
-        SVGPath symbol = (SVGPath) scene.lookup("#cardSymbol");
+        SVGPath border = (SVGPath) scene.lookup("#alphaBorder");
+        SVGPath banner = (SVGPath) scene.lookup("#alphaBanner");
+        SVGPath symbol = (SVGPath) scene.lookup("#alphaCardSymbol");
 
         border.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
         symbol.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
         banner.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(1))));
 
         for(int i = 1; i < 7; i++){
-            SVGPath stateborder = (SVGPath) scene.lookup("#wideCardState" + i);
+            SVGPath stateborder = (SVGPath) scene.lookup("#alphaStateBorder" + i);
             stateborder.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+
+            SVGPath stateCardBorder = (SVGPath) scene.lookup("#stateBorder" + i);
+            stateCardBorder.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+
+            SVGPath stateCardBanner = (SVGPath) scene.lookup("#stateBanner" + i);
+            stateCardBanner.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(1))));
+
+            SVGPath stateCardLabelBorder = (SVGPath) scene.lookup("#stateLabelBorder" + i);
+            stateCardLabelBorder.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+
+            SVGPath stateCardSymbol = (SVGPath) scene.lookup("#stateSymbol" + i);
+            stateCardSymbol.setContent(cardSymbols.get(cardType.getValue()));
+            stateCardSymbol.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
         }
 
         mainStage.setTitle("Essence Card Creator");
@@ -173,65 +218,109 @@ public class ui extends Application {
 
     public void cardToJson(){
         Scene scene = mainStage.getScene();
-        String name = ((TextArea) scene.lookup("#cardName")).getText();
-        String briefDesc = ((TextArea) scene.lookup("#wideBriefDesc")).getText();
-        String detailedDesc = ((TextArea) scene.lookup("#wideDetailedDesc")).getText();
+        String name = ((TextArea) scene.lookup("#alphaCardName")).getText();
+        String briefDesc = ((TextArea) scene.lookup("#alphaBriefDesc")).getText();
+        String detailedDesc = ((TextArea) scene.lookup("#alphaDetailedDesc")).getText();
         String cardColor = ((ChoiceBox) scene.lookup("#cardColorChoice")).getValue().toString();
-
-        String stateText1 = ((TextArea) scene.lookup("#wideStateText1")).getText();
-        String stateText2 = ((TextArea) scene.lookup("#wideStateText2")).getText();
-        String stateText3 = ((TextArea) scene.lookup("#wideStateText3")).getText();
-        String stateText4 = ((TextArea) scene.lookup("#wideStateText4")).getText();
-        String stateText5 = ((TextArea) scene.lookup("#wideStateText5")).getText();
-        String stateText6 = ((TextArea) scene.lookup("#wideStateText6")).getText();
-        List<String> inStates = Arrays.asList(stateText1, stateText2, stateText3, stateText4, stateText5, stateText6);
 
         Alpha alpha = new Alpha(name, briefDesc, detailedDesc, cardColor);
 
-        for (String state : inStates){
-            if (state != null){
-                State temptState = new State(state);
-                alpha.addState(temptState);
+        for (int i = 1; i < 7; i++){
+            String tempStateText = ((TextArea) scene.lookup("#alphaStateText" + i)).getText();
+            System.out.println(tempStateText);
 
+            if (tempStateText != ""){
+                State tempState = new State(tempStateText, i);
+
+                String tempChecklistString = ((TextArea) scene.lookup("#stateChecklist" + i)).getText();
+                String checklistItems[] = tempChecklistString.split("\\.");
+                System.out.println(checklistItems.length);
+
+                for (int j = 0; j < checklistItems.length; j++){
+                    CheckListItem tempChecklistItem = new CheckListItem(checklistItems[j]);
+                    System.out.println(tempChecklistItem.getChecklistitem());
+                    tempState.addCheckListItem(tempChecklistItem);
+                }
+
+                alpha.addState(tempState);
             }
         }
 
+        System.out.println(alpha.toString());
 
+//        Gson gson = new Gson();
+//        String output = gson.toJson(alpha);
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String output = gson.toJson("s");
-
-        System.out.println(output);
-
+        System.out.println(alpha.getAlpha());
     }
 
-    public void showWideCard(){
+    public void showAlphaCard(){
         Scene scene = mainStage.getScene();
 
-        for(String id : wideCardSVGs){
-            System.out.println(id);
+        GridPane gridPane = (GridPane) scene.lookup("#stateCardGrid");
+        gridPane.setVisible(false);
+
+        for(String id : alphaCardSVGs){
             SVGPath tempPath = (SVGPath) scene.lookup(id);
             tempPath.setVisible(true);
         }
 
-        for(String id : wideCardTexts){
-            System.out.println(id);
+        for(String id : alphaCardTexts){
             TextArea tempText = (TextArea) scene.lookup(id);
             tempText.setVisible(true);
         }
     }
 
-    public void hideWideCard(){
+    public void hideAlphaCard(){
         Scene scene = mainStage.getScene();
 
-        for(String id : wideCardSVGs){
-            System.out.println(id);
+        for(String id : alphaCardSVGs){
             SVGPath tempPath = (SVGPath) scene.lookup(id);
             tempPath.setVisible(false);
         }
 
-        for(String id : wideCardTexts){
-            System.out.println(id);
+        for(String id : alphaCardTexts){
+            TextArea tempText = (TextArea) scene.lookup(id);
+            tempText.setVisible(false);
+        }
+    }
+
+    public void showStateCard(){
+        Scene scene = mainStage.getScene();
+
+        GridPane gridPane = (GridPane) scene.lookup("#stateCardGrid");
+        gridPane.setVisible(true);
+
+        for(String id : stateCardSVGs){
+            SVGPath tempPath = (SVGPath) scene.lookup(id);
+            tempPath.setVisible(true);
+        }
+
+        for(String id : stateCardLabels){
+            Label tempLabel = (Label) scene.lookup(id);
+            tempLabel.setVisible(true);
+        }
+
+        for(String id : stateCardText){
+            TextArea tempText = (TextArea) scene.lookup(id);
+            tempText.setVisible(true);
+        }
+    }
+
+    public void hideStateCard(){
+        Scene scene = mainStage.getScene();
+
+        for(String id : stateCardSVGs){
+            SVGPath tempPath = (SVGPath) scene.lookup(id);
+            tempPath.setVisible(false);
+        }
+
+        for(String id : stateCardLabels){
+            Label tempLabel = (Label) scene.lookup(id);
+            tempLabel.setVisible(false);
+        }
+
+        for(String id : stateCardText){
             TextArea tempText = (TextArea) scene.lookup(id);
             tempText.setVisible(false);
         }
@@ -244,21 +333,45 @@ public class ui extends Application {
         ChoiceBox cardColor = (ChoiceBox) scene.lookup("#cardColorChoice");
         ChoiceBox cardType = (ChoiceBox) scene.lookup("#cardTypeChoice");
 
-        SVGPath border = (SVGPath) scene.lookup("#wideCardBorder");
-        SVGPath banner = (SVGPath) scene.lookup("#wideCardBanner");
-        SVGPath symbol = (SVGPath) scene.lookup("#cardSymbol");
+        SVGPath border = (SVGPath) scene.lookup("#alphaBorder");
+        SVGPath banner = (SVGPath) scene.lookup("#alphaBanner");
+        SVGPath symbol = (SVGPath) scene.lookup("#alphaCardSymbol");
 
         border.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
         banner.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(1))));
 
-
-        for(int i = 1; i < 7; i++){
-            SVGPath stateborder = (SVGPath) scene.lookup("#wideCardState" + i);
-            stateborder.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
-        }
-
         symbol.setContent(cardSymbols.get(cardType.getValue()));
         symbol.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+
+
+        for(int i = 1; i < 7; i++){
+            SVGPath stateborder = (SVGPath) scene.lookup("#alphaStateBorder" + i);
+            stateborder.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+
+            SVGPath stateCardBorder = (SVGPath) scene.lookup("#stateBorder" + i);
+            stateCardBorder.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+
+            SVGPath stateCardBanner = (SVGPath) scene.lookup("#stateBanner" + i);
+            stateCardBanner.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(1))));
+
+            SVGPath stateCardLabelBorder = (SVGPath) scene.lookup("#stateLabelBorder" + i);
+            stateCardLabelBorder.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+
+            SVGPath stateCardSymbol = (SVGPath) scene.lookup("#stateSymbol" + i);
+            stateCardSymbol.setContent(cardSymbols.get(cardType.getValue()));
+            stateCardSymbol.setFill(Paint.valueOf(String.valueOf(colors.get(cardColor.getValue()).get(0))));
+
+            //change text of state cards
+            Label stateAlpha = (Label) scene.lookup("#stateAlpha" + i);
+            String alphaName = ((TextArea) scene.lookup("#alphaCardName")).getText();
+            stateAlpha.setText(alphaName);
+
+            Label stateName = (Label) scene.lookup("#stateName" + i);
+            String alphaStateText = ((TextArea) scene.lookup("#alphaStateText" + i)).getText();
+            stateName.setText(alphaStateText);
+
+        }
+
     }
 
     public void showProgressPoker() throws IOException {

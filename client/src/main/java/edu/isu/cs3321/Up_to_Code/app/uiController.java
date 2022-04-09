@@ -91,13 +91,20 @@ public class uiController {
 
     @FXML
     public void showWideCardButton(ActionEvent event) throws IOException{
-        app.showWideCard();
-        app.cardToJson();
+        app.hideStateCard();
+        app.showAlphaCard();
     }
     @FXML
     public void hideWideCardButton(ActionEvent event) throws IOException{
-        app.hideWideCard();
+        app.hideAlphaCard();
+        app.updateCard();
+        app.showStateCard();
+
     }
 
-
+    @FXML
+    public void saveCardButton(ActionEvent event) throws IOException{
+        app.updateCard();
+        app.cardToJson();
+    }
 }
