@@ -7,6 +7,7 @@ import java.util.ListIterator;
 
 public class State {
     private String name;
+    private Integer stateOrder;
     private List<CheckListItem> checklist = new List<CheckListItem>() {
         @Override
         public int size() {
@@ -132,6 +133,10 @@ public class State {
         return checklist;
     }
 
+    public Integer getStateOrder(){
+        return stateOrder;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -140,8 +145,13 @@ public class State {
         this.checklist = checklist;
     }
 
-    public State(String name){
+    public void setStateOrder(Integer stateOrder){
+        this.stateOrder = stateOrder;
+    }
+
+    public State(String name, Integer stateOrder){
         setName(name);
+        setStateOrder(stateOrder);
     }
 
     public void addCheckListItem(CheckListItem item){
