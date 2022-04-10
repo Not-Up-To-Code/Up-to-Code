@@ -11,9 +11,9 @@ public class GsonSerialization {
         Gson gson = builder.create();
         return gson.toJson(x);
     }
-    public static Alpha deSerializeAlpha(String jsonString){
+    public static AlphaTableController deSerializeAlpha(String jsonString){
         Gson gson = new Gson();
-        return gson.fromJson(jsonString, Alpha.class);
+        return gson.fromJson(jsonString, AlphaTableController.class);
     }
     public static State deSerializeState(String jsonString){
         Gson gson = new Gson();
