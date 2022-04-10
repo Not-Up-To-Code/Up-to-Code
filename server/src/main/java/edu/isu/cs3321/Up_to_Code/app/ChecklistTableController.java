@@ -17,11 +17,11 @@ public class ChecklistTableController {
     @Column(name = "checklistItem")
     private String checklistItem;
 
-    public ChecklistTableController(String checklistItem, StateTableController s) {
+    public ChecklistTableController(String checklistItem) {
 
 
         this.checklistItem = checklistItem;
-        this.stateName = s;
+
     }
 
     public ChecklistTableController() {

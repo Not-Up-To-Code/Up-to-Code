@@ -61,7 +61,7 @@ public class App {
 
         StateTableController s = new StateTableController("State 1", 1);
         StateTableController s1 = new StateTableController("State 2", 2);
-        ChecklistTableController c = new ChecklistTableController("Foreign key",s);
+        ChecklistTableController c = new ChecklistTableController("Foreign key");
         a.addState(s);
         a.addState(s1);
 
