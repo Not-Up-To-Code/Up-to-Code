@@ -16,27 +16,18 @@ public class StateTableController {
     private int stateID;
 
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    private AlphaTableController alph;
-
     @Column(name = "stateOrder")
     private int stateOrder;
 
-    @OneToMany(fetch = FetchType.EAGER,mappedBy="stateName",cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = ChecklistTableController.class, fetch =  FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "stateID", nullable = false)
     private List<ChecklistTableController> items = new ArrayList<>();
 
 
     public StateTableController(){
     }
 
-    public StateTableController(String state, int stateOrder, AlphaTableController alph) {
-        this.state = state;
 
-
-        this.stateOrder = stateOrder;
-        this.alph = alph;    }
 
     public StateTableController(String state, int stateOrder) {
         this.state = state;
@@ -46,13 +37,7 @@ public class StateTableController {
     public void addItems(ChecklistTableController item){
         this.items.add(item);
     }
-    public AlphaTableController getAlph() {
-        return alph;
-    }
 
-    public void setAlph(AlphaTableController alph) {
-        this.alph = alph;
-    }
 
     public List<ChecklistTableController> getItems() {
         return items;

@@ -13,15 +13,6 @@ public class DatabaseManagement {
 
 public static void addAlpha(String alphaJson) {
     AlphaTableController a = deSerializeAlpha(alphaJson);
-    /*String alpha = a.getAlpha();
-    String briefDescription = a.getBriefDescription();
-    String detailedDescription = a.getDetailedDesc();
-    boolean isCompetency = a.isCompetency();
-    String cardColor = a.getColor();
-    List<State> states = a.getStates();*/
-
-
-
     Session session = HibernateController.getSessionFactory().openSession();
     Transaction transaction = null;
     try {
@@ -36,16 +27,11 @@ public static void addAlpha(String alphaJson) {
         session.close();
     }
 }
-    public static List<AlphaTableController> getAlphas(int n){
+    public static List<AlphaTableController> getAlphas(){
 
         try (Session session = HibernateController.getSessionFactory().openSession()){
             return session.createQuery("from AlphaTableController", AlphaTableController.class).list();
 
         }
-
     }
-
-
-
-
 }
