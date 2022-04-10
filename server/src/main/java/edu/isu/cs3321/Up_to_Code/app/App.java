@@ -33,8 +33,8 @@ public class App {
         //card catalog - needs to return all a json payload with all cards in alpha or states tables
         app.get("/api/card/catalog", ctx -> ctx.json("temp"));
 
-        //card creator - needs to provide server with wide and small card variable (alpha name, cardType, states1-6, brief, detailed, contents of each checklist)
-        app.post("/api/card/create/small", ctx -> System.out.println(ctx.body().toString()));
+        //card creator - passes alpha and states to server for db storage
+//        app.post("/api/card/save", ctx -> GsonSerialization.AlphaTableController(ctx));
 
         //games - need list of all available alphas, needs json payload with selected alpha and associated state cards
         app.get("/api/card/list", ctx -> ctx.html("Hello World!"));
