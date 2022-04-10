@@ -3,10 +3,12 @@
  */
 package edu.isu.cs3321.Up_to_Code.app;
 
+import com.google.gson.Gson;
 import io.javalin.Javalin;
 import io.javalin.core.util.FileUtil;
 
 import static edu.isu.cs3321.Up_to_Code.app.DatabaseManagement.*;
+import static edu.isu.cs3321.Up_to_Code.app.GsonSerialization.serialize;
 
 
 public class App {
@@ -38,12 +40,26 @@ public class App {
 
         app.get("/api/status", ctx -> ctx.result("Online"));
 
-        String test = "this currently does nothing";
+
+        Alpha a = new Alpha("test", "i am testing", "I am testing gson", "blue", null, false);
+        State s = new State("test", null, 1, 1);
+        CheckListItem c = new CheckListItem("item", 2);
+        String alphaJson =serialize(a);
+        addAlpha(alphaJson);
+        String stateJson = serialize(s);
+        addState(stateJson);
+        String itemJson = serialize(c);
+        addItem(itemJson);
+        System.out.print(getChecklistItems());
+
+
+
+        /*String test = "this currently does nothing";
         addAlpha(test);
         addState(test);
         addItem(test);
         System.out.print(getAlphas());
         System.out.print(getStates());
-        System.out.print(getChecklistItems());
+        System.out.print(getChecklistItems());*/
     }
 }

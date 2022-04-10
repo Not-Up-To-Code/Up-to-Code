@@ -10,6 +10,7 @@ public class Alpha {
     private String briefDesc;
     private String detailedDesc;
     private String color;
+    private boolean isCompetency;
     private List<State> states = new List<State>(){
 
         @Override
@@ -168,11 +169,22 @@ public class Alpha {
         this.states = states;
     }
 
-    public Alpha(String alpha, String briefDesc, String detailedDesc, String color){
+    public boolean isCompetency() {
+        return isCompetency;
+    }
+
+    public void setCompetency(boolean competency) {
+        isCompetency = competency;
+    }
+
+    public Alpha(String alpha, String briefDesc, String detailedDesc, String color, List<State> states, boolean isCompetency){
         setAlpha(alpha);
         setBriefDesc(briefDesc);
         setDetailedDesc(detailedDesc);
         setColor(color);
+        this.states = states;
+        this.isCompetency = isCompetency;
+
 
     }
 
