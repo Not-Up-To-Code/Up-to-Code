@@ -25,6 +25,7 @@ package edu.isu.cs3321.Up_to_Code.app;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.util.*;
@@ -91,13 +92,21 @@ public class uiController {
 
     @FXML
     public void showWideCardButton(ActionEvent event) throws IOException{
-        app.showWideCard();
-        app.cardToJson();
+        app.hideStateCard();
+        app.showAlphaCard();
     }
     @FXML
     public void hideWideCardButton(ActionEvent event) throws IOException{
-        app.hideWideCard();
+        app.hideAlphaCard();
+        app.updateCard();
+        app.showStateCard();
+
     }
 
+    @FXML
+    public void saveCardButton(ActionEvent event) throws IOException{
+        app.updateCard();
+        app.cardToJson();
+    }
 
 }
