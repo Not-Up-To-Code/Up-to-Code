@@ -1,19 +1,20 @@
 package edu.isu.cs3321.Up_to_Code.app;
 
+import java.awt.*;
 import java.util.Arrays;
 
 public class smallCard {
 
-    private String alpha;
-    private String state;
-    private String color;
-    private String[] checklist;
+    public String alpha;
+    public String state;
+    public Color color;
+    public String[] checklist;
 
     //used for numerating cards
-    private int currentState;
-    private int totalStates;
+    public int currentState;
+    public int totalStates;
 
-    public smallCard(String alpha, String state, String color, String checklist, int currentState, int totalStates){
+    public smallCard(String alpha, String state, Color color, String checklist, int currentState, int totalStates){
         this.alpha = alpha;
         this.state = state;
         this.color = color;
@@ -25,6 +26,10 @@ public class smallCard {
         this.currentState = currentState;
         this.totalStates = totalStates;
 
-        System.out.println(Arrays.toString(this.checklist));
+        //System.out.println(Arrays.toString(this.checklist));
+    }
+
+    public static void main(String[] args) {
+        //new smallCard("alpha","s1","1",2,5);
     }
 }
