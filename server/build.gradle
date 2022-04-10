@@ -32,11 +32,12 @@ dependencies {
     implementation 'org.openjfx:javafx-swing:17.0.2'
 
     implementation 'org.openjfx:javafx:19-ea+3'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'org.xerial:sqlite-jdbc:3.36.0.3'
+    implementation 'org.hibernate:hibernate-core:5.6.1.Final'
+    implementation 'com.github.gwenn:sqlite-dialect:0.1.0'
 
 
-    implementation 'javax.persistence:persistence-api:1.0-rev-1'
-    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
-    implementation 'org.hibernate:hibernate-core:5.6.7.Final'
 }
 
 application {

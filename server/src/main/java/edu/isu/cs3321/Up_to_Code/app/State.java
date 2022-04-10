@@ -7,6 +7,8 @@ import java.util.ListIterator;
 
 public class State {
     private String name;
+    private int id;//refers to alpha id
+    private int stateOrder;
     private List<CheckListItem> checklist = new List<CheckListItem>() {
         @Override
         public int size() {
@@ -128,6 +130,22 @@ public class State {
         return name;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getStateOrder() {
+        return stateOrder;
+    }
+
+    public void setStateOrder(int stateOrder) {
+        this.stateOrder = stateOrder;
+    }
+
     public List<CheckListItem> getChecklist() {
         return checklist;
     }
@@ -140,8 +158,11 @@ public class State {
         this.checklist = checklist;
     }
 
-    public State(String name){
+    public State(String name, List<CheckListItem> checklistItems, int id, int stateOrder){
         setName(name);
+        this.checklist = checklistItems;
+        this.id = id;
+        this.stateOrder = stateOrder;
     }
 
     public void addCheckListItem(CheckListItem item){

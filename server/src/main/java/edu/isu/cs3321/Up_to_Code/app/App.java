@@ -3,10 +3,15 @@
  */
 package edu.isu.cs3321.Up_to_Code.app;
 
+import com.google.gson.Gson;
 import io.javalin.Javalin;
 import io.javalin.core.util.FileUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static edu.isu.cs3321.Up_to_Code.app.DatabaseManagement.*;
+import static edu.isu.cs3321.Up_to_Code.app.GsonSerialization.serialize;
 
 
 public class App {
@@ -38,12 +43,40 @@ public class App {
 
         app.get("/api/status", ctx -> ctx.result("Online"));
 
-        String test = "this currently does nothing";
+
+        /*Alpha a = new Alpha("test", "i am testing", "I am testing gson", "blue", null, false);
+        State s = new State("test", null, 1, 1);
+        CheckListItem c = new CheckListItem("item", 2);
+        String alphaJson =serialize(a);
+        addAlpha(alphaJson);
+        String stateJson = serialize(s);
+        addState(stateJson);
+        String itemJson = serialize(c);
+        addItem(itemJson);
+        System.out.print(getChecklistItems());*/
+
+
+
+        AlphaTableController a = new AlphaTableController("Alpha 1", "Testing Foreign Key", "Testing foreign key relationships between alpha and state", false, "blue");
+
+        StateTableController s = new StateTableController("State 1", 1);
+        StateTableController s1 = new StateTableController("State 2", 2);
+        ChecklistTableController c = new ChecklistTableController("Foreign key");
+        a.addState(s);
+        a.addState(s1);
+
+        System.out.println("test");
+        System.out.print(a);
+        String alphaJson = serialize(a);
+        addAlpha(alphaJson);
+
+
+        /*String test = "this currently does nothing";
         addAlpha(test);
         addState(test);
         addItem(test);
         System.out.print(getAlphas());
         System.out.print(getStates());
-        System.out.print(getChecklistItems());
+        System.out.print(getChecklistItems());*/
     }
 }

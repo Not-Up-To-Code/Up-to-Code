@@ -1,10 +1,9 @@
 package edu.isu.cs3321.Up_to_Code.app;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "alphas")
@@ -30,6 +29,11 @@ public class AlphaTableController {
     @Column(name = "cardColor")
     private String cardColor;
 
+    @OneToMany(mappedBy="alph",cascade = CascadeType.ALL)
+    private List<StateTableController> states = new ArrayList<>();
+
+
+
     public AlphaTableController(String alpha, String briefDescription, String detailedDescription, boolean isCompetency, String cardColor) {
         this.alpha = alpha;
         this.id = id;
@@ -39,6 +43,10 @@ public class AlphaTableController {
         this.cardColor = cardColor;
     }
 
+
+    public void addState(StateTableController state){
+        this.states.add(state);
+    }
     public String getBriefDescription() {
         return briefDescription;
     }
@@ -75,6 +83,13 @@ public class AlphaTableController {
         this.id = id;
     }
 
+    public List<StateTableController> getStates() {
+        return states;
+    }
+
+    public void setStates(List<StateTableController> states) {
+        this.states = states;
+    }
 
     public boolean isCompetency() {
         return isCompetency;
