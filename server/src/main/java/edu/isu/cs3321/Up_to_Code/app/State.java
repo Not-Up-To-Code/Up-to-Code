@@ -33,9 +33,8 @@ public class State {
         this.checklist = checklist;
     }
 
-    public State(String name, List<CheckListItem> checklistItems, int stateOrder){
+    public State(String name, int stateOrder){
         setName(name);
-        this.checklist = checklistItems;
         this.stateOrder = stateOrder;
     }
 

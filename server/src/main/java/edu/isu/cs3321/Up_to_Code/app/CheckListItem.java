@@ -12,7 +12,7 @@ public class CheckListItem {
         this.checklistitem = checklistitem;
     }
 
-    public CheckListItem(String item, int stateID){
+    public CheckListItem(String item){
         setChecklistitem(item);
 
     }

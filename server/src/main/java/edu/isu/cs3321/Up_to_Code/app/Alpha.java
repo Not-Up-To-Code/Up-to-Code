@@ -58,7 +58,7 @@ public class Alpha {
         isCompetency = competency;
     }
 
-    public Alpha(String alpha, String briefDesc, String detailedDesc, String color, List<State> states, boolean isCompetency){
+    public Alpha(String alpha, String briefDesc, String detailedDesc, String color, boolean isCompetency){
         setAlpha(alpha);
         setBriefDesc(briefDesc);
         setDetailedDesc(detailedDesc);
