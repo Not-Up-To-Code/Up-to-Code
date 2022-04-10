@@ -223,8 +223,16 @@ public class ui extends Application {
         String briefDesc = ((TextArea) scene.lookup("#alphaBriefDesc")).getText();
         String detailedDesc = ((TextArea) scene.lookup("#alphaDetailedDesc")).getText();
         String cardColor = ((ChoiceBox) scene.lookup("#cardColorChoice")).getValue().toString();
+        String competencyCheck = ((ChoiceBox) scene.lookup("#cardTypeChoice")).getValue().toString();
+        Boolean isCompetency = false;
+        if (competencyCheck == "Alpha"){
+            isCompetency = false;
+        }
+        else{
+            isCompetency = true;
+        }
 
-        Alpha alpha = new Alpha(name, briefDesc, detailedDesc, cardColor);
+        Alpha alpha = new Alpha(name, briefDesc, detailedDesc, cardColor,isCompetency);
 
         for (int i = 1; i < 7; i++){
             String tempStateText = ((TextArea) scene.lookup("#alphaStateText" + i)).getText();

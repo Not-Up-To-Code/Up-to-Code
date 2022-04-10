@@ -10,10 +10,6 @@ public class ChecklistTableController {
     @Column(name = "checklistID")
     private int checklistID;
 
-    @ManyToOne(cascade= CascadeType.ALL)
-    @JoinColumn(name = "stateID")
-    private StateTableController stateName;
-
     @Column(name = "checklistItem")
     private String checklistItem;
 
@@ -27,13 +23,7 @@ public class ChecklistTableController {
     public ChecklistTableController() {
     }
 
-    public StateTableController getStateName() {
-        return stateName;
-    }
 
-    public void setStateName(StateTableController stateName) {
-        this.stateName = stateName;
-    }
 
     public int getChecklistID() {
         return checklistID;

@@ -29,7 +29,8 @@ public class AlphaTableController {
     @Column(name = "cardColor")
     private String cardColor;
 
-    @OneToMany(mappedBy="alph",cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = StateTableController.class, fetch =  FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", nullable = false)
     private List<StateTableController> states = new ArrayList<>();
 
 
