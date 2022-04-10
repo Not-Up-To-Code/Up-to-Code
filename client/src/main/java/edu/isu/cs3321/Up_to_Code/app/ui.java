@@ -234,15 +234,16 @@ public class ui extends Application {
 
         Alpha alpha = new Alpha(name, briefDesc, detailedDesc, cardColor,isCompetency);
 
+        int trueCount = 1;
         for (int i = 1; i < 7; i++){
             String tempStateText = ((TextArea) scene.lookup("#alphaStateText" + i)).getText();
             System.out.println(tempStateText);
 
             if (tempStateText != ""){
-                State tempState = new State(tempStateText, i);
+                State tempState = new State(tempStateText, trueCount);
 
                 String tempChecklistString = ((TextArea) scene.lookup("#stateChecklist" + i)).getText();
-                String checklistItems[] = tempChecklistString.split("\\.");
+                String checklistItems[] = tempChecklistString.split("\\n");
                 System.out.println(checklistItems.length);
 
                 for (int j = 0; j < checklistItems.length; j++){
@@ -252,15 +253,15 @@ public class ui extends Application {
                 }
 
                 alpha.addState(tempState);
+                trueCount++;
             }
         }
+        trueCount = 1;
 
-        System.out.println(alpha.toString());
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String output = gson.toJson(alpha);
 
-//        Gson gson = new Gson();
-//        String output = gson.toJson(alpha);
-
-        System.out.println(alpha.getAlpha());
+        System.out.println(output);
     }
 
     public void showAlphaCard(){
