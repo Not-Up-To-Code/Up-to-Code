@@ -73,10 +73,14 @@ public class App {
         Alpha client = new Alpha("test" , "test", "test", "red", false );
         State state1 = new State("test", 1);
         CheckListItem item1 = new CheckListItem("test");
+
         state1.addCheckListItem(item1);
         client.addState(state1);
         String json = serialize(clientToServerConverter(client));
         addAlpha(json);
+        AlphaTableController a = new AlphaTableController("update", "update", "update", true, "black");
+        json = serialize(a);
+        updateAlpha(json, 2);
 
 
     }
