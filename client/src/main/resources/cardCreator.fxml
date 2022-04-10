@@ -309,7 +309,7 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="stateChecklist1" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="Enter checklist items seperated by periods." visible="false" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <TextArea fx:id="stateChecklist1" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="finish checklist item by starting a new line." visible="false" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets top="90.0" />
                                  </GridPane.margin>
@@ -350,10 +350,13 @@
                                     <Insets bottom="110.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextArea fx:id="stateChecklist2" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="Enter checklist items seperated by periods." visible="false" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <TextArea fx:id="stateChecklist2" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="finish checklist item by starting a new line." visible="false" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets top="90.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
                               </TextArea>
                               <SVGPath fx:id="stateBackground3" content="m 11.90625,191.95299 h 162.15364 c 6.59606,0 11.90625,5.31019 11.90625,11.90625 v 230.25392 c 0,6.59606 -5.31019,11.90625 -11.90625,11.90625 H 11.90625 C 5.3101875,446.01941 0,440.70922 0,434.11316 V 203.85924 c 0,-6.59606 5.3101875,-11.90625 11.90625,-11.90625 z" fill="WHITE" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <SVGPath fx:id="stateBanner3" content="m 11.90625,191.5788 h 161.40529 c 6.59606,0 11.90625,5.31018 11.90625,11.90625 v 25.20473 c 0,6.59606 -5.31019,11.90625 -11.90625,11.90625 H 11.90625 C 5.3101875,240.59603 0,235.28584 0,228.68978 V 203.48505 C 0,196.88898 5.3101875,191.5788 11.90625,191.5788 Z" fill="#ff9797" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -388,10 +391,13 @@
                                     <Insets bottom="110.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextArea fx:id="stateChecklist3" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="Enter checklist items seperated by periods." visible="false" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <TextArea fx:id="stateChecklist3" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="finish checklist item by starting a new line." visible="false" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets top="90.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
                               </TextArea>
                               <SVGPath fx:id="stateBackground4" content="m 11.90625,191.95299 h 162.15364 c 6.59606,0 11.90625,5.31019 11.90625,11.90625 v 230.25392 c 0,6.59606 -5.31019,11.90625 -11.90625,11.90625 H 11.90625 C 5.3101875,446.01941 0,440.70922 0,434.11316 V 203.85924 c 0,-6.59606 5.3101875,-11.90625 11.90625,-11.90625 z" fill="WHITE" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                               <SVGPath fx:id="stateBanner4" content="m 11.90625,191.5788 h 161.40529 c 6.59606,0 11.90625,5.31018 11.90625,11.90625 v 25.20473 c 0,6.59606 -5.31019,11.90625 -11.90625,11.90625 H 11.90625 C 5.3101875,240.59603 0,235.28584 0,228.68978 V 203.48505 C 0,196.88898 5.3101875,191.5788 11.90625,191.5788 Z" fill="#ff9797" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -426,10 +432,13 @@
                                     <Insets bottom="115.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextArea fx:id="stateChecklist4" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="Enter checklist items seperated by periods." visible="false" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <TextArea fx:id="stateChecklist4" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="finish checklist item by starting a new line." visible="false" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets top="90.0" />
-                                 </GridPane.margin></TextArea>
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font></TextArea>
                               <SVGPath fx:id="stateBackground5" content="m 11.90625,191.95299 h 162.15364 c 6.59606,0 11.90625,5.31019 11.90625,11.90625 v 230.25392 c 0,6.59606 -5.31019,11.90625 -11.90625,11.90625 H 11.90625 C 5.3101875,446.01941 0,440.70922 0,434.11316 V 203.85924 c 0,-6.59606 5.3101875,-11.90625 11.90625,-11.90625 z" fill="WHITE" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                               <SVGPath fx:id="stateBanner5" content="m 11.90625,191.5788 h 161.40529 c 6.59606,0 11.90625,5.31018 11.90625,11.90625 v 25.20473 c 0,6.59606 -5.31019,11.90625 -11.90625,11.90625 H 11.90625 C 5.3101875,240.59603 0,235.28584 0,228.68978 V 203.48505 C 0,196.88898 5.3101875,191.5788 11.90625,191.5788 Z" fill="#ff9797" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <GridPane.margin>
@@ -463,10 +472,13 @@
                                     <Insets bottom="115.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextArea fx:id="stateChecklist5" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="Enter checklist items seperated by periods." visible="false" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <TextArea fx:id="stateChecklist5" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="finish checklist item by starting a new line." visible="false" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets top="90.0" />
-                                 </GridPane.margin></TextArea>
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font></TextArea>
                               <SVGPath fx:id="stateBackground6" content="m 11.90625,191.95299 h 162.15364 c 6.59606,0 11.90625,5.31019 11.90625,11.90625 v 230.25392 c 0,6.59606 -5.31019,11.90625 -11.90625,11.90625 H 11.90625 C 5.3101875,446.01941 0,440.70922 0,434.11316 V 203.85924 c 0,-6.59606 5.3101875,-11.90625 11.90625,-11.90625 z" fill="WHITE" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                               <SVGPath fx:id="stateBanner6" content="m 11.90625,191.5788 h 161.40529 c 6.59606,0 11.90625,5.31018 11.90625,11.90625 v 25.20473 c 0,6.59606 -5.31019,11.90625 -11.90625,11.90625 H 11.90625 C 5.3101875,240.59603 0,235.28584 0,228.68978 V 203.48505 C 0,196.88898 5.3101875,191.5788 11.90625,191.5788 Z" fill="#ff9797" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <GridPane.margin>
@@ -500,10 +512,13 @@
                                     <Insets bottom="115.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextArea fx:id="stateChecklist6" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="Enter checklist items seperated by periods." visible="false" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <TextArea fx:id="stateChecklist6" maxHeight="161.0" maxWidth="175.0" minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="175.0" promptText="finish checklist item by starting a new line." visible="false" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets top="90.0" />
-                                 </GridPane.margin></TextArea>
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font></TextArea>
                            </children>
                         </GridPane>
                      </children>
