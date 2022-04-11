@@ -38,7 +38,6 @@ import java.net.http.HttpClient;
 import java.util.*;
 
 public class ui extends Application {
-
     /**
      * Connection class for client server communication
      */
