@@ -1,5 +1,5 @@
 package edu.isu.cs3321.Up_to_Code.app;
-=======
+
 // MIT License
 
 // Copyright (c) 2022 Thomas Evans, Benjamin Keninger, Sina Khajeh Pour, Braxton Soto
@@ -21,9 +21,6 @@ package edu.isu.cs3321.Up_to_Code.app;
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
-
-package library;
-
 
 /**
  * This file will contain the backend for the exporting cards function of the project
