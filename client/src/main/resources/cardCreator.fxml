@@ -199,12 +199,12 @@
                               <Insets left="180.0" top="65.0" />
                            </GridPane.margin>
                         </TextArea>
-                        <TextArea fx:id="alphaBriefDesc" maxHeight="100.0" maxWidth="300.0" prefHeight="200.0" prefWidth="200.0" promptText="Add a brief description of the card." GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                        <TextArea fx:id="alphaBriefDesc" maxHeight="100.0" maxWidth="300.0" prefHeight="200.0" prefWidth="200.0" promptText="Add a brief description of the card." wrapText="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">
                            <GridPane.margin>
                               <Insets left="415.0" top="130.0" />
                            </GridPane.margin>
                         </TextArea>
-                        <TextArea fx:id="alphaDetailedDesc" maxHeight="225.0" maxWidth="300.0" prefHeight="200.0" prefWidth="200.0" promptText="Add a detailed description of the card." GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                        <TextArea fx:id="alphaDetailedDesc" maxHeight="225.0" maxWidth="300.0" prefHeight="200.0" prefWidth="200.0" promptText="Add a detailed description of the card." wrapText="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">
                            <GridPane.margin>
                               <Insets left="415.0" top="250.0" />
                            </GridPane.margin>
