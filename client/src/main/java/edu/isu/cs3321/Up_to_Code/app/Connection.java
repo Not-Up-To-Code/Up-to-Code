@@ -1,5 +1,8 @@
 package edu.isu.cs3321.Up_to_Code.app;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -7,24 +10,25 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-public class connection {
+public class Connection {
 
     private static final String test_call = "http://%s:%s/api/status";
+    private static final String saveCard_call = "http://%s:%s/api/card/save";
 
     String url;
     String port;
     Boolean initilized = false;
     HttpClient client;
 
-    private connection(){
+    private Connection(){
 
     }
 
     private static class connectionHelper{
-        private static final connection INSTANCE = new connection();
+        private static final Connection INSTANCE = new Connection();
     }
 
-    public static connection instance(){
+    public static Connection instance(){
         return connectionHelper.INSTANCE;
     }
 
@@ -41,9 +45,9 @@ public class connection {
                 .build();
     }
 
-    private HttpRequest createPost(String call, String json) {
-        return HttpRequest
-                .newBuilder()
+    public HttpRequest createPost(String call, String json) {
+         return HttpRequest
+                 .newBuilder()
                 .uri(URI.create(String.format(call, url, port)))
                 .timeout(Duration.ofSeconds(30))
                 .header("Content-Type", "application/json")
@@ -51,7 +55,16 @@ public class connection {
                 .build();
     }
 
-    private HttpRequest createGet(String call) {
+    public void sendAlpha(Alpha alpha) throws IOException, InterruptedException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String output = gson.toJson(alpha);
+
+        HttpRequest request = createPost(saveCard_call, output);
+        client.send(request, HttpResponse.BodyHandlers.ofString());
+
+    }
+
+    public HttpRequest createGet(String call) {
         return HttpRequest
                 .newBuilder()
                 .uri(URI.create(String.format(call, url, port)))

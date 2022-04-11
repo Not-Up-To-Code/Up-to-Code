@@ -2,15 +2,11 @@ package edu.isu.cs3321.Up_to_Code.app;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import java.awt.*;
 import java.io.IOException;
-import java.sql.Connection;
 
-public class connectionController {
+public class ConnectionController {
     private ui app;
 
     @FXML
@@ -18,7 +14,7 @@ public class connectionController {
     @FXML
     TextField port;
 
-    public connectionController(ui app){
+    public ConnectionController(ui app){
         this.app = app;
     }
 
@@ -29,7 +25,7 @@ public class connectionController {
             return;
         }
 
-        connection connect = connection.instance();
+        Connection connect = Connection.instance();
         connect.initialize(uri.getText(), port.getText());
 
         System.out.println(connect.initilized);

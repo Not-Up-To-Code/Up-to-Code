@@ -84,12 +84,15 @@ public class uiController {
         app.showCheckpointConstruction();
     }
 
-    //Card creator buttons ========================================
+    /**
+     * buttons used in the card creator
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void updateCardButton(ActionEvent event) throws IOException{
         app.updateCard();
     }
-
     @FXML
     public void showWideCardButton(ActionEvent event) throws IOException{
         app.hideStateCard();
@@ -102,9 +105,8 @@ public class uiController {
         app.showStateCard();
 
     }
-
     @FXML
-    public void saveCardButton(ActionEvent event) throws IOException{
+    public void saveCardButton(ActionEvent event) throws IOException, InterruptedException {
         app.updateCard();
         app.cardToJson();
     }

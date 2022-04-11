@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static edu.isu.cs3321.Up_to_Code.app.DatabaseManagement.*;
-import static edu.isu.cs3321.Up_to_Code.app.GsonSerialization.clientToServerConverter;
-import static edu.isu.cs3321.Up_to_Code.app.GsonSerialization.serialize;
+import static edu.isu.cs3321.Up_to_Code.app.GsonSerialization.*;
 
 
 public class App {
@@ -34,7 +33,8 @@ public class App {
         app.get("/api/card/catalog", ctx -> ctx.json("temp"));
 
         //card creator - passes alpha and states to server for db storage
-//        app.post("/api/card/save", ctx -> GsonSerialization.AlphaTableController(ctx));
+        app.post("/api/card/save", ctx -> addAlpha(serialize(clientToServerConverter(deSerializeClientAlpha(ctx.body())))));
+
 
         //games - need list of all available alphas, needs json payload with selected alpha and associated state cards
         app.get("/api/card/list", ctx -> ctx.html("Hello World!"));
