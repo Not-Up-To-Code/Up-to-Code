@@ -20,6 +20,3 @@ and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Card creation has been expanded upon
 * Cards can be exported as PNGs
 * Essence Diagram introduced
-
-## [1.1.0] - 2022-24-10
-### Added
