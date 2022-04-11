@@ -7,7 +7,7 @@ This project is a digital library of Essentialized practices that will allow the
 ## How to Run
 Open gradle project in console\
 Run Gradle Server with ```Gradle server: run```\
-Run Gradle Client with ```Gradle run```
+Run Gradle Client with ```Gradle client: run```
 
 ## Help
 For assistance and other inquiries, please contact one of the develops using the emails below
