@@ -123,15 +123,15 @@ public class CardCreation {
 
 
     public void cardCreation(String ti, String s1, String s2, String s3, String s4, String s5, String s6, String d, String s){
-        title=ti;
-        description=d;
-        specification=s;
-        state1=s1;
-        state2=s2;
-        state3=s3;
-        state4=s4;
-        state5=s5;
-        state6=s6;
+        this.title=ti;
+        this.description=d;
+        this.specification=s;
+        this.state1=s1;
+        this.state2=s2;
+        this.state3=s3;
+        this.state4=s4;
+        this.state5=s5;
+        this.state6=s6;
 
     }
 

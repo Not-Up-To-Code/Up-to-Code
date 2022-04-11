@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "edu.isu.cs3321.Up_to_Code.app.AlphaTableController" table = "alphas">
+        <meta attribute = "class-description">
+            This class contains all alpha card names and ids
+        </meta>
+
+        <id name = "id" type = "int" column = "ID">
+            <generator class="native"/>
+        </id>
+
+        <property name = "alpha" column = "alpha" type = "string"/>
+    </class>
+</hibernate-mapping>
