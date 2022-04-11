@@ -76,11 +76,14 @@ public class App {
 
         state1.addCheckListItem(item1);
         client.addState(state1);
-        String json = serialize(clientToServerConverter(client));
+        AlphaTableController a = clientToServerConverter(client);
+        client = ServerToClientConverter(a);
+        a = clientToServerConverter(client);
+        String json = serialize(a);
         addAlpha(json);
-        AlphaTableController a = new AlphaTableController("update", "update", "update", true, "black");
-        json = serialize(a);
-        updateAlpha(json, 2);
+        List<Alpha> aList = clientAlphaList(getAlphas());
+        String list = serialize(aList);
+        System.out.println(list);
 
 
     }
