@@ -14,6 +14,22 @@ This project is a digital library of Essentialized practices that will allow the
 ## Help
 For assistance and other inquiries, please contact one of the develops using the emails below
 
+# Up To Code
+
+## Description
+This project is a digital library of Essentialized practices that will allow the user to view cards, Essence diagrams, and play Essence serious games. The project will implement a client desktop application as well as a backend server and web frontend, with both UIs implementing a user login system, data management, and a REST API.
+
+## Getting Started
+
+### Dependencies
+
+### Installing
+
+### Executing program
+
+## Help
+For assistance and other inquiries, please contact one of the develops using the emails below
+
 ## Authors
 Benjamin Keninger - kenibenj@isu.edu\
 Braxton Soto - sotobrax@isu.edu\
@@ -22,7 +38,8 @@ Thomas Evans - evanthom@isu.edu
 
 ## Version History
 0.1.0 - 3/6/2022\
-0.2.0 - 3/18/2022
+0.2.0 - 3/18/2022\
+0.2.0 - 4/10/2022
 
 ## License
 MIT License
@@ -46,4 +63,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-## Acknowledgments
