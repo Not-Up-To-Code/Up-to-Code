@@ -8,6 +8,7 @@ public class Alpha {
     private String detailedDesc;
     private String color;
     private boolean isCompetency;
+    private int id;
     private List<State> states = new ArrayList<>();
 
     public String getAlpha() {

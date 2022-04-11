@@ -59,7 +59,8 @@ public class GsonSerialization {
         String detailedDescription = alpha.getDetailedDescription();
         boolean isCompetency = alpha.isCompetency();
         String cardColor = alpha.getCardColor();
-        Alpha a = new Alpha(alphaName, briefDescription, detailedDescription, cardColor, isCompetency);
+        int id = alpha.getId();
+        Alpha a = new Alpha(alphaName, briefDescription, detailedDescription, cardColor, isCompetency, id);
         for(int i = 0; i < alpha.getStates().size(); i++){
             a.addState(serverStateConverter(alpha.getStates().get(i)));
         }
