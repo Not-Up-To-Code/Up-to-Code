@@ -20,3 +20,9 @@ and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Card creation has been expanded upon
 * Cards can be exported as PNGs
 * Essence Diagram introduced
+
+## [1.0.0] - 2022-04-24
+### Added
+* Database implemented
+* Vue.js and docker set up
+* Essence games and practices with respective catalogs implemented
