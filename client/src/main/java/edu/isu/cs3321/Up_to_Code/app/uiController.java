@@ -45,7 +45,7 @@ public class uiController {
     }
 
     @FXML
-    public void practiceCatalogButton(ActionEvent event) throws IOException{
+    public void practiceCatalogButton(ActionEvent event) throws IOException, InterruptedException {
         app.showPracticeCatalog();
     }
 

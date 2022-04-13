@@ -3,6 +3,7 @@ package edu.isu.cs3321.Up_to_Code.app;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -14,6 +15,7 @@ public class Connection {
 
     private static final String test_call = "http://%s:%s/api/status";
     private static final String saveCard_call = "http://%s:%s/api/card/save";
+    private static final String getPractices_call = "http://%s:%s/api/practice/catalog";
 
     String url;
     String port;
@@ -53,6 +55,12 @@ public class Connection {
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
+    }
+
+    public String  getPractices()throws IOException, InterruptedException{
+        HttpRequest request = createGet(getPractices_call);
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        return response.body();
     }
 
     public void sendAlpha(Alpha alpha) throws IOException, InterruptedException {
