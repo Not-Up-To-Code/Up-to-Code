@@ -21,21 +21,42 @@
 //SOFTWARE.
 package edu.isu.cs3321.Up_to_Code.app;
 
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableSet;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
+import javax.swing.text.Element;
+import java.awt.*;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.http.HttpClient;
 import java.util.*;
+import java.util.List;
 
 public class ui extends Application {
 
@@ -105,6 +126,7 @@ public class ui extends Application {
 
     Stage mainStage;
     uiController controller;
+    String imageURL = "http://%s:%s/images/%s";
 
 
     public static void main(String[] args) {
@@ -144,7 +166,12 @@ public class ui extends Application {
         mainStage.setTitle("Essence Kernel Tools");
         mainStage.setScene(scene);
     }
-    public void showPracticeCatalog() throws IOException {
+
+    /**
+     * Practice catalog FXML changer
+     * @throws IOException
+     */
+    public void showPracticeCatalog() throws IOException, InterruptedException {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new uiController(this));
         loader.setLocation(getClass().getResource(practiceCatalog_FXML));
@@ -152,7 +179,56 @@ public class ui extends Application {
         Scene scene = new Scene(root, 1000, 680);
         mainStage.setTitle("Essence Practice Catalog");
         mainStage.setScene(scene);
+        mainStage.show();
+        loadPracticeCatalog();
     }
+
+    /**
+     * Practice catalog loader
+     * requests a list of image files in server practices folder then renders them in a gallery view.
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    public void loadPracticeCatalog() throws IOException, InterruptedException {
+        Scene scene = mainStage.getScene();
+        TilePane tilePane = (TilePane) scene.lookup("#practiceTilePane");
+        tilePane.setTileAlignment(Pos.TOP_LEFT);
+
+        List<String> imgNames = new Gson().fromJson(connect.getPractices(), new TypeToken<List<String>>(){}.getType());
+
+        for (String name : imgNames){
+            Button button = new Button();
+            button.setPrefWidth(280);
+            button.setPrefHeight(280);
+
+            Image image = new Image(String.format(imageURL, connect.url, connect.port, name));
+            ImageView temp = new ImageView(image);
+            temp.setFitHeight(280);
+            temp.setPreserveRatio(true);
+            button.setGraphic(temp);
+            button.setStyle("-fx-background-color: transparent");
+
+
+            ImageView tempClone = new ImageView(image);
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setGraphic(tempClone);
+                    alert.setTitle("");
+                    alert.setContentText("");
+                    alert.setHeaderText("");
+
+                    alert.show();
+                }
+            });
+
+            tilePane.getChildren().add(button);
+
+        }
+        mainStage.show();
+    }
+
     public void showPracticeCreator() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new uiController(this));
@@ -169,6 +245,8 @@ public class ui extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 680);
         mainStage.setTitle("Essence Card Catalog");
+
+
         mainStage.setScene(scene);
     }
 
