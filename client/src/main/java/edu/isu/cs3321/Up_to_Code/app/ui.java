@@ -271,46 +271,96 @@ public class ui extends Application {
         Button button = new Button();
         button.setMaxWidth(300);
         button.setMaxHeight(280);
-
-        SVGPath back = new SVGPath();
-        back.setContent("M6.615.684H319.621c3.298 0 5.953 2.655 5.953 5.953V216.023c0 3.298-2.655 5.953-5.953 5.953H6.615c-3.298 0-5.953-2.655-5.953-5.953V6.637c0-3.298 2.655-5.953 5.953-5.953z");
-        back.setFill(Paint.valueOf("black"));
-
-        SVGPath border = new SVGPath();
-        border.setContent("m6.618.001c-3.653 0-6.614 2.961-6.614 6.614V216.029c0 3.653 2.961 6.614 6.614 6.614H319.615c3.653 0 6.614-2.961 6.614-6.614V6.615c0-3.653-2.961-6.614-6.614-6.614zm0 1.322H319.615c2.943 0 5.291 2.349 5.291 5.292V216.029c0 2.943-2.348 5.292-5.291 5.292H6.618c-2.943 0-5.291-2.349-5.291-5.292V6.615c0-2.943 2.348-5.292 5.291-5.292z");
-        border.setFill(Paint.valueOf("black"));
-
-        SVGPath stateBorder = new SVGPath();
-        stateBorder.setContent("m15.875 38.612c-3.653 0-6.614 2.962-6.614 6.615v9.178c0 3.653 2.961 6.614 6.614 6.614h126.173c3.653 0 6.615-2.961 6.615-6.614V45.228c0-3.653-2.962-6.615-6.615-6.615zm0 1.323h126.173c2.943 0 5.292 2.349 5.292 5.292v9.178c0 2.943-2.349 5.291-5.292 5.291H15.875c-2.943 0-5.292-2.348-5.292-5.291V45.228c0-2.943 2.349-5.292 5.292-5.292z");
-        stateBorder.setFill(Paint.valueOf("black"));
-
-        SVGPath banner = new SVGPath();
-        banner.setContent("M6.625.665H319.614c3.298 0 5.953 2.655 5.953 5.953v19.103c0 3.298-2.655 5.953-5.953 5.953H6.625c-3.298 0-5.953-2.655-5.953-5.953V6.618c0-3.298 2.655-5.953 5.953-5.953z");
-        banner.setFill(Paint.valueOf("white"));
-
-        SVGPath symbol = new SVGPath();
-        symbol.setScaleX(.5);
-        symbol.setScaleY(.5);
-
-        if(!alpha.isCompetency()){
-            symbol.setContent("m 54.189453,14.023438 c -3.551127,-0.01733 -5.87912,0.05722 -8.908203,0.738281 -3.029104,0.681061 -6.854586,1.927454 -9.574219,4.394531 -2.719637,2.467081 -3.942639,5.851619 -4.658203,8.427734 -0.71556,2.576101 -0.945638,4.687766 -0.628906,8.576172 0.316731,3.888394 1.053524,9.813293 3.939453,13.732422 2.885894,3.919081 7.612935,5.113988 12.492187,5.730469 4.879242,0.616479 10.21018,0.683401 15.671875,0.527344 5.461693,-0.156057 11.715279,-0.655919 16.548829,-6.941407 1.947326,-2.532279 3.623602,-6.040319 5.203125,-9.904297 1.439404,3.884529 2.823201,7.64147 4.412109,11.871094 l 2.476562,-0.929687 c -1.95835,-5.21307 -3.756769,-10.055487 -5.429687,-14.607422 1.763436,-4.848647 3.401317,-10.166807 5.042969,-15.546875 l -2.529297,-0.773438 c -1.305941,4.279865 -2.660786,8.312388 -4.021485,12.275391 -1.80555,-5.009618 -3.153121,-9.031834 -5.888671,-11.861328 -2.817787,-2.914554 -6.81571,-4.20795 -11.236329,-4.900391 -4.42064,-0.692444 -9.360985,-0.791263 -12.912109,-0.808593 z m -0.01172,2.646484 c 3.511426,0.01714 8.355915,0.126077 12.513672,0.777344 4.157779,0.65127 7.532274,1.837173 9.744141,4.125 2.211923,2.287884 3.559593,6.080872 5.458984,11.330078 0.282987,0.782069 0.706237,1.888645 1.011719,2.722656 -1.85966,4.975319 -3.812146,9.214539 -5.931641,11.970703 -4.226856,5.496551 -9.134961,5.756136 -14.52539,5.910156 -5.390427,0.154021 -10.60192,0.08143 -15.265625,-0.507812 -4.663694,-0.589246 -8.480231,-1.668371 -10.69336,-4.673828 -2.213093,-3.00541 -3.130143,-8.653546 -3.433593,-12.378907 -0.30345,-3.725347 -0.119505,-5.267361 0.542968,-7.652343 0.662469,-2.384968 1.780992,-5.269325 3.884766,-7.177735 2.103779,-1.908413 5.583709,-3.143453 8.376953,-3.771484 2.793266,-0.628036 4.804985,-0.690965 8.316406,-0.673828 z");
-        }else {
-            symbol.setContent("m 60.077127,3.356555 -8.843143,17.725284 -19.61502,2.763922 14.125631,13.887857 -3.432832,19.508861 17.573086,-9.142122 17.493467,9.292695 -0.46309,-2.770965 L 74.113388,37.855484 88.357637,24.089493 68.766991,21.157125 Z m -0.02709,6.2655406 6.864581,14.0617184 15.475366,2.316539 -11.251759,10.874244 2.578686,15.433119 -13.818517,-7.34067 -13.881358,7.222052 2.711385,-15.41091 -11.158599,-10.970654 15.494864,-2.183299 z");
-        }
+        button.setStyle("-fx-background-color: transparent");
 
         StackPane pane = new StackPane();
         pane.setPadding(new Insets(0, 0, 0, 0));
         pane.maxWidth(300);
         pane.maxHeight(280);
         pane.setAlignment(Pos.TOP_LEFT);
+
+        SVGPath back = new SVGPath();
+        back.setContent("M6.615.684H319.621c3.298 0 5.953 2.655 5.953 5.953V216.023c0 3.298-2.655 5.953-5.953 5.953H6.615c-3.298 0-5.953-2.655-5.953-5.953V6.637c0-3.298 2.655-5.953 5.953-5.953z");
+        back.setFill(Paint.valueOf("white"));
         pane.getChildren().add(back);
+
+        SVGPath banner = new SVGPath();
+        banner.setContent("M 6.625 0.665 H 319.614 c 3.298 0 5.953 2.655 5.953 5.953 v 35.382 c 0 3.298 -2.655 5.953 -5.953 5.953 H 6.625 c -3.298 0 -5.953 -2.655 -5.953 -5.953 V 6.618 c 0 -3.298 2.655 -5.953 5.953 -5.953 z");
+        banner.setFill(Paint.valueOf(String.valueOf(colors.get(alpha.getColor()).get(1))));
         pane.getChildren().add(banner);
+
+        int topMargin = 52;
+        List<SVGPath> paths = new ArrayList<>();
+        for (State state : alpha.getStates()){
+            //creates and positions svg for state border
+            SVGPath stateBorder = new SVGPath();
+            stateBorder.setContent("m15.875 38.612c-3.653 0-6.614 2.962-6.614 6.615v9.178c0 3.653 2.961 6.614 6.614 6.614h126.173c3.653 0 6.615-2.961 6.615-6.614V45.228c0-3.653-2.962-6.615-6.615-6.615zm0 1.323h126.173c2.943 0 5.292 2.349 5.292 5.292v9.178c0 2.943-2.349 5.291-5.292 5.291H15.875c-2.943 0-5.292-2.348-5.292-5.291V45.228c0-2.943 2.349-5.292 5.292-5.292z");
+            stateBorder.setFill(Paint.valueOf(String.valueOf(colors.get(alpha.getColor()).get(0))));
+            pane.getChildren().add(stateBorder);
+            StackPane.setMargin(stateBorder, new Insets(topMargin, 0, 0, 10));
+
+            //creates and positions label with state name
+            Label label = new Label();
+            label.setText(state.getName());
+            label.setMinWidth(125);
+            label.setAlignment(Pos.CENTER);
+            label.setStyle("-fx-font-weight: Bold");
+            pane.getChildren().add(label);
+            StackPane.setMargin(label, new Insets(topMargin + 3, 0, 0, 15));
+
+            topMargin = topMargin + 28;
+        }
+        topMargin = 25;
+
+        SVGPath border = new SVGPath();
+        border.setContent("m6.618.001c-3.653 0-6.614 2.961-6.614 6.614V216.029c0 3.653 2.961 6.614 6.614 6.614H319.615c3.653 0 6.614-2.961 6.614-6.614V6.615c0-3.653-2.961-6.614-6.614-6.614zm0 1.322H319.615c2.943 0 5.291 2.349 5.291 5.292V216.029c0 2.943-2.348 5.292-5.291 5.292H6.618c-2.943 0-5.291-2.349-5.291-5.292V6.615c0-2.943 2.348-5.292 5.291-5.292z");
+        border.setFill(Paint.valueOf(String.valueOf(colors.get(alpha.getColor()).get(0))));
         pane.getChildren().add(border);
-        pane.getChildren().add(stateBorder);
-        pane.getChildren().add(symbol);
+
+        SVGPath symbol = new SVGPath();
+        if(!alpha.isCompetency()){
+            symbol.setContent("m27.095 7.012c-1.776-.009-2.94.029-4.454.369-1.515.341-3.427.964-4.787 2.197-1.36 1.234-1.971 2.926-2.329 4.214-.358 1.288-.473 2.344-.314 4.288.158 1.944.527 4.907 1.97 6.866 1.443 1.96 3.806 2.557 6.246 2.865 2.44.308 5.105.342 7.836.264 2.731-.078 5.858-.328 8.274-3.471.974-1.266 1.812-3.02 2.602-4.952.72 1.942 1.412 3.821 2.206 5.936l1.238-.465c-.979-2.607-1.878-5.028-2.715-7.304.882-2.424 1.701-5.083 2.521-7.773l-1.265-.387c-.653 2.14-1.33 4.156-2.011 6.138-.903-2.505-1.577-4.516-2.944-5.931-1.409-1.457-3.408-2.104-5.618-2.45-2.21-.346-4.68-.396-6.456-.404zm-.006 1.323c1.756.009 4.178.063 6.257.389 2.079.326 3.766.919 4.872 2.063 1.106 1.144 1.78 3.04 2.729 5.665.141 .391.353 .944.506 1.361-.93 2.488-1.906 4.607-2.966 5.985-2.113 2.748-4.567 2.878-7.263 2.955-2.695.077-5.301.041-7.633-.254-2.332-.295-4.24-.834-5.347-2.337-1.107-1.503-1.565-4.327-1.717-6.189-.152-1.863-.06-2.634.271-3.826.331-1.192.89-2.635 1.942-3.589 1.052-.954 2.792-1.572 4.188-1.886 1.397-.314 2.402-.345 4.158-.337z");
+            symbol.setScaleX(1.3);
+            symbol.setScaleY(1.3);
+            symbol.setFill(Paint.valueOf(String.valueOf(colors.get(alpha.getColor()).get(0))));
+            pane.getChildren().add(symbol);
+            StackPane.setMargin(symbol, new Insets(15, 0, 0, 15));
+        }else {
+            symbol.setContent("m30.039 1.678-4.422 8.863-9.808 1.382 7.063 6.944-1.716 9.754 8.787-4.571 8.747 4.646-.232-1.385L37.057 18.928 44.179 12.045 34.383 10.579Zm-.014 3.133 3.432 7.031 7.738 1.158-5.626 5.437 1.289 7.717-6.909-3.67-6.941 3.611 1.356-7.705-5.579-5.485 7.747-1.092z");
+            symbol.setScaleX(1.3);
+            symbol.setScaleY(1.3);
+            symbol.setFill(Paint.valueOf(String.valueOf(colors.get(alpha.getColor()).get(0))));
+            pane.getChildren().add(symbol);
+            StackPane.setMargin(symbol, new Insets(10, 0, 0, 20));
+        }
+
+        Label alphaName = new Label();
+        alphaName.setText(alpha.getAlpha());
+        alphaName.setStyle("-fx-font-style: Bold; -fx-font-size: 24");
+        pane.getChildren().add(alphaName);
+        StackPane.setMargin(alphaName, new Insets(5, 0, 0, 65));
+
+        Label alphaBrief = new Label();
+        alphaBrief.setText(alpha.getBriefDesc());
+        alphaBrief.setMaxWidth(160);
+        alphaBrief.setMaxHeight(60);
+        alphaBrief.setWrapText(true);
+        alphaBrief.setAlignment(Pos.TOP_LEFT);
+        alphaBrief.setStyle("-fx-font-size: 10");
+        pane.getChildren().add(alphaBrief);
+        StackPane.setMargin(alphaBrief, new Insets(52, 0, 0, 160));
+
+        Label alphaDetailed = new Label();
+        alphaDetailed.setText(alpha.getDetailedDesc());
+        alphaDetailed.setMaxWidth(160);
+        alphaDetailed.setMaxHeight(110);
+        alphaDetailed.setWrapText(true);
+        alphaDetailed.setAlignment(Pos.TOP_LEFT);
+        alphaDetailed.setStyle("-fx-font-size: 10");
+        pane.getChildren().add(alphaDetailed);
+        StackPane.setMargin(alphaDetailed, new Insets(100, 0, 0, 160));
 
         button.setGraphic(pane);
-
         tilePane.getChildren().add(button);
 
     }

@@ -115,7 +115,7 @@ public class App {
         alphaJson = serialize(a1);
         addAlpha(alphaJson);*/
 
-        Alpha client = new Alpha("test" , "test", "test", "red", false );
+        Alpha client = new Alpha("test" , "test", "test", "Yellow", false );
         State state1 = new State("test", 1);
         CheckListItem item1 = new CheckListItem("test");
 
