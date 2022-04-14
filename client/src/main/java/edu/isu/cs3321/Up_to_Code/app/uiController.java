@@ -55,7 +55,7 @@ public class uiController {
     }
 
     @FXML
-    public void cardCatalogButton(ActionEvent event) throws IOException{
+    public void cardCatalogButton(ActionEvent event) throws IOException, InterruptedException {
         app.showCardCatalog();
     }
 

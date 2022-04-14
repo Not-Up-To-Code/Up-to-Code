@@ -64,19 +64,19 @@ public class App {
         }).start(7000);
 
 
-        //practice catalog - needs to return the json payload with all practices in folder
+        //practice catalog - returns list of image files in practices folder
         app.get("/api/practice/catalog", ctx -> {ctx.result(practiceCatalogLoader());});
 
-        //practice creator - needs to provide server with screenshot for storage
+        //card catalog - returns json of all alphas in db
+        app.get("/api/card/catalog", ctx -> ctx.result(serialize(clientAlphaList(getAlphas()))));
+
+        //practice creator - provides server with image file for storage
         app.post("/api/practice/upload", ctx -> {
             ctx.uploadedFiles("file").forEach(file -> {
                 FileUtil.streamToFile(file.getContent(), "practices/" + file.getFilename());
             });
             ctx.result("done");
         });
-
-        //card catalog - needs to return all a json payload with all cards in alpha or states tables
-        app.get("/api/card/catalog", ctx -> ctx.json("temp"));
 
         //card creator - passes alpha and states to server for db storage
         app.post("/api/card/save", ctx -> addAlpha(serialize(clientToServerConverter(deSerializeClientAlpha(ctx.body())))));
@@ -115,7 +115,7 @@ public class App {
         alphaJson = serialize(a1);
         addAlpha(alphaJson);*/
 
-        Alpha client = new Alpha("test" , "test", "test", "red", false );
+        Alpha client = new Alpha("test" , "test", "test", "Yellow", false );
         State state1 = new State("test", 1);
         CheckListItem item1 = new CheckListItem("test");
 

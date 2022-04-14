@@ -16,6 +16,7 @@ public class Connection {
     private static final String test_call = "http://%s:%s/api/status";
     private static final String saveCard_call = "http://%s:%s/api/card/save";
     private static final String getPractices_call = "http://%s:%s/api/practice/catalog";
+    private static final String getAlphas_call = "http://%s:%s/api/card/catalog";
 
     String url;
     String port;
@@ -57,8 +58,14 @@ public class Connection {
                 .build();
     }
 
-    public String  getPractices()throws IOException, InterruptedException{
+    public String getPractices()throws IOException, InterruptedException{
         HttpRequest request = createGet(getPractices_call);
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        return response.body();
+    }
+
+    public String getAlphas()throws IOException, InterruptedException{
+        HttpRequest request = createGet(getAlphas_call);
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         return response.body();
     }
