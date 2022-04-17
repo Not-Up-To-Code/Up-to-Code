@@ -20,7 +20,7 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
       - name: Gradle Build
-        run: ./gradlew package
+        run: ./gradlew assemble
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
