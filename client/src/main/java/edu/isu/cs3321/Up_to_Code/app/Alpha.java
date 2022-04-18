@@ -31,6 +31,10 @@ public class Alpha {
         return states;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setAlpha(String alpha) {
         this.alpha = alpha;
     }
