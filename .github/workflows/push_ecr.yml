@@ -2,7 +2,7 @@ name: Push to AWS ECR
 on:
   push:
     branches:
-      - 'develop'
+      - 'main'
 jobs:
   deploy:
     name: Deploy to AWS ECR
