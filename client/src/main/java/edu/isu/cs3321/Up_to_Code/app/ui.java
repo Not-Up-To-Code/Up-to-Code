@@ -51,6 +51,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import org.checkerframework.checker.units.qual.A;
 
 import javax.swing.text.Element;
 import java.awt.*;
@@ -593,15 +594,141 @@ public class ui extends Application {
 
     }
 
-    public void showProgressPoker() throws IOException {
+    public void showProgressPoker() throws IOException, InterruptedException {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new uiController(this));
         loader.setLocation(getClass().getResource(progressPoker_FXML));
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 680);
+
+        List<Alpha> alphaList = new Gson().fromJson(connect.getAlphas(), new TypeToken<List<Alpha>>(){}.getType());
+        Map<String, String> alphaMap = new HashMap<>();
+        ChoiceBox cardSelector = (ChoiceBox) scene.lookup("#pokerCardSelector");
+
+        for (Alpha alpha : alphaList){
+            alphaMap.put(alpha.getAlpha() + " " + alpha.getId(), alpha.getAlpha());
+            cardSelector.getItems().add(alpha.getAlpha() + " " + alpha.getId());
+        }
+
         mainStage.setTitle("Essence Progress Poker");
         mainStage.setScene(scene);
     }
+
+    public void startPokerDiscussion() throws IOException, InterruptedException {
+        Scene scene = mainStage.getScene();
+
+        List<Alpha> alphaList = new Gson().fromJson(connect.getAlphas(), new TypeToken<List<Alpha>>(){}.getType());
+        ChoiceBox cardSelector = (ChoiceBox) scene.lookup("#pokerCardSelector");
+        Map<String, Alpha> alphaMap = new HashMap<>();
+
+        for (Alpha alpha : alphaList){
+            alphaMap.put(alpha.getAlpha() + " " + alpha.getId(), alpha);
+        }
+
+        Alpha discussionAlpha = alphaMap.get(cardSelector.getValue());
+
+        /**
+         * Generation of alpha to be discussed
+         */
+        StackPane alphaPane = (StackPane) scene.lookup("#pokerAlpha");
+
+        StackPane pane = new StackPane();
+        pane.setPadding(new Insets(0, 0, 0, 0));
+        pane.maxWidth(300);
+        pane.maxHeight(280);
+        pane.setAlignment(Pos.TOP_LEFT);
+
+        SVGPath back = new SVGPath();
+        back.setContent("M6.615.684H319.621c3.298 0 5.953 2.655 5.953 5.953V216.023c0 3.298-2.655 5.953-5.953 5.953H6.615c-3.298 0-5.953-2.655-5.953-5.953V6.637c0-3.298 2.655-5.953 5.953-5.953z");
+        back.setFill(Paint.valueOf("white"));
+        pane.getChildren().add(back);
+
+        SVGPath banner = new SVGPath();
+        banner.setContent("M 6.625 0.665 H 319.614 c 3.298 0 5.953 2.655 5.953 5.953 v 35.382 c 0 3.298 -2.655 5.953 -5.953 5.953 H 6.625 c -3.298 0 -5.953 -2.655 -5.953 -5.953 V 6.618 c 0 -3.298 2.655 -5.953 5.953 -5.953 z");
+        banner.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(1))));
+        pane.getChildren().add(banner);
+
+        int topMargin = 52;
+        List<SVGPath> paths = new ArrayList<>();
+        for (State state : discussionAlpha.getStates()){
+            //creates and positions svg for state border
+            SVGPath stateBorder = new SVGPath();
+            stateBorder.setContent("m15.875 38.612c-3.653 0-6.614 2.962-6.614 6.615v9.178c0 3.653 2.961 6.614 6.614 6.614h126.173c3.653 0 6.615-2.961 6.615-6.614V45.228c0-3.653-2.962-6.615-6.615-6.615zm0 1.323h126.173c2.943 0 5.292 2.349 5.292 5.292v9.178c0 2.943-2.349 5.291-5.292 5.291H15.875c-2.943 0-5.292-2.348-5.292-5.291V45.228c0-2.943 2.349-5.292 5.292-5.292z");
+            stateBorder.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+            pane.getChildren().add(stateBorder);
+            StackPane.setMargin(stateBorder, new Insets(topMargin, 0, 0, 10));
+
+            //creates and positions label with state name
+            Label label = new Label();
+            label.setText(state.getName());
+            label.setMinWidth(125);
+            label.setAlignment(Pos.CENTER);
+            label.setStyle("-fx-font-weight: Bold");
+            pane.getChildren().add(label);
+            StackPane.setMargin(label, new Insets(topMargin + 3, 0, 0, 15));
+
+            topMargin = topMargin + 28;
+        }
+        topMargin = 25;
+
+        SVGPath border = new SVGPath();
+        border.setContent("m6.618.001c-3.653 0-6.614 2.961-6.614 6.614V216.029c0 3.653 2.961 6.614 6.614 6.614H319.615c3.653 0 6.614-2.961 6.614-6.614V6.615c0-3.653-2.961-6.614-6.614-6.614zm0 1.322H319.615c2.943 0 5.291 2.349 5.291 5.292V216.029c0 2.943-2.348 5.292-5.291 5.292H6.618c-2.943 0-5.291-2.349-5.291-5.292V6.615c0-2.943 2.348-5.292 5.291-5.292z");
+        border.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+        pane.getChildren().add(border);
+
+        SVGPath symbol = new SVGPath();
+        if(!discussionAlpha.isCompetency()){
+            symbol.setContent("m27.095 7.012c-1.776-.009-2.94.029-4.454.369-1.515.341-3.427.964-4.787 2.197-1.36 1.234-1.971 2.926-2.329 4.214-.358 1.288-.473 2.344-.314 4.288.158 1.944.527 4.907 1.97 6.866 1.443 1.96 3.806 2.557 6.246 2.865 2.44.308 5.105.342 7.836.264 2.731-.078 5.858-.328 8.274-3.471.974-1.266 1.812-3.02 2.602-4.952.72 1.942 1.412 3.821 2.206 5.936l1.238-.465c-.979-2.607-1.878-5.028-2.715-7.304.882-2.424 1.701-5.083 2.521-7.773l-1.265-.387c-.653 2.14-1.33 4.156-2.011 6.138-.903-2.505-1.577-4.516-2.944-5.931-1.409-1.457-3.408-2.104-5.618-2.45-2.21-.346-4.68-.396-6.456-.404zm-.006 1.323c1.756.009 4.178.063 6.257.389 2.079.326 3.766.919 4.872 2.063 1.106 1.144 1.78 3.04 2.729 5.665.141 .391.353 .944.506 1.361-.93 2.488-1.906 4.607-2.966 5.985-2.113 2.748-4.567 2.878-7.263 2.955-2.695.077-5.301.041-7.633-.254-2.332-.295-4.24-.834-5.347-2.337-1.107-1.503-1.565-4.327-1.717-6.189-.152-1.863-.06-2.634.271-3.826.331-1.192.89-2.635 1.942-3.589 1.052-.954 2.792-1.572 4.188-1.886 1.397-.314 2.402-.345 4.158-.337z");
+            symbol.setScaleX(1.3);
+            symbol.setScaleY(1.3);
+            symbol.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+            pane.getChildren().add(symbol);
+            StackPane.setMargin(symbol, new Insets(15, 0, 0, 15));
+        }else {
+            symbol.setContent("m30.039 1.678-4.422 8.863-9.808 1.382 7.063 6.944-1.716 9.754 8.787-4.571 8.747 4.646-.232-1.385L37.057 18.928 44.179 12.045 34.383 10.579Zm-.014 3.133 3.432 7.031 7.738 1.158-5.626 5.437 1.289 7.717-6.909-3.67-6.941 3.611 1.356-7.705-5.579-5.485 7.747-1.092z");
+            symbol.setScaleX(1.3);
+            symbol.setScaleY(1.3);
+            symbol.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+            pane.getChildren().add(symbol);
+            StackPane.setMargin(symbol, new Insets(10, 0, 0, 20));
+        }
+
+        Label alphaName = new Label();
+        alphaName.setText(discussionAlpha.getAlpha());
+        alphaName.setStyle("-fx-font-style: Bold; -fx-font-size: 24");
+        pane.getChildren().add(alphaName);
+        StackPane.setMargin(alphaName, new Insets(5, 0, 0, 65));
+
+        Label alphaBrief = new Label();
+        alphaBrief.setText(discussionAlpha.getBriefDesc());
+        alphaBrief.setMaxWidth(160);
+        alphaBrief.setMaxHeight(60);
+        alphaBrief.setWrapText(true);
+        alphaBrief.setAlignment(Pos.TOP_LEFT);
+        alphaBrief.setStyle("-fx-font-size: 10");
+        pane.getChildren().add(alphaBrief);
+        StackPane.setMargin(alphaBrief, new Insets(52, 0, 0, 160));
+
+        Label alphaDetailed = new Label();
+        alphaDetailed.setText(discussionAlpha.getDetailedDesc());
+        alphaDetailed.setMaxWidth(160);
+        alphaDetailed.setMaxHeight(110);
+        alphaDetailed.setWrapText(true);
+        alphaDetailed.setAlignment(Pos.TOP_LEFT);
+        alphaDetailed.setStyle("-fx-font-size: 10");
+        pane.getChildren().add(alphaDetailed);
+        StackPane.setMargin(alphaDetailed, new Insets(100, 0, 0, 160));
+
+        alphaPane.getChildren().add(pane);
+        alphaPane.setPadding(new Insets(30, 0, 0, 250));
+
+        /**
+         * Generation of the hand
+         */
+        GridPane hand = (GridPane) scene.lookup("#pokerHand");
+    }
+
+
     public void showChaseTheState() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new uiController(this));
@@ -641,6 +768,15 @@ public class ui extends Application {
 
         alert.showAndWait();
     }
+
+    public void showCardExists() throws IOException{
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Card Contents");
+        alert.setContentText("A card of the same name and type already exist in the database.");
+
+        alert.showAndWait();
+    }
+
     public void showCardRequired() throws IOException{
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Card Contents");
