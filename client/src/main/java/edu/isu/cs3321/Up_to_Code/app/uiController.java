@@ -26,6 +26,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import org.checkerframework.checker.units.qual.A;
 
 import java.io.IOException;
 import java.util.*;
@@ -45,7 +46,7 @@ public class uiController {
     }
 
     @FXML
-    public void practiceCatalogButton(ActionEvent event) throws IOException{
+    public void practiceCatalogButton(ActionEvent event) throws IOException, InterruptedException {
         app.showPracticeCatalog();
     }
 
@@ -55,7 +56,7 @@ public class uiController {
     }
 
     @FXML
-    public void cardCatalogButton(ActionEvent event) throws IOException{
+    public void cardCatalogButton(ActionEvent event) throws IOException, InterruptedException {
         app.showCardCatalog();
     }
 
@@ -65,7 +66,7 @@ public class uiController {
     }
 
     @FXML
-    public void playProgressPokerButton(ActionEvent event) throws IOException{
+    public void playProgressPokerButton(ActionEvent event) throws IOException, InterruptedException {
         app.showProgressPoker();
     }
 
@@ -106,9 +107,21 @@ public class uiController {
 
     }
     @FXML
-    public void saveCardButton(ActionEvent event) throws IOException, InterruptedException {
+    public void saveCardButton(ActionEvent event) throws IOException, InterruptedException{
         app.updateCard();
         app.cardToJson();
+    }
+
+    /**
+     * Buttons used for Progress Poker
+     */
+    @FXML
+    public void pokerStartButton(ActionEvent event) throws IOException, InterruptedException {
+        app.startPokerDiscussion();
+    }
+    @FXML
+    public void pokerEndButton(ActionEvent event) throws IOException{
+
     }
 
 }
