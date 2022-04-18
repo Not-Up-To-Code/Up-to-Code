@@ -404,7 +404,7 @@ public class ui extends Application {
         for(String key : cardSymbols.keySet()){
             cardType.getItems().add(key);
         }
-        
+
         cardColor.setValue("Yellow");
         cardType.setValue("Alpha");
 
