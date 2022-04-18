@@ -127,10 +127,26 @@ public class ui extends Application {
             "#stateChecklist1", "#stateChecklist2", "#stateChecklist3", "#stateChecklist4", "#stateChecklist5", "#stateChecklist6"
     );
 
+    /**
+     * JavaFX variables
+     */
     Stage mainStage;
     uiController controller;
+
+    /**
+     * link format for served images from server
+     */
     String imageURL = "http://%s:%s/images/%s";
 
+    /**
+     * Variable for tracking gameplay
+     */
+    int stateCounterOne = 0;
+    int stateCounterTwo = 0;
+    int stateCounterThree = 0;
+    int stateCounterFour = 0;
+    int stateCounterFive = 0;
+    int stateCounterSix = 0;
 
     public static void main(String[] args) {
         launch(args);
@@ -639,65 +655,65 @@ public class ui extends Application {
         pane.setAlignment(Pos.TOP_LEFT);
 
         SVGPath back = new SVGPath();
-        back.setContent("M6.615.684H319.621c3.298 0 5.953 2.655 5.953 5.953V216.023c0 3.298-2.655 5.953-5.953 5.953H6.615c-3.298 0-5.953-2.655-5.953-5.953V6.637c0-3.298 2.655-5.953 5.953-5.953z");
+        back.setContent("M11.907 1.231H575.318c5.936 0 10.715 4.779 10.715 10.715V388.841c0 5.936-4.779 10.715-10.715 10.715H11.907c-5.936 0-10.715-4.779-10.715-10.715V11.947c0-5.936 4.779-10.715 10.715-10.715z");
         back.setFill(Paint.valueOf("white"));
         pane.getChildren().add(back);
 
         SVGPath banner = new SVGPath();
-        banner.setContent("M 6.625 0.665 H 319.614 c 3.298 0 5.953 2.655 5.953 5.953 v 35.382 c 0 3.298 -2.655 5.953 -5.953 5.953 H 6.625 c -3.298 0 -5.953 -2.655 -5.953 -5.953 V 6.618 c 0 -3.298 2.655 -5.953 5.953 -5.953 z");
+        banner.setContent("M11.925 1.197H575.305c5.936 0 10.715 4.779 10.715 10.715v63.688c0 5.936-4.779 10.715-10.715 10.715H11.925c-5.936 0-10.715-4.779-10.715-10.715V11.912c0-5.936 4.779-10.715 10.715-10.715z");
         banner.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(1))));
         pane.getChildren().add(banner);
 
-        int topMargin = 52;
+        int topMargin = 104;
         List<SVGPath> paths = new ArrayList<>();
         for (State state : discussionAlpha.getStates()){
             //creates and positions svg for state border
             SVGPath stateBorder = new SVGPath();
-            stateBorder.setContent("m15.875 38.612c-3.653 0-6.614 2.962-6.614 6.615v9.178c0 3.653 2.961 6.614 6.614 6.614h126.173c3.653 0 6.615-2.961 6.615-6.614V45.228c0-3.653-2.962-6.615-6.615-6.615zm0 1.323h126.173c2.943 0 5.292 2.349 5.292 5.292v9.178c0 2.943-2.349 5.291-5.292 5.291H15.875c-2.943 0-5.292-2.348-5.292-5.291V45.228c0-2.943 2.349-5.292 5.292-5.292z");
+            stateBorder.setContent("m28.575 69.502c-6.575 0-11.905 5.332-11.905 11.907v16.52c0 6.575 5.33 11.905 11.905 11.905h227.111c6.575 0 11.907-5.33 11.907-11.905V81.41c0-6.575-5.332-11.907-11.907-11.907zm0 2.381h227.111c5.297 0 9.526 4.228 9.526 9.526v16.52c0 5.297-4.228 9.524-9.526 9.524H28.575c-5.297 0-9.526-4.226-9.526-9.524V81.41c0-5.297 4.228-9.526 9.526-9.526z");
             stateBorder.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
             pane.getChildren().add(stateBorder);
-            StackPane.setMargin(stateBorder, new Insets(topMargin, 0, 0, 10));
+            StackPane.setMargin(stateBorder, new Insets(topMargin, 0, 0, 20));
 
             //creates and positions label with state name
             Label label = new Label();
             label.setText(state.getName());
             label.setMinWidth(125);
             label.setAlignment(Pos.CENTER);
-            label.setStyle("-fx-font-weight: Bold");
+            label.setStyle("-fx-font-size: 20; -fx-font-weight: Bold");
             pane.getChildren().add(label);
-            StackPane.setMargin(label, new Insets(topMargin + 3, 0, 0, 15));
+            StackPane.setMargin(label, new Insets(topMargin + 6, 0, 0, 30));
 
-            topMargin = topMargin + 28;
+            topMargin = topMargin + 56;
         }
-        topMargin = 25;
+        topMargin = 104;
 
         SVGPath border = new SVGPath();
-        border.setContent("m6.618.001c-3.653 0-6.614 2.961-6.614 6.614V216.029c0 3.653 2.961 6.614 6.614 6.614H319.615c3.653 0 6.614-2.961 6.614-6.614V6.615c0-3.653-2.961-6.614-6.614-6.614zm0 1.322H319.615c2.943 0 5.291 2.349 5.291 5.292V216.029c0 2.943-2.348 5.292-5.291 5.292H6.618c-2.943 0-5.291-2.349-5.291-5.292V6.615c0-2.943 2.348-5.292 5.291-5.292z");
+        border.setContent("m11.912.002c-6.575 0-11.905 5.33-11.905 11.905V388.852c0 6.575 5.33 11.905 11.905 11.905H575.307c6.575 0 11.905-5.33 11.905-11.905V11.907c0-6.575-5.33-11.905-11.905-11.905zm0 2.38H575.307c5.297 0 9.524 4.228 9.524 9.526V388.852c0 5.297-4.226 9.526-9.524 9.526H11.912c-5.297 0-9.524-4.228-9.524-9.526V11.907c0-5.297 4.226-9.526 9.524-9.526z");
         border.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
         pane.getChildren().add(border);
 
         SVGPath symbol = new SVGPath();
         if(!discussionAlpha.isCompetency()){
-            symbol.setContent("m27.095 7.012c-1.776-.009-2.94.029-4.454.369-1.515.341-3.427.964-4.787 2.197-1.36 1.234-1.971 2.926-2.329 4.214-.358 1.288-.473 2.344-.314 4.288.158 1.944.527 4.907 1.97 6.866 1.443 1.96 3.806 2.557 6.246 2.865 2.44.308 5.105.342 7.836.264 2.731-.078 5.858-.328 8.274-3.471.974-1.266 1.812-3.02 2.602-4.952.72 1.942 1.412 3.821 2.206 5.936l1.238-.465c-.979-2.607-1.878-5.028-2.715-7.304.882-2.424 1.701-5.083 2.521-7.773l-1.265-.387c-.653 2.14-1.33 4.156-2.011 6.138-.903-2.505-1.577-4.516-2.944-5.931-1.409-1.457-3.408-2.104-5.618-2.45-2.21-.346-4.68-.396-6.456-.404zm-.006 1.323c1.756.009 4.178.063 6.257.389 2.079.326 3.766.919 4.872 2.063 1.106 1.144 1.78 3.04 2.729 5.665.141 .391.353 .944.506 1.361-.93 2.488-1.906 4.607-2.966 5.985-2.113 2.748-4.567 2.878-7.263 2.955-2.695.077-5.301.041-7.633-.254-2.332-.295-4.24-.834-5.347-2.337-1.107-1.503-1.565-4.327-1.717-6.189-.152-1.863-.06-2.634.271-3.826.331-1.192.89-2.635 1.942-3.589 1.052-.954 2.792-1.572 4.188-1.886 1.397-.314 2.402-.345 4.158-.337z");
+            symbol.setContent("m48.771 12.622c-3.197-.016-5.292.052-8.017.664-2.727.614-6.169 1.735-8.617 3.955-2.448 2.221-3.548 5.267-4.192 7.585-.644 2.318-.851 4.219-.565 7.718.284 3.499.949 8.833 3.546 12.359 2.597 3.528 6.851 4.603 11.243 5.157 4.392.554 9.189.616 14.105.475 4.916-.14 10.544-.59 14.893-6.248 1.753-2.279 3.262-5.436 4.684-8.914 1.296 3.496 2.542 6.878 3.971 10.685l2.228-.837c-1.762-4.693-3.38-9.05-4.887-13.147 1.588-4.363 3.062-9.149 4.538-13.991l-2.277-.697c-1.175 3.852-2.394 7.481-3.62 11.048-1.625-4.509-2.839-8.129-5.299-10.676-2.536-2.623-6.134-3.787-10.112-4.41-3.978-.623-8.424-.713-11.621-.727zm-.011 2.381c3.161.016 7.52.113 11.263.7 3.742.587 6.779 1.654 8.77 3.713 1.991 2.059 3.204 5.472 4.912 10.197.254 .704.635 1.699.911 2.45-1.674 4.478-3.431 8.293-5.339 10.773-3.803 4.946-8.221 5.18-13.073 5.319-4.851.139-9.542.074-13.739-.457-4.198-.531-7.632-1.501-9.625-4.207-1.993-2.705-2.817-7.789-3.091-11.14-.274-3.353-.108-4.741.488-6.887.596-2.146 1.602-4.743 3.496-6.46 1.894-1.717 5.026-2.83 7.538-3.395 2.515-.565 4.324-.621 7.484-.607z");
             symbol.setScaleX(1.3);
             symbol.setScaleY(1.3);
             symbol.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
             pane.getChildren().add(symbol);
-            StackPane.setMargin(symbol, new Insets(15, 0, 0, 15));
+            StackPane.setMargin(symbol, new Insets(30, 0, 0, 30));
         }else {
-            symbol.setContent("m30.039 1.678-4.422 8.863-9.808 1.382 7.063 6.944-1.716 9.754 8.787-4.571 8.747 4.646-.232-1.385L37.057 18.928 44.179 12.045 34.383 10.579Zm-.014 3.133 3.432 7.031 7.738 1.158-5.626 5.437 1.289 7.717-6.909-3.67-6.941 3.611 1.356-7.705-5.579-5.485 7.747-1.092z");
+            symbol.setContent("m54.07 3.02-7.96 15.953-17.654 2.488 12.713 12.499-3.089 17.557 15.817-8.228 15.745 8.363-.418-2.493L66.703 34.07 79.522 21.681 61.889 19.042Zm-.025 5.639 6.178 12.656 13.928 2.084-10.127 9.787 2.32 13.891-12.436-6.606-12.494 6.5 2.441-13.869-10.042-9.873 13.945-1.966z");
             symbol.setScaleX(1.3);
             symbol.setScaleY(1.3);
             symbol.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
             pane.getChildren().add(symbol);
-            StackPane.setMargin(symbol, new Insets(10, 0, 0, 20));
+            StackPane.setMargin(symbol, new Insets(10, 0, 0, 40));
         }
 
         Label alphaName = new Label();
         alphaName.setText(discussionAlpha.getAlpha());
-        alphaName.setStyle("-fx-font-style: Bold; -fx-font-size: 24");
+        alphaName.setStyle("-fx-font-style: Bold; -fx-font-size: 36");
         pane.getChildren().add(alphaName);
-        StackPane.setMargin(alphaName, new Insets(5, 0, 0, 65));
+        StackPane.setMargin(alphaName, new Insets(20, 0, 0, 130));
 
         Label alphaBrief = new Label();
         alphaBrief.setText(discussionAlpha.getBriefDesc());
@@ -705,9 +721,9 @@ public class ui extends Application {
         alphaBrief.setMaxHeight(60);
         alphaBrief.setWrapText(true);
         alphaBrief.setAlignment(Pos.TOP_LEFT);
-        alphaBrief.setStyle("-fx-font-size: 10");
+        alphaBrief.setStyle("-fx-font-size: 16");
         pane.getChildren().add(alphaBrief);
-        StackPane.setMargin(alphaBrief, new Insets(52, 0, 0, 160));
+        StackPane.setMargin(alphaBrief, new Insets(104, 0, 0, 320));
 
         Label alphaDetailed = new Label();
         alphaDetailed.setText(discussionAlpha.getDetailedDesc());
@@ -715,17 +731,18 @@ public class ui extends Application {
         alphaDetailed.setMaxHeight(110);
         alphaDetailed.setWrapText(true);
         alphaDetailed.setAlignment(Pos.TOP_LEFT);
-        alphaDetailed.setStyle("-fx-font-size: 10");
+        alphaDetailed.setStyle("-fx-font-size: 16");
         pane.getChildren().add(alphaDetailed);
-        StackPane.setMargin(alphaDetailed, new Insets(100, 0, 0, 160));
+        StackPane.setMargin(alphaDetailed, new Insets(200, 0, 0, 320));
 
         alphaPane.getChildren().add(pane);
-        alphaPane.setPadding(new Insets(30, 0, 0, 250));
+        alphaPane.setPadding(new Insets(30, 0, 0, 125));
 
         /**
          * Generation of the hand
          */
         GridPane hand = (GridPane) scene.lookup("#pokerHand");
+
     }
 
 
