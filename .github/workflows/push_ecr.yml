@@ -2,7 +2,7 @@ name: Push to AWS ECR
 on:
   push:
     branches:
-      - 'main'
+      - 'develop'
 jobs:
   deploy:
     name: Deploy to AWS ECR
@@ -20,7 +20,7 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
       - name: Gradle Build
-        run: ./gradlew assemble
+        run: ./gradlew build
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
