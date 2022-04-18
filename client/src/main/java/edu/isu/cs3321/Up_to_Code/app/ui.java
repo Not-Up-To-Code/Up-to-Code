@@ -51,6 +51,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import org.checkerframework.checker.units.qual.A;
 
 import javax.swing.text.Element;
 import java.awt.*;
@@ -126,10 +127,26 @@ public class ui extends Application {
             "#stateChecklist1", "#stateChecklist2", "#stateChecklist3", "#stateChecklist4", "#stateChecklist5", "#stateChecklist6"
     );
 
+    /**
+     * JavaFX variables
+     */
     Stage mainStage;
     uiController controller;
+
+    /**
+     * link format for served images from server
+     */
     String imageURL = "http://%s:%s/images/%s";
 
+    /**
+     * Variable for tracking gameplay
+     */
+    int stateCounterOne = 0;
+    int stateCounterTwo = 0;
+    int stateCounterThree = 0;
+    int stateCounterFour = 0;
+    int stateCounterFive = 0;
+    int stateCounterSix = 0;
 
     public static void main(String[] args) {
         launch(args);
@@ -593,15 +610,142 @@ public class ui extends Application {
 
     }
 
-    public void showProgressPoker() throws IOException {
+    public void showProgressPoker() throws IOException, InterruptedException {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new uiController(this));
         loader.setLocation(getClass().getResource(progressPoker_FXML));
         Parent root = loader.load();
         Scene scene = new Scene(root, 1000, 680);
+
+        List<Alpha> alphaList = new Gson().fromJson(connect.getAlphas(), new TypeToken<List<Alpha>>(){}.getType());
+        Map<String, String> alphaMap = new HashMap<>();
+        ChoiceBox cardSelector = (ChoiceBox) scene.lookup("#pokerCardSelector");
+
+        for (Alpha alpha : alphaList){
+            alphaMap.put(alpha.getAlpha() + " " + alpha.getId(), alpha.getAlpha());
+            cardSelector.getItems().add(alpha.getAlpha() + " " + alpha.getId());
+        }
+
         mainStage.setTitle("Essence Progress Poker");
         mainStage.setScene(scene);
     }
+
+    public void startPokerDiscussion() throws IOException, InterruptedException {
+        Scene scene = mainStage.getScene();
+
+        List<Alpha> alphaList = new Gson().fromJson(connect.getAlphas(), new TypeToken<List<Alpha>>(){}.getType());
+        ChoiceBox cardSelector = (ChoiceBox) scene.lookup("#pokerCardSelector");
+        Map<String, Alpha> alphaMap = new HashMap<>();
+
+        for (Alpha alpha : alphaList){
+            alphaMap.put(alpha.getAlpha() + " " + alpha.getId(), alpha);
+        }
+
+        Alpha discussionAlpha = alphaMap.get(cardSelector.getValue());
+
+        /**
+         * Generation of alpha to be discussed
+         */
+        StackPane alphaPane = (StackPane) scene.lookup("#pokerAlpha");
+
+        StackPane pane = new StackPane();
+        pane.setPadding(new Insets(0, 0, 0, 0));
+        pane.maxWidth(300);
+        pane.maxHeight(280);
+        pane.setAlignment(Pos.TOP_LEFT);
+
+        SVGPath back = new SVGPath();
+        back.setContent("M11.907 1.231H575.318c5.936 0 10.715 4.779 10.715 10.715V388.841c0 5.936-4.779 10.715-10.715 10.715H11.907c-5.936 0-10.715-4.779-10.715-10.715V11.947c0-5.936 4.779-10.715 10.715-10.715z");
+        back.setFill(Paint.valueOf("white"));
+        pane.getChildren().add(back);
+
+        SVGPath banner = new SVGPath();
+        banner.setContent("M11.925 1.197H575.305c5.936 0 10.715 4.779 10.715 10.715v63.688c0 5.936-4.779 10.715-10.715 10.715H11.925c-5.936 0-10.715-4.779-10.715-10.715V11.912c0-5.936 4.779-10.715 10.715-10.715z");
+        banner.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(1))));
+        pane.getChildren().add(banner);
+
+        int topMargin = 104;
+        List<SVGPath> paths = new ArrayList<>();
+        for (State state : discussionAlpha.getStates()){
+            //creates and positions svg for state border
+            SVGPath stateBorder = new SVGPath();
+            stateBorder.setContent("m28.575 69.502c-6.575 0-11.905 5.332-11.905 11.907v16.52c0 6.575 5.33 11.905 11.905 11.905h227.111c6.575 0 11.907-5.33 11.907-11.905V81.41c0-6.575-5.332-11.907-11.907-11.907zm0 2.381h227.111c5.297 0 9.526 4.228 9.526 9.526v16.52c0 5.297-4.228 9.524-9.526 9.524H28.575c-5.297 0-9.526-4.226-9.526-9.524V81.41c0-5.297 4.228-9.526 9.526-9.526z");
+            stateBorder.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+            pane.getChildren().add(stateBorder);
+            StackPane.setMargin(stateBorder, new Insets(topMargin, 0, 0, 20));
+
+            //creates and positions label with state name
+            Label label = new Label();
+            label.setText(state.getName());
+            label.setMinWidth(125);
+            label.setAlignment(Pos.CENTER);
+            label.setStyle("-fx-font-size: 20; -fx-font-weight: Bold");
+            pane.getChildren().add(label);
+            StackPane.setMargin(label, new Insets(topMargin + 6, 0, 0, 30));
+
+            topMargin = topMargin + 56;
+        }
+        topMargin = 104;
+
+        SVGPath border = new SVGPath();
+        border.setContent("m11.912.002c-6.575 0-11.905 5.33-11.905 11.905V388.852c0 6.575 5.33 11.905 11.905 11.905H575.307c6.575 0 11.905-5.33 11.905-11.905V11.907c0-6.575-5.33-11.905-11.905-11.905zm0 2.38H575.307c5.297 0 9.524 4.228 9.524 9.526V388.852c0 5.297-4.226 9.526-9.524 9.526H11.912c-5.297 0-9.524-4.228-9.524-9.526V11.907c0-5.297 4.226-9.526 9.524-9.526z");
+        border.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+        pane.getChildren().add(border);
+
+        SVGPath symbol = new SVGPath();
+        if(!discussionAlpha.isCompetency()){
+            symbol.setContent("m48.771 12.622c-3.197-.016-5.292.052-8.017.664-2.727.614-6.169 1.735-8.617 3.955-2.448 2.221-3.548 5.267-4.192 7.585-.644 2.318-.851 4.219-.565 7.718.284 3.499.949 8.833 3.546 12.359 2.597 3.528 6.851 4.603 11.243 5.157 4.392.554 9.189.616 14.105.475 4.916-.14 10.544-.59 14.893-6.248 1.753-2.279 3.262-5.436 4.684-8.914 1.296 3.496 2.542 6.878 3.971 10.685l2.228-.837c-1.762-4.693-3.38-9.05-4.887-13.147 1.588-4.363 3.062-9.149 4.538-13.991l-2.277-.697c-1.175 3.852-2.394 7.481-3.62 11.048-1.625-4.509-2.839-8.129-5.299-10.676-2.536-2.623-6.134-3.787-10.112-4.41-3.978-.623-8.424-.713-11.621-.727zm-.011 2.381c3.161.016 7.52.113 11.263.7 3.742.587 6.779 1.654 8.77 3.713 1.991 2.059 3.204 5.472 4.912 10.197.254 .704.635 1.699.911 2.45-1.674 4.478-3.431 8.293-5.339 10.773-3.803 4.946-8.221 5.18-13.073 5.319-4.851.139-9.542.074-13.739-.457-4.198-.531-7.632-1.501-9.625-4.207-1.993-2.705-2.817-7.789-3.091-11.14-.274-3.353-.108-4.741.488-6.887.596-2.146 1.602-4.743 3.496-6.46 1.894-1.717 5.026-2.83 7.538-3.395 2.515-.565 4.324-.621 7.484-.607z");
+            symbol.setScaleX(1.3);
+            symbol.setScaleY(1.3);
+            symbol.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+            pane.getChildren().add(symbol);
+            StackPane.setMargin(symbol, new Insets(30, 0, 0, 30));
+        }else {
+            symbol.setContent("m54.07 3.02-7.96 15.953-17.654 2.488 12.713 12.499-3.089 17.557 15.817-8.228 15.745 8.363-.418-2.493L66.703 34.07 79.522 21.681 61.889 19.042Zm-.025 5.639 6.178 12.656 13.928 2.084-10.127 9.787 2.32 13.891-12.436-6.606-12.494 6.5 2.441-13.869-10.042-9.873 13.945-1.966z");
+            symbol.setScaleX(1.3);
+            symbol.setScaleY(1.3);
+            symbol.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+            pane.getChildren().add(symbol);
+            StackPane.setMargin(symbol, new Insets(10, 0, 0, 40));
+        }
+
+        Label alphaName = new Label();
+        alphaName.setText(discussionAlpha.getAlpha());
+        alphaName.setStyle("-fx-font-style: Bold; -fx-font-size: 36");
+        pane.getChildren().add(alphaName);
+        StackPane.setMargin(alphaName, new Insets(20, 0, 0, 130));
+
+        Label alphaBrief = new Label();
+        alphaBrief.setText(discussionAlpha.getBriefDesc());
+        alphaBrief.setMaxWidth(160);
+        alphaBrief.setMaxHeight(60);
+        alphaBrief.setWrapText(true);
+        alphaBrief.setAlignment(Pos.TOP_LEFT);
+        alphaBrief.setStyle("-fx-font-size: 16");
+        pane.getChildren().add(alphaBrief);
+        StackPane.setMargin(alphaBrief, new Insets(104, 0, 0, 320));
+
+        Label alphaDetailed = new Label();
+        alphaDetailed.setText(discussionAlpha.getDetailedDesc());
+        alphaDetailed.setMaxWidth(160);
+        alphaDetailed.setMaxHeight(110);
+        alphaDetailed.setWrapText(true);
+        alphaDetailed.setAlignment(Pos.TOP_LEFT);
+        alphaDetailed.setStyle("-fx-font-size: 16");
+        pane.getChildren().add(alphaDetailed);
+        StackPane.setMargin(alphaDetailed, new Insets(200, 0, 0, 320));
+
+        alphaPane.getChildren().add(pane);
+        alphaPane.setPadding(new Insets(30, 0, 0, 125));
+
+        /**
+         * Generation of the hand
+         */
+        GridPane hand = (GridPane) scene.lookup("#pokerHand");
+
+    }
+
+
     public void showChaseTheState() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new uiController(this));
@@ -641,6 +785,15 @@ public class ui extends Application {
 
         alert.showAndWait();
     }
+
+    public void showCardExists() throws IOException{
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Card Contents");
+        alert.setContentText("A card of the same name and type already exist in the database.");
+
+        alert.showAndWait();
+    }
+
     public void showCardRequired() throws IOException{
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Card Contents");
