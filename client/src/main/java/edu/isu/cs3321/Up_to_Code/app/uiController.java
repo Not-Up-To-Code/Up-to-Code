@@ -22,17 +22,34 @@
 
 package edu.isu.cs3321.Up_to_Code.app;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import org.checkerframework.checker.units.qual.A;
 
+import javax.imageio.ImageIO;
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
 public class uiController {
     private ui app;
+
+    DraggableMaker draggableMaker = new DraggableMaker();
+
+    ArrayList<Node> components = new ArrayList<>();
+
+    @FXML
+    private AnchorPane practiceAnchor;
+
 
     public uiController(ui app){
         this.app = app;
@@ -124,4 +141,117 @@ public class uiController {
 
     }
 
+    /**
+     * Controlls for practice maker
+     */
+    public void addAlpha() throws IOException {
+        AnchorPane alpha = new AnchorPane();
+        alpha = FXMLLoader.load(getClass().getResource("/alpha.fxml"));
+        practiceAnchor.getChildren().add(alpha);
+        draggableMaker.makeDraggable(alpha);
+        components.add(alpha);
+    }
+
+    public void addActivity() throws IOException {
+        AnchorPane activity = new AnchorPane();
+        activity = FXMLLoader.load(getClass().getResource("/activity.fxml"));
+        practiceAnchor.getChildren().add(activity);
+        draggableMaker.makeDraggable(activity);
+        components.add(activity);
+    }
+
+    public void addCompetency() throws IOException {
+        AnchorPane competency = new AnchorPane();
+        competency = FXMLLoader.load(getClass().getResource("/competency.fxml"));
+        practiceAnchor.getChildren().add(competency);
+        draggableMaker.makeDraggable(competency);
+        components.add(competency);
+    }
+
+    public void addWork() throws IOException {
+        AnchorPane product = new AnchorPane();
+        product = FXMLLoader.load(getClass().getResource("/product.fxml"));
+        practiceAnchor.getChildren().add(product);
+        draggableMaker.makeDraggable(product);
+        components.add(product);
+    }
+
+    public void addLineLeft() throws IOException {
+        AnchorPane lineLeftDiagonal = new AnchorPane();
+        lineLeftDiagonal = FXMLLoader.load(getClass().getResource("/lineLeftDiagonal.fxml"));
+        practiceAnchor.getChildren().add(lineLeftDiagonal);
+        draggableMaker.makeDraggable(lineLeftDiagonal);
+        components.add(lineLeftDiagonal);
+    }
+
+    public void addLineRight() throws IOException {
+        AnchorPane lineRightDiagonal = new AnchorPane();
+        lineRightDiagonal = FXMLLoader.load(getClass().getResource("/lineRightDiagonal.fxml"));
+        practiceAnchor.getChildren().add(lineRightDiagonal);
+        draggableMaker.makeDraggable(lineRightDiagonal);
+        components.add(lineRightDiagonal);
+    }
+
+    public void addLineHorizontal() throws IOException {
+        AnchorPane lineHorizontal = new AnchorPane();
+        lineHorizontal = FXMLLoader.load(getClass().getResource("/lineHorizontal.fxml"));
+        practiceAnchor.getChildren().add(lineHorizontal);
+        draggableMaker.makeDraggable(lineHorizontal);
+        components.add(lineHorizontal);
+    }
+
+    public void addLineVertical() throws IOException {
+        AnchorPane lineVertical = new AnchorPane();
+        lineVertical = FXMLLoader.load(getClass().getResource("/lineVertical.fxml"));
+        practiceAnchor.getChildren().add(lineVertical);
+        draggableMaker.makeDraggable(lineVertical);
+        components.add(lineVertical);
+    }
+
+    public void newDiagram() throws IOException{
+        for(Node node: components){
+            practiceAnchor.getChildren().remove(node);
+        }
+        components.removeAll(components);
+    }
+
+    public double getY(){
+        double max = 0;
+        for(Node node: components){
+            if((node.getLayoutY() + node.getBoundsInParent().getHeight()) > max){
+                max = node.getLayoutY() + node.getBoundsInParent().getHeight();
+            }
+        }
+        return max;
+    }
+
+    public double getX(){
+        double max = 0;
+        for(Node node: components){
+            if((node.getLayoutX() + node.getBoundsInParent().getWidth()) > max){
+                max = node.getLayoutX() + node.getBoundsInParent().getWidth();
+            }
+        }
+        return max;
+    }
+
+    public void exportDiagram() throws IOException {
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.getDialogPane().setContentText("Save image as:");
+        Optional<String> result = inputDialog.showAndWait();
+        if (result.isPresent()) {
+            TextField userInput = inputDialog.getEditor();
+            Group root = new Group();
+            for (Node node : components) {
+                root.getChildren().add(node);
+            }
+            Scene scene = new Scene(root, getX() + 10, getY() + 10);
+            WritableImage imgReturn = scene.snapshot(null);
+            File file = new File("" + userInput.getText() + ".png");
+            ImageIO.write(SwingFXUtils.fromFXImage(imgReturn, null), "png", file);
+            for (Node node : components) {
+                practiceAnchor.getChildren().add(node);
+            }
+        }
+    }
 }

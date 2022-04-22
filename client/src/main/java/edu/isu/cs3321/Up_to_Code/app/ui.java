@@ -717,23 +717,23 @@ public class ui extends Application {
 
         Label alphaBrief = new Label();
         alphaBrief.setText(discussionAlpha.getBriefDesc());
-        alphaBrief.setMaxWidth(160);
+        alphaBrief.setMaxWidth(275);
         alphaBrief.setMaxHeight(60);
         alphaBrief.setWrapText(true);
         alphaBrief.setAlignment(Pos.TOP_LEFT);
         alphaBrief.setStyle("-fx-font-size: 16");
         pane.getChildren().add(alphaBrief);
-        StackPane.setMargin(alphaBrief, new Insets(104, 0, 0, 320));
+        StackPane.setMargin(alphaBrief, new Insets(104, 0, 0, 300));
 
         Label alphaDetailed = new Label();
         alphaDetailed.setText(discussionAlpha.getDetailedDesc());
-        alphaDetailed.setMaxWidth(160);
+        alphaDetailed.setMaxWidth(275);
         alphaDetailed.setMaxHeight(110);
         alphaDetailed.setWrapText(true);
         alphaDetailed.setAlignment(Pos.TOP_LEFT);
         alphaDetailed.setStyle("-fx-font-size: 16");
         pane.getChildren().add(alphaDetailed);
-        StackPane.setMargin(alphaDetailed, new Insets(200, 0, 0, 320));
+        StackPane.setMargin(alphaDetailed, new Insets(200, 0, 0, 300));
 
         alphaPane.getChildren().add(pane);
         alphaPane.setPadding(new Insets(30, 0, 0, 125));
