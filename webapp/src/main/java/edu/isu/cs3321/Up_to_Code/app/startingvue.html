@@ -1,0 +1,75 @@
+<html lange="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial - index=1.0">
+        <title>learnin view</title>
+        <script src="https://unpkg.com/vue@3.0.2"></script>
+
+
+        <style>
+            .box{
+                padding: 100px 0;
+                width: 400px;
+                text-align: center;
+                background: #ddd;
+                margin: 20px;
+                display: inline-block;
+            }
+        </style>
+
+
+
+        
+    </head>
+    <body>
+        <h1>hey there how u doin</h1>
+        <div>
+            <draw-rectangle-board> hello </draw-rectangle-board>
+          </div> 
+
+        <div id="app">
+            <a v-bind:href="url"> i am the best you know</a>
+
+
+
+          <div v-if="showBooks">
+              
+            <p> {{title}}-{{author}}-{{age}} </p>
+              
+
+              <ul>
+                  <li v-for="book in books">
+                      <img v-bind:src="book.img" v-bind:alt="book.title">
+                    <h3>{{ book.title }}</h3> 
+                     <p>{{ book.author }}</p>
+                  </li>
+              </ul>
+          </div>
+
+          <button v-on:click="toggleShowBooks">
+              <span v-if="showBooks">Hide Books</span>
+              <span v-else>Show Books</span>
+              <span v-if="!showBooks">Show Books</span>
+          </button>
+
+
+          <!--
+          <br>
+          <div class="box" v-on:mouseover="handleEvent($event,5)"> mouseover (enter)</div>
+          <div class="box" v-on:mouseleave="handleEvent"> mouseleave</div>
+          <div class="box" @dblclick="handleEvent"> double click</div>
+          <div class="box" @mousemove="handleMousemove">position -{{x}}-{{y}}</div>
+
+          
+          <button v-on:click="age ++">Increase age</button>
+          <button v-on:click="age --">Decrease age</button>
+          <div @click="changeTitle('Oathorringer')"> change book title</div>
+          -->
+
+            <div v-show="showBooks">cureently showing books</div>
+
+        </div>
+
+        <script src="app.js" ></script>
+    </body>
+</html>

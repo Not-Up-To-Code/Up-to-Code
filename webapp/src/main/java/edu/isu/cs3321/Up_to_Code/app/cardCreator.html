@@ -1,17 +1,145 @@
+<script type="importmap">
+    { "imports": {
+      "vue":        "https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.0-beta.14/vue.esm-browser.js",
+      "vue-router": "https://cdnjs.cloudflare.com/ajax/libs/vue-router/4.0.0-alpha.12/vue-router.esm.js",
+      "vuex":       "https://cdnjs.cloudflare.com/ajax/libs/vuex/4.0.0-beta.2/vuex.esm-browser.js"
+    } }
+    </script>
+
+<script type="module">
+    import { createApp } from 'vue'
+    
+    createApp({
+      data() {
+        return {
+          text: 'Edit me',
+          checked: true,
+          checkedNames: ['Jack'],
+          picked: 'One',
+          selected: 'Alpha',
+          multiSelected: ['A']
+        }
+      }
+    }).mount('#app')
+    </script>
+    
 <!DOCTYPE html>
 <html lang="en">
+
+
+
 <head>
     <meta charset="UTF-8">
     <title>Essence Kernel Tools</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .ShowStateCards{
+            position: absolute;
+            bottom: 170px;
+            left: 300px;
+            margin: 50px;
+            display: inline-block;
+        }
+
+        .ShowAlphaCard{
+        position: absolute;
+        bottom: 170px;
+        left: 600px;
+        margin: 50px;
+        display: inline-block;
+    }
+    .SaveCard{
+        position: absolute;
+        bottom: 170px;
+        left: 900px;
+        margin: 50px;
+        display: inline-block;
+    }
+    .UpdateCard{
+        position: absolute;
+        bottom: 670px;
+        left: 900px;
+        margin: 50px;
+        display: inline-block;
+    }
+    .CardTypeToolbar{
+        position: absolute;
+        bottom: 670px;
+        left: 300px;
+        margin: 50px;
+        display: inline-block;
+    }
+    .CardColorToolbar{
+        position: absolute;
+        bottom: 670px;
+        left: 600px;
+        margin: 50px;
+        display: inline-block;
+    }
+    .CardType{
+        position: absolute;
+        bottom: 700px;
+        left: 320px;
+        margin: 50px;
+        display: inline-block;
+    }
+    .CardColor{
+        position: absolute;
+        bottom: 700px;
+        left: 620px;
+        margin: 50px;
+        display: inline-block;
+    }
+</style>
+
+
+
+
 </head>
+
 <body id="body">
     <div class="grid-container">
+        <div id="app">
+            <p class="CardType">Card Type</p>
+            <p class="CardColor">Card Color</p>
+            <select class="CardTypeToolbar" v-model="selected">
+                <option disabled value="">Please select one</option>
+                <option>Alpha</option>
+                <option>Competency</option>
+              </select>
+              <span class="CardColorToolbar">Selected: {{ selected }}</span>
+
+              <select class="CardColorToolbar" v-model="selected">
+                <option disabled value="">Please select one</option>
+                <option>Yellow</option>
+                <option>Blue</option>
+                <option>Green</option>
+              </select>
+              <span style="color: brown;">Selected: {{ selected }}</span>
+
+            <div>
+               <button class="ShowStateCards">Show State Cards</button>
+            </div>
+
+            <div>
+                <button class="ShowAlphaCard">Show Alpha Card</button>
+             </div>
+
+             <div>
+                <button class="SaveCard">Save Card</button>
+             </div>
+             <div>
+                <button class="UpdateCard">Update Card</button>
+             </div>
+        
         <div id="header" class="header">
             <h1>
                 Essence Kernel Tools
             </h1>
         </div>
+
+        
 
         <div id="menu" class="menu">
             <a href="index.html">Home</a>
@@ -29,5 +157,7 @@
 
         </div>
     </div>
+    </div>
+
 </body>
 </html>
