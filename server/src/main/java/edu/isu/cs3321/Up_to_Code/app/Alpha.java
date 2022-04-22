@@ -11,6 +11,19 @@ public class Alpha {
     private int id;
     private List<State> states = new ArrayList<>();
 
+    @Override
+    public String toString() {
+        return "Alpha{" +
+                "alpha='" + alpha + '\'' +
+                ", briefDesc='" + briefDesc + '\'' +
+                ", detailedDesc='" + detailedDesc + '\'' +
+                ", color='" + color + '\'' +
+                ", isCompetency=" + isCompetency +
+                ", id=" + id +
+                ", states=" + states +
+                '}';
+    }
+
     public String getAlpha() {
         return alpha;
     }
@@ -77,6 +90,9 @@ public class Alpha {
         this.color = color;
         this.isCompetency = isCompetency;
         this.id = id;
+    }
+
+    public Alpha() {
     }
 
     public int getId() {

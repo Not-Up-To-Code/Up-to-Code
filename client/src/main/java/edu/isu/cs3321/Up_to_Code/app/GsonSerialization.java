@@ -10,4 +10,8 @@ public class GsonSerialization {
         Gson gson = builder.create();
         return gson.toJson(x);
     }
+    public static Alpha deSerializeClientAlpha(String jsonString){
+        Gson gson = new Gson();
+        return gson.fromJson(jsonString, Alpha.class);
+    }
 }

@@ -7,6 +7,10 @@ public class State {
     private int stateOrder;
     private List<CheckListItem> checklist = new ArrayList<>();
 
+    public State() {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -37,6 +41,15 @@ public class State {
         setName(name);
 
         this.stateOrder = stateOrder;
+    }
+
+    @Override
+    public String toString() {
+        return "State{" +
+                "name='" + name + '\'' +
+                ", stateOrder=" + stateOrder +
+                ", checklist=" + checklist +
+                '}';
     }
 
     public void addCheckListItem(CheckListItem item){

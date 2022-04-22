@@ -7,11 +7,22 @@ public class State {
     private int stateOrder;
     private List<CheckListItem> checklist = new ArrayList<>();
 
+    public State() {
+
+    }
+
     public String getName() {
         return name;
     }
 
-
+    @Override
+    public String toString() {
+        return "State{" +
+                "name='" + name + '\'' +
+                ", stateOrder=" + stateOrder +
+                ", checklist=" + checklist +
+                '}';
+    }
 
     public int getStateOrder() {
         return stateOrder;
