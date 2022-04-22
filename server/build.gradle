@@ -22,13 +22,9 @@ jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
 }
 dependencies {
-<<<<<<< HEAD
     implementation 'org.testng:testng:7.1.0'
     implementation 'org.testng:testng:7.1.0'
-=======
     implementation 'junit:junit:4.13.1'
->>>>>>> 9cc0d9bd0561c9fdfb41ed823c3616d882d1e84d
-
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
 
