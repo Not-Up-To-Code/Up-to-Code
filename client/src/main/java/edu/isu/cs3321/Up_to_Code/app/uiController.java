@@ -22,15 +22,21 @@
 
 package edu.isu.cs3321.Up_to_Code.app;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import org.checkerframework.checker.units.qual.A;
 
+import javax.imageio.ImageIO;
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
@@ -227,5 +233,25 @@ public class uiController {
             }
         }
         return max;
+    }
+
+    public void exportDiagram() throws IOException {
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.getDialogPane().setContentText("Save image as:");
+        Optional<String> result = inputDialog.showAndWait();
+        if (result.isPresent()) {
+            TextField userInput = inputDialog.getEditor();
+            Group root = new Group();
+            for (Node node : components) {
+                root.getChildren().add(node);
+            }
+            Scene scene = new Scene(root, getX() + 10, getY() + 10);
+            WritableImage imgReturn = scene.snapshot(null);
+            File file = new File("" + userInput.getText() + ".png");
+            ImageIO.write(SwingFXUtils.fromFXImage(imgReturn, null), "png", file);
+            for (Node node : components) {
+                practiceAnchor.getChildren().add(node);
+            }
+        }
     }
 }

@@ -132,7 +132,7 @@
                         <Insets left="150.0" top="10.0" />
                      </GridPane.margin>
                   </MenuButton>
-                  <Button mnemonicParsing="false" text="Save Practice" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                  <Button mnemonicParsing="false" onAction="#exportDiagram" text="Save Practice" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
                </children>
             </GridPane>
          </children>
