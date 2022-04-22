@@ -92,43 +92,9 @@ public class App {
 
 
 
-        /*AlphaTableController a = new AlphaTableController("Alpha 1", "Testing Foreign Key", "Testing foreign key relationships between alpha and state", false, "blue");
-        AlphaTableController a1 = new AlphaTableController("Alpha 2", "Testing Foreign Key", "Testing foreign key relationships between alpha and state", false, "blue");
-        StateTableController s = new StateTableController("State 1", 1);
-        StateTableController s1 = new StateTableController("State 2", 2);
-        StateTableController s2 = new StateTableController("More test ", 1);
-        ChecklistTableController c = new ChecklistTableController("Foreign key");
-        ChecklistTableController c1 = new ChecklistTableController("Second state test");
-        ChecklistTableController c2 = new ChecklistTableController("Third state test");
-        a.addState(s);
-        a.addState(s1);
-        s.addItems(c);
-        s1.addItems(c1);
-        s2.addItems(c2);
-        a1.addState(s2);
+       
 
 
-        System.out.println("test");
-        System.out.print(a);
-        String alphaJson = serialize(a);
-        addAlpha(alphaJson);
-        alphaJson = serialize(a1);
-        addAlpha(alphaJson);*/
-
-        Alpha client = new Alpha("test" , "test", "test", "Yellow", false );
-        State state1 = new State("test", 1);
-        CheckListItem item1 = new CheckListItem("test");
-
-        state1.addCheckListItem(item1);
-        client.addState(state1);
-        AlphaTableController a = clientToServerConverter(client);
-        client = ServerToClientConverter(a);
-        a = clientToServerConverter(client);
-        String json = serialize(a);
-        addAlpha(json);
-        List<Alpha> aList = clientAlphaList(getAlphas());
-        String list = serialize(aList);
-        System.out.println(list);
 
 
     }

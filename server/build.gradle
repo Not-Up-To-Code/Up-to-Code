@@ -7,7 +7,10 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.10'
     id 'jacoco'
 }
-
+jacoco {
+    toolVersion = "0.8.7"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -19,6 +22,8 @@ jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
 }
 dependencies {
+    implementation 'junit:junit:4.13.1'
+
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
 
