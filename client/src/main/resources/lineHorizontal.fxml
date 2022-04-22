@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.SVGPath?>
+<AnchorPane layoutX="365.0" layoutY="208.0" prefHeight="91.0" prefWidth="94.0">
+    <children>
+        <TextField alignment="TOP_CENTER" layoutX="-27.0" layoutY="8.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: transparent;" />
+        <SVGPath content="M122,124.9h100" layoutX="-124.0" layoutY="-91.0" stroke="BLACK" strokeWidth="3.0" />
+    </children>
+</AnchorPane>
