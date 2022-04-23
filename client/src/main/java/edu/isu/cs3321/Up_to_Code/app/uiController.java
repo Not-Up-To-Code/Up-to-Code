@@ -22,6 +22,8 @@
 
 package edu.isu.cs3321.Up_to_Code.app;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -235,23 +237,45 @@ public class uiController {
         return max;
     }
 
-    public void exportDiagram() throws IOException {
+    public void exportDiagram() throws IOException, InterruptedException {
         TextInputDialog inputDialog = new TextInputDialog();
         inputDialog.getDialogPane().setContentText("Save image as:");
         Optional<String> result = inputDialog.showAndWait();
-        if (result.isPresent()) {
-            TextField userInput = inputDialog.getEditor();
-            Group root = new Group();
-            for (Node node : components) {
-                root.getChildren().add(node);
+
+        List<String> imgNames = new Gson().fromJson(app.getConnect().getPractices(), new TypeToken<List<String>>(){}.getType());
+        Boolean isMatch = false;
+
+        if (result.isPresent() && !result.get().trim().isEmpty()) {
+            for(String name : imgNames){
+                System.out.println(result.get()+ ".png");
+                System.out.println(name);
+                if ((result.get() + ".png").equals(name)){
+                    isMatch = true;
+                }
+                System.out.println(isMatch);
             }
-            Scene scene = new Scene(root, getX() + 10, getY() + 10);
-            WritableImage imgReturn = scene.snapshot(null);
-            File file = new File("" + userInput.getText() + ".png");
-            ImageIO.write(SwingFXUtils.fromFXImage(imgReturn, null), "png", file);
-            for (Node node : components) {
-                practiceAnchor.getChildren().add(node);
+            if (isMatch == true){
+                app.showNameInvalid("A practice with that name already exists.");
             }
+            else if(isMatch == false){
+                TextField userInput = inputDialog.getEditor();
+                Group root = new Group();
+                for (Node node : components) {
+                    root.getChildren().add(node);
+                }
+                Scene scene = new Scene(root, getX() + 10, getY() + 10);
+                WritableImage imgReturn = scene.snapshot(null);
+                File file = new File("tempPractices/" + userInput.getText() + ".png");
+                ImageIO.write(SwingFXUtils.fromFXImage(imgReturn, null), "png", file);
+                for (Node node : components) {
+                    practiceAnchor.getChildren().add(node);
+                }
+                app.savePractice(file);
+                file.delete();
+            }
+        }else {
+            app.showNameInvalid("Name can not be empty.");
         }
+        isMatch = false;
     }
 }

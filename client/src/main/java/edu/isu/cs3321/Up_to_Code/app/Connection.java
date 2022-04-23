@@ -2,8 +2,10 @@ package edu.isu.cs3321.Up_to_Code.app;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import kong.unirest.Unirest;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -17,6 +19,8 @@ public class Connection {
     private static final String saveCard_call = "http://%s:%s/api/card/save";
     private static final String getPractices_call = "http://%s:%s/api/practice/catalog";
     private static final String getAlphas_call = "http://%s:%s/api/card/catalog";
+    private static final String savePractice_call = "http://%s:%s/api/practice/upload";
+
 
     String url;
     String port;
@@ -76,7 +80,13 @@ public class Connection {
 
         HttpRequest request = createPost(saveCard_call, output);
         client.send(request, HttpResponse.BodyHandlers.ofString());
+    }
 
+    public void sendPractice(File file) throws IOException, InterruptedException{
+        kong.unirest.HttpResponse<String> response = Unirest
+                .post(String.format(savePractice_call, url, port))
+                .field("file", new File(file.getPath()))
+                .asString();
     }
 
     public HttpRequest createGet(String call) {

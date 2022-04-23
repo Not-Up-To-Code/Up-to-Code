@@ -55,6 +55,7 @@ import org.checkerframework.checker.units.qual.A;
 
 import javax.swing.text.Element;
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.http.HttpClient;
@@ -67,6 +68,10 @@ public class ui extends Application {
      * Connection class for client server communication
      */
     public static final Connection connect = Connection.instance();
+
+    public Connection getConnect(){
+        return connect;
+    }
 
     /**
      * FXML form links
@@ -233,7 +238,7 @@ public class ui extends Application {
                 public void handle(ActionEvent event) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setGraphic(tempClone);
-                    alert.setTitle("");
+                    alert.setTitle(name);
                     alert.setContentText("");
                     alert.setHeaderText("");
 
@@ -255,6 +260,10 @@ public class ui extends Application {
         Scene scene = new Scene(root, 1000, 680);
         mainStage.setTitle("Essence Practice Creator");
         mainStage.setScene(scene);
+    }
+
+    public void savePractice(File file) throws IOException, InterruptedException {
+        connect.sendPractice(file);
     }
 
     /**
@@ -786,10 +795,10 @@ public class ui extends Application {
         alert.showAndWait();
     }
 
-    public void showCardExists() throws IOException{
+    public void showNameInvalid(String reason) throws IOException{
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Card Contents");
-        alert.setContentText("A card of the same name and type already exist in the database.");
+        alert.setTitle("Name invalid");
+        alert.setContentText(reason);
 
         alert.showAndWait();
     }
