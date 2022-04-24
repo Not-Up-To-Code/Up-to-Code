@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * This is the JPA version of the Alpha class. It acts as the "Alpha" table in the database we use for card storage.
+ */
 @Entity
 @Table(name = "alphas")
 public class AlphaTableController {

@@ -2,6 +2,9 @@ package edu.isu.cs3321.Up_to_Code.app;
 
 import java.util.*;
 
+/**
+ * This is the class we use to convert from the client into the JPA version of State
+ */
 public class State {
     private String name;
     private int stateOrder;

@@ -2,6 +2,9 @@ package edu.isu.cs3321.Up_to_Code.app;
 
 import javax.persistence.*;
 
+/**
+ * This is the JPA version of the Checklist class. It acts as the "Checklist" table in the database we use for card storage.
+ */
 @Entity
 @Table(name = "checklist")
 public class ChecklistTableController {

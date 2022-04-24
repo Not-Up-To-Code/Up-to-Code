@@ -3,6 +3,9 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the JPA version of the State class. It acts as the "State" table in the database we use for card storage.
+ */
 @Entity
 @Table(name = "states")
 public class StateTableController {

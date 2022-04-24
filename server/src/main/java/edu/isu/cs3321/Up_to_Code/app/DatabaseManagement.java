@@ -10,8 +10,15 @@ import java.util.Set;
 
 import static edu.isu.cs3321.Up_to_Code.app.GsonSerialization.*;
 
+/**
+ * This class contains the functions needed to save entries to the card storage database
+ */
 public class DatabaseManagement {
 
+    /**
+     * @param alphaJson Accepts a json string of an AlphaTableController object
+     * This object is then added into the database
+     */
 public static void addAlpha(String alphaJson) {
     AlphaTableController a = deSerializeAlpha(alphaJson);
     Session session = HibernateController.getSessionFactory().openSession();
@@ -28,6 +35,11 @@ public static void addAlpha(String alphaJson) {
         session.close();
     }
 }
+
+    /**
+     * @return This returns a list of AlphaTableController objects
+     * This list is pulled from the Alphas table of the card storage database
+     */
     public static List<AlphaTableController> getAlphas(){
 
         try (Session session = HibernateController.getSessionFactory().openSession()){
@@ -35,6 +47,11 @@ public static void addAlpha(String alphaJson) {
 
         }
     }
+
+    /**
+     * @param id Accepts the id of the Alpha that we want deleted from the database
+     * The database then gets the Alpha with that id and deletes it
+     */
     public static void deleteAlpha(int id){
         Session session = HibernateController.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
@@ -45,6 +62,12 @@ public static void addAlpha(String alphaJson) {
         System.out.println("Deletion complete");
 
     }
+
+    /**
+     * @param json passes in json string of a new AlphaTableController object
+     * @param id passes in id of Alpha we want changed
+     * The database finds the Alpha with the id we inputted, and replaces it with the new AlphaTableController object
+     */
     public static void updateAlpha(String json, int id){
         AlphaTableController a = deSerializeAlpha(json);
         a.setId(id);

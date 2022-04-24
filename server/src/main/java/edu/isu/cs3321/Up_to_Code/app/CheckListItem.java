@@ -1,5 +1,8 @@
 package edu.isu.cs3321.Up_to_Code.app;
 
+/**
+ * We use this class to convert to the JPA Checklist Item class.
+ */
 public class CheckListItem {
     private String checklistitem;
 
