@@ -29,6 +29,8 @@ dependencies {
 
     // Used for json conversions
     implementation 'com.google.code.gson:gson:2.9.0'
+
+    implementation 'com.konghq:unirest-java:3.11.09'
 }
 
 javafx {
