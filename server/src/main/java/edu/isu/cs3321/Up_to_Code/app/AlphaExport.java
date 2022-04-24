@@ -6,29 +6,36 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 import static edu.isu.cs3321.Up_to_Code.app.DatabaseManagement.getAlphas;
 import static edu.isu.cs3321.Up_to_Code.app.GsonSerialization.clientAlphaList;
 
 public class AlphaExport {
-
+    int y=110;
+    int yline=200;
+    int yline1=100;
+    int h = 550;
+    int w = 750;
+    Field field;
+    Color color;
+    BufferedImage bufferedImage;
+    Graphics2D graphics2D;
+    RenderingHints rh;
+    File file;
     public void cardTemplate(Alpha alpha,Integer id) throws IOException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
-        int y=110;
-        int yline=200;
-        int yline1=100;
-        int h = 550;
-        int w = 750;
 
-        Field field = Class.forName("java.awt.Color").getField(alpha.getColor());
-        Color color = (Color) field.get(null);
 
-        BufferedImage bufferedImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-        Graphics2D graphics2D = bufferedImage.createGraphics();
+        field = Class.forName("java.awt.Color").getField(alpha.getColor());
+        color = (Color) field.get(null);
+
+        bufferedImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+        graphics2D = bufferedImage.createGraphics();
         graphics2D.setColor(Color.WHITE);
         graphics2D.fillRoundRect(0, 0, w, h,30,30);
 
-        RenderingHints rh=new RenderingHints(
+        rh=new RenderingHints(
                 RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
         graphics2D.setRenderingHints(rh);
@@ -93,11 +100,13 @@ public class AlphaExport {
         //graphics2D.drawString("☆",40,60);
 
         graphics2D.dispose();
-        File file=new File(alpha.getAlpha()+"widecard.png");
+        file=new File("Wide Cards Saving\\"+alpha.getAlpha()+"widecard.png");
         ImageIO.write(bufferedImage,"png",file);
 
 
     }
+
+
 /*
     public void cardTemplate(String s1,String s2,String s3,String s4,String s5,String s6,String detailedD,String briefD,String cardName,Integer colorBoreder,Integer cardColor) throws IOException {
         String[] states={s1,s2,s3,s4,s5,s6};
@@ -186,6 +195,4 @@ public class AlphaExport {
     }
 
  */
-
-
 }

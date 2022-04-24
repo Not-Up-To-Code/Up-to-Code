@@ -6,30 +6,38 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 import static edu.isu.cs3321.Up_to_Code.app.DatabaseManagement.getAlphas;
 import static edu.isu.cs3321.Up_to_Code.app.GsonSerialization.clientAlphaList;
 
 public class StatesExport {
+    int y = 180;
+    int h = 600;
+    int w = 450;
+    Field field;
+    Color color;
+    BufferedImage bufferedImage;
+    Graphics2D graphics2D;
+    RenderingHints rh;
+    File file;
+
     public void smallCardTemplate(Alpha alpha, Integer id) throws IOException, ClassNotFoundException, IllegalAccessException, NoSuchFieldException{
-        int y = 180;
-        int h = 600;
-        int w = 450;
-        Field field = Class.forName("java.awt.Color").getField(alpha.getColor());
-        Color color = (Color) field.get(null);
+        field = Class.forName("java.awt.Color").getField(alpha.getColor());
+        color = (Color) field.get(null);
         List<Alpha> a1 = clientAlphaList(getAlphas());
         //===========================================================================================================
         for(Alpha eachalpha:a1){
             if(eachalpha.getId()==id){
                 //if(eachalpha.getId()==alpha.getId()){
                 for (int i = 0; i < eachalpha.getStates().size(); i++) {
-                    BufferedImage bufferedImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-                    Graphics2D graphics2D = bufferedImage.createGraphics();
+                    bufferedImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+                    graphics2D = bufferedImage.createGraphics();
                     graphics2D.setColor(Color.WHITE);
                     graphics2D.fillRoundRect(0, 0, w, h, 30, 30);
 
-                    RenderingHints rh = new RenderingHints(
+                    rh = new RenderingHints(
                             RenderingHints.KEY_ANTIALIASING,
                             RenderingHints.VALUE_ANTIALIAS_ON);
                     graphics2D.setRenderingHints(rh);
@@ -45,7 +53,7 @@ public class StatesExport {
                     graphics2D.setColor(Color.red);
                     graphics2D.drawRoundRect(25, 110, 400, 70, 30, 30);
 
-                    graphics2D.setColor(Color.orange);
+                    graphics2D.setColor(color);
                     graphics2D.fillRoundRect(25, 510, 400, 30, 30, 30);
 
                     graphics2D.setColor(Color.red);
@@ -54,21 +62,13 @@ public class StatesExport {
                     graphics2D.setColor(Color.black);
                     graphics2D.setFont(new Font("Zapping", Font.PLAIN, 35));
                     graphics2D.drawString(alpha.getAlpha(), 100, 55);
-
-
-
                     for (int j = 0; j < eachalpha.getStates().get(i).getChecklist().size(); j++) {
                         if (eachalpha.getStates().get(i).getName() != null) {
                             graphics2D.setColor(Color.black);
                             graphics2D.setFont(new Font("Zapping", Font.PLAIN, 25));
                             graphics2D.drawString(a1.get(i).getStates().get(j).getName(), 120, 155);
-
                         }
                     }
-
-
-
-
                     for (int j = 0; j < eachalpha.getStates().get(i).getChecklist().size(); j++) {
                         if (eachalpha.getStates().get(i).getName() != null) {
                             graphics2D.setColor(Color.black);
@@ -77,11 +77,12 @@ public class StatesExport {
                         }
                     }
 
-
-
+                    graphics2D.setColor(Color.black);
+                    graphics2D.setFont(new Font("Zapping", Font.PLAIN, 18));
+                    graphics2D.drawString(i+1 + " / " +eachalpha.getStates().size()+1, 200, 530);
 
                     graphics2D.dispose();
-                    File file = new File(alpha.getAlpha()+eachalpha.getStates().get(i).getName()+" "+i + " smallcard.png");
+                    file = new File("Small Cards Saving \\"+alpha.getAlpha()+eachalpha.getStates().get(i).getName()+" "+i + " smallcard.png");
                     ImageIO.write(bufferedImage, "png", file);
 
                 }
@@ -90,6 +91,8 @@ public class StatesExport {
         }
 
     }
+
+
 
     /*
     public static void main(String[] args) throws IOException {
@@ -167,7 +170,4 @@ public void smallCardTemplate(String state, String cardName, String[] checklist,
     }
 
      */
-
-
-
 }

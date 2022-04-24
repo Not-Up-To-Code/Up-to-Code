@@ -14,7 +14,7 @@ public class smallCard {
     public int currentState;
     public int totalStates;
 
-    public smallCard(String alpha, String state, Color color, String checklist, int currentState, int totalStates){
+    public smallCard(String alpha, String state, Color color, String checklist, int currentState, int totalStates) {
         this.alpha = alpha;
         this.state = state;
         this.color = color;
@@ -28,8 +28,5 @@ public class smallCard {
 
         //System.out.println(Arrays.toString(this.checklist));
     }
-
-    public static void main(String[] args) {
-        //new smallCard("alpha","s1","1",2,5);
-    }
 }
+
