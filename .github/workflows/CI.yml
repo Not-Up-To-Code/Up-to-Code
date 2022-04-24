@@ -17,12 +17,6 @@ jobs:
         run: chmod +x ./gradlew
       - name: Gradle Build
         run: ./gradlew build
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: Package
-          path: build/distributions
-
   dev-build:
     if: ${{ github.ref == 'refs/heads/develop' }}
     runs-on: ubuntu-latest
