@@ -139,8 +139,8 @@ public class uiController {
         app.startPokerDiscussion();
     }
     @FXML
-    public void pokerEndButton(ActionEvent event) throws IOException{
-
+    public void pokerEndButton(ActionEvent event) throws IOException, InterruptedException {
+        app.endPokerDiscussion();
     }
 
     /**
