@@ -123,14 +123,9 @@
                         <Insets left="150.0" />
                      </GridPane.margin>
                   </ChoiceBox>
-                  <Button mnemonicParsing="false" text="Start Discussion" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#endChaseDiscussion" text="End Discussion" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
-                        <Insets right="125.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" text="End Discussion" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets left="125.0" />
+                        <Insets />
                      </GridPane.margin>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#chaseAddAlpha" text="Add Alpha" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -154,7 +149,7 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="-Infinity" prefHeight="200.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <padding>
                               <Insets top="5.0" />

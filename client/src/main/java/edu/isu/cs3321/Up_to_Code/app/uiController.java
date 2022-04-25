@@ -95,7 +95,7 @@ public class uiController {
     }
 
     @FXML
-    public void playObjectiveGoButton(ActionEvent event) throws IOException{
+    public void playObjectiveGoButton(ActionEvent event) throws IOException, InterruptedException {
         app.showObjectiveGo();
     }
 
@@ -150,6 +150,29 @@ public class uiController {
     public void chaseAddAlpha() throws IOException, InterruptedException{
         app.chaseTheStateAddAlpha();
     }
+    @FXML
+    public void endChaseDiscussion() throws IOException, InterruptedException{
+
+    }
+
+    /**
+     * buttons for objective go
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    @FXML
+    public void objectiveAddAlpha() throws IOException, InterruptedException{
+        app.objectiveGoAddAlpha();
+    }
+    @FXML
+    public void endObjectiveDiscussion() throws IOException, InterruptedException{
+
+    }
+
+    /**
+     * buttons for checkpoint Construction
+     */
+
 
     /**
      * Controlls for practice maker
