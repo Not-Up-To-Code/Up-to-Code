@@ -385,6 +385,30 @@ public class ui extends Application {
         button.setGraphic(pane);
         tilePane.getChildren().add(button);
 
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+                alert.setGraphic(pane);
+                alert.setTitle(alpha.getAlpha());
+                alert.setHeaderText("Download this card and alphas?");
+
+                try {
+                    showCardCatalog();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                alert.showAndWait();
+
+                if (alert.getResult() == ButtonType.YES){
+                    
+                }
+            }
+        });
+
     }
 
     /**
