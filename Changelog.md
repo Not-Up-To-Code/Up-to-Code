@@ -22,7 +22,7 @@ and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Essence Diagram introduced
 * Database added for card storage
 
-## [1.1.0] - 2022-04-10
+## [1.1.0] - 2022-04-24
 ### Added
 * Diagram creator
 * Diagram Catalog
