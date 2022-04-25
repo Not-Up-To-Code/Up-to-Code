@@ -90,7 +90,7 @@ public class uiController {
     }
 
     @FXML
-    public void playChaseTheStateButton(ActionEvent event) throws IOException{
+    public void playChaseTheStateButton(ActionEvent event) throws IOException, InterruptedException {
         app.showChaseTheState();
     }
 
@@ -141,6 +141,14 @@ public class uiController {
     @FXML
     public void pokerEndButton(ActionEvent event) throws IOException, InterruptedException {
         app.endPokerDiscussion();
+    }
+
+    /**
+     *Buttons for chase the state
+     */
+    @FXML
+    public void chaseAddAlpha() throws IOException, InterruptedException{
+        app.chaseTheStateAddAlpha();
     }
 
     /**
