@@ -296,7 +296,7 @@ public class uiController {
                 }
                 Scene scene = new Scene(root, getX() + 10, getY() + 10);
                 WritableImage imgReturn = scene.snapshot(null);
-                File file = new File("tempPractices/" + userInput.getText() + ".png");
+                File file = new File("tempPractices/" + userInput.getText().trim() + ".png");
                 ImageIO.write(SwingFXUtils.fromFXImage(imgReturn, null), "png", file);
                 for (Node node : components) {
                     practiceAnchor.getChildren().add(node);
