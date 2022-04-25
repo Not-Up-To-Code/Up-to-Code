@@ -404,7 +404,13 @@ public class ui extends Application {
                 alert.showAndWait();
 
                 if (alert.getResult() == ButtonType.YES){
-                    
+                    try {
+                        connect.downloadCards(alpha);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });

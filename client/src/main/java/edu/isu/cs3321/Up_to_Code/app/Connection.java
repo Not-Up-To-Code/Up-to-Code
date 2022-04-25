@@ -42,6 +42,7 @@ public class Connection {
     private static final String getPractices_call = "http://%s:%s/api/practice/catalog";
     private static final String getAlphas_call = "http://%s:%s/api/card/catalog";
     private static final String savePractice_call = "http://%s:%s/api/practice/upload";
+    private static final String downloadCards_call = "http://%s:%s/api/card/download";
 
 
     String url;
@@ -115,7 +116,7 @@ public class Connection {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String output = gson.toJson(alpha);
 
-        HttpRequest request = createPost(saveCard_call, output);
+        HttpRequest request = createPost(downloadCards_call, output);
         client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 

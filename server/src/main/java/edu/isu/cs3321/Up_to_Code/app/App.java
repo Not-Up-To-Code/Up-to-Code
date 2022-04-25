@@ -54,7 +54,7 @@ public class App {
         return output;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchFieldException{
         Javalin app = Javalin.create(javalinConfig -> {
             javalinConfig.addStaticFiles(staticFileConfig -> {
                 staticFileConfig.hostedPath = "/images";
@@ -80,6 +80,11 @@ public class App {
 
         //card creator - passes alpha and states to server for db storage
         app.post("/api/card/save", ctx -> addAlpha(serialize(clientToServerConverter(deSerializeClientAlpha(ctx.body())))));
+
+        app.post("/api/card/download", ctx -> {
+            AlphaExport.cardTemplate(deSerializeClientAlpha(ctx.body()), deSerializeClientAlpha(ctx.body()).getId());
+            StatesExport.smallCardTemplate(deSerializeClientAlpha(ctx.body()), deSerializeClientAlpha(ctx.body()).getId());
+        });
 
         app.get("/api/status", ctx -> ctx.result("Online"));
 
