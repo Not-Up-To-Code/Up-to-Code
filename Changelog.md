@@ -20,3 +20,14 @@ and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Card creation has been expanded upon
 * Cards can be exported as PNGs
 * Essence Diagram introduced
+* Database added for card storage
+
+## [1.1.0] - 2022-04-24
+### Added
+* Diagram creator
+* Diagram Catalog
+* Card catalog
+* Progress poker
+* Chasing the state
+* Objective Go
+
