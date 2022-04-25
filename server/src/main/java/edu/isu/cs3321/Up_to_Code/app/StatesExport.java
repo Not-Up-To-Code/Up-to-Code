@@ -13,17 +13,16 @@ import static edu.isu.cs3321.Up_to_Code.app.DatabaseManagement.getAlphas;
 import static edu.isu.cs3321.Up_to_Code.app.GsonSerialization.clientAlphaList;
 
 public class StatesExport {
-    int y = 180;
-    int h = 600;
-    int w = 450;
-    Field field;
-    Color color;
-    BufferedImage bufferedImage;
-    Graphics2D graphics2D;
-    RenderingHints rh;
-    File file;
-
-    public void smallCardTemplate(Alpha alpha, Integer id) throws IOException, ClassNotFoundException, IllegalAccessException, NoSuchFieldException{
+    static int y = 180;
+    static int h = 600;
+    static int w = 450;
+    static Field field;
+    static Color color;
+    static BufferedImage bufferedImage;
+    static Graphics2D graphics2D;
+    static RenderingHints rh;
+    static File file;
+    public static void smallCardTemplate(Alpha alpha, Integer id) throws IOException, ClassNotFoundException, IllegalAccessException, NoSuchFieldException{
         field = Class.forName("java.awt.Color").getField(alpha.getColor());
         color = (Color) field.get(null);
         List<Alpha> a1 = clientAlphaList(getAlphas());

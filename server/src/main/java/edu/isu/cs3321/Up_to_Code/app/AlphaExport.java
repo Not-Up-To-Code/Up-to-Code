@@ -13,20 +13,18 @@ import static edu.isu.cs3321.Up_to_Code.app.DatabaseManagement.getAlphas;
 import static edu.isu.cs3321.Up_to_Code.app.GsonSerialization.clientAlphaList;
 
 public class AlphaExport {
-    int y=110;
-    int yline=200;
-    int yline1=100;
-    int h = 550;
-    int w = 750;
-    Field field;
-    Color color;
-    BufferedImage bufferedImage;
-    Graphics2D graphics2D;
-    RenderingHints rh;
-    File file;
-    public void cardTemplate(Alpha alpha,Integer id) throws IOException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
-
-
+    static int y=110;
+    static int yline=200;
+    static int yline1=100;
+    static int h = 550;
+    static int w = 750;
+    static Field field;
+    static Color color;
+    static BufferedImage bufferedImage;
+    static Graphics2D graphics2D;
+    static RenderingHints rh;
+    static File file;
+    public static void cardTemplate(Alpha alpha,Integer id) throws IOException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         field = Class.forName("java.awt.Color").getField(alpha.getColor());
         color = (Color) field.get(null);
 
