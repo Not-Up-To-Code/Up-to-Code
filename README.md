@@ -9,6 +9,12 @@ Open gradle project in console\
 Run Gradle Server with ```Gradle :server:run```\
 Run Gradle Client with ```Gradle run```
 
+##How to Run web application
+first go to the essencewebapp director in webappvue folder on command prompt ```..\up-to-code\webappvue\essencewebapp```\
+run ```npm install```\
+run  ```npm run serve ```\
+Go to the web path
+
 ## Help
 For assistance and other inquiries, please contact one of the develops using the emails below
 
