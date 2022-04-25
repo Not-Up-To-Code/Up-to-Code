@@ -26,6 +26,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -35,6 +36,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -52,6 +54,7 @@ import javafx.scene.shape.SVGPath;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import org.checkerframework.checker.units.qual.A;
+import org.controlsfx.control.spreadsheet.Grid;
 
 import javax.swing.text.Element;
 import java.awt.*;
@@ -152,6 +155,8 @@ public class ui extends Application {
     int stateCounterFour = 0;
     int stateCounterFive = 0;
     int stateCounterSix = 0;
+
+    Alpha discussionAlpha;
 
     public static void main(String[] args) {
         launch(args);
@@ -639,8 +644,35 @@ public class ui extends Application {
         mainStage.setScene(scene);
     }
 
+    public void stateCounter(int num){
+        switch (num){
+            case 1: stateCounterOne += 1;
+                break;
+            case 2: stateCounterTwo += 1;
+                break;
+            case 3: stateCounterThree += 1;
+                break;
+            case 4: stateCounterFour += 1;
+                break;
+            case 5: stateCounterFive += 1;
+                break;
+            case 6: stateCounterSix += 1;
+                break;
+        }
+    }
+    public void stateCounterReset(){
+        stateCounterOne = 0;
+        stateCounterTwo = 0;
+        stateCounterThree = 0;
+        stateCounterFour = 0;
+        stateCounterFive = 0;
+        stateCounterSix = 0;
+    }
+
     public void startPokerDiscussion() throws IOException, InterruptedException {
         Scene scene = mainStage.getScene();
+
+        stateCounterReset();
 
         List<Alpha> alphaList = new Gson().fromJson(connect.getAlphas(), new TypeToken<List<Alpha>>(){}.getType());
         ChoiceBox cardSelector = (ChoiceBox) scene.lookup("#pokerCardSelector");
@@ -650,7 +682,7 @@ public class ui extends Application {
             alphaMap.put(alpha.getAlpha() + " " + alpha.getId(), alpha);
         }
 
-        Alpha discussionAlpha = alphaMap.get(cardSelector.getValue());
+        discussionAlpha = alphaMap.get(cardSelector.getValue());
 
         /**
          * Generation of alpha to be discussed
@@ -674,7 +706,6 @@ public class ui extends Application {
         pane.getChildren().add(banner);
 
         int topMargin = 104;
-        List<SVGPath> paths = new ArrayList<>();
         for (State state : discussionAlpha.getStates()){
             //creates and positions svg for state border
             SVGPath stateBorder = new SVGPath();
@@ -692,7 +723,7 @@ public class ui extends Application {
             pane.getChildren().add(label);
             StackPane.setMargin(label, new Insets(topMargin + 6, 0, 0, 30));
 
-            topMargin = topMargin + 56;
+            topMargin = topMargin + 50;
         }
         topMargin = 104;
 
@@ -727,7 +758,7 @@ public class ui extends Application {
         Label alphaBrief = new Label();
         alphaBrief.setText(discussionAlpha.getBriefDesc());
         alphaBrief.setMaxWidth(275);
-        alphaBrief.setMaxHeight(60);
+        alphaBrief.setMaxHeight(80);
         alphaBrief.setWrapText(true);
         alphaBrief.setAlignment(Pos.TOP_LEFT);
         alphaBrief.setStyle("-fx-font-size: 16");
@@ -737,7 +768,7 @@ public class ui extends Application {
         Label alphaDetailed = new Label();
         alphaDetailed.setText(discussionAlpha.getDetailedDesc());
         alphaDetailed.setMaxWidth(275);
-        alphaDetailed.setMaxHeight(110);
+        alphaDetailed.setMaxHeight(150);
         alphaDetailed.setWrapText(true);
         alphaDetailed.setAlignment(Pos.TOP_LEFT);
         alphaDetailed.setStyle("-fx-font-size: 16");
@@ -745,13 +776,142 @@ public class ui extends Application {
         StackPane.setMargin(alphaDetailed, new Insets(200, 0, 0, 300));
 
         alphaPane.getChildren().add(pane);
-        alphaPane.setPadding(new Insets(30, 0, 0, 125));
+        alphaPane.setPadding(new Insets(5, 0, 0, 125));
 
         /**
          * Generation of the hand
          */
         GridPane hand = (GridPane) scene.lookup("#pokerHand");
+        int handPos = 0;
 
+        int checklistTopMargin = 68;
+        for (State state : discussionAlpha.getStates()){
+            Button button = new Button();
+            button.setMaxWidth(80);
+            button.setMaxHeight(100);
+            button.setStyle("-fx-background-color: transparent");
+
+            StackPane statePane = new StackPane();
+            statePane.setPadding(new Insets(0, 0, 0, 0));
+            statePane.maxWidth(80);
+            statePane.maxHeight(100);
+            statePane.setAlignment(Pos.TOP_LEFT);
+
+            SVGPath stateBack = new SVGPath();
+            stateBack.setContent("M10.856.606H142.201c5.343 0 9.644 4.301 9.644 9.644V196.756c0 5.343-4.301 9.644-9.644 9.644H10.856c-5.343 0-9.644-4.301-9.644-9.644V10.25c0-5.343 4.301-9.644 9.644-9.644z");
+            stateBack.setFill(Paint.valueOf("white"));
+            statePane.getChildren().add(stateBack);
+
+            SVGPath stateBanner = new SVGPath();
+            stateBanner.setContent("M10.856.606H141.595c5.343 0 9.644 4.301 9.644 9.644v20.416c0 5.343-4.301 9.644-9.644 9.644H10.856c-5.343 0-9.644-4.301-9.644-9.644v-20.416c0-5.343 4.301-9.644 9.644-9.644z");
+            stateBanner.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(1))));
+            statePane.getChildren().add(stateBanner);
+
+            SVGPath stateBorder = new SVGPath();
+            stateBorder.setContent("m142.177.041c4.859 0 8.791 3.93 8.791 8.788v188.286c0 4.859-3.931 8.788-8.791 8.788H8.834c-4.859 0-8.791-3.93-8.791-8.788V8.83c0-4.859 3.931-8.788 8.791-8.788zm0 1.185H8.834c-4.223 0-7.606 3.381-7.606 7.604v188.286c0 4.223 3.382 7.604 7.606 7.604H142.177c4.223 0 7.606-3.381 7.606-7.604V8.83c0-4.223-3.382-7.604-7.606-7.604z");
+            stateBorder.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+            statePane.getChildren().add(stateBorder);
+
+            SVGPath stateNameBorder = new SVGPath();
+            stateNameBorder.setContent("m20.555 51.595c-5.63 0-10.18 4.55-10.18 10.18v1.321c0 5.63 4.55 10.18 10.18 10.18H132.199c5.63 0 10.18-4.55 10.18-10.18v-1.321c0-5.63-4.55-10.18-10.18-10.18zm0 1.071H132.199c5.055 0 9.108 4.054 9.108 9.109v1.321c0 5.055-4.053 9.108-9.108 9.108H20.555c-5.055 0-9.108-4.053-9.108-9.108v-1.321c0-5.055 4.053-9.109 9.108-9.109z");
+            stateNameBorder.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+            statePane.getChildren().add(stateNameBorder);
+            StackPane.setMargin(stateNameBorder, new Insets(45, 0, 0, 10));
+
+            SVGPath stateSymbol = new SVGPath();
+            if(!discussionAlpha.isCompetency()){
+                stateSymbol.setContent("m39.505 10.224c-2.59-.013-4.287.042-6.494.538-2.209.497-4.997 1.405-6.98 3.204-1.983 1.799-2.874 4.266-3.396 6.144-.522 1.878-.689 3.417-.458 6.252.23 2.834.769 7.155 2.872 10.011 2.104 2.858 5.549 3.728 9.107 4.177 3.558.449 7.443.499 11.425.385 3.982-.113 8.541-.478 12.063-5.061 1.42-1.846 2.642-4.403 3.794-7.22 1.05 2.832 2.059 5.571 3.217 8.655l1.805-.678c-1.427-3.801-2.738-7.33-3.958-10.649 1.286-3.534 2.48-7.411 3.676-11.333l-1.844-.565c-.952 3.12-1.939 6.06-2.932 8.949-1.316-3.652-2.3-6.584-4.292-8.648-2.054-2.125-4.969-3.067-8.191-3.572-3.222-.505-6.823-.578-9.413-.589zm-.009 1.929c2.56.013 6.091.092 9.123.567 3.031.475 5.491 1.34 7.104 3.008 1.613 1.668 2.595 4.432 3.979 8.26.206 .57.514 1.376.738 1.985-1.356 3.627-2.779 6.717-4.325 8.726-3.08 4.006-6.659 4.196-10.589 4.308-3.929.113-7.729.06-11.129-.37-3.4-.43-6.182-1.216-7.796-3.408-1.614-2.191-2.282-6.309-2.504-9.023-.222-2.716-.087-3.84.395-5.578.483-1.738 1.298-3.842 2.832-5.233 1.534-1.391 4.071-2.292 6.106-2.75 2.037-.458 3.502-.503 6.062-.492z");
+                stateSymbol.setScaleX(.7);
+                stateSymbol.setScaleY(.7);
+                stateSymbol.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+                statePane.getChildren().add(stateSymbol);
+                StackPane.setMargin(stateSymbol, new Insets(5, 0, 0, 5));
+            }else {
+                stateSymbol.setContent("m54.07 3.02-7.96 15.953-17.654 2.488 12.713 12.499-3.089 17.557 15.817-8.228 15.745 8.363-.418-2.493L66.703 34.07 79.522 21.681 61.889 19.042Zm-.025 5.639 6.178 12.656 13.928 2.084-10.127 9.787 2.32 13.891-12.436-6.606-12.494 6.5 2.441-13.869-10.042-9.873 13.945-1.966z");
+                stateSymbol.setScaleX(.7);
+                stateSymbol.setScaleY(.7);
+                stateSymbol.setFill(Paint.valueOf(String.valueOf(colors.get(discussionAlpha.getColor()).get(0))));
+                statePane.getChildren().add(stateSymbol);
+                StackPane.setMargin(stateSymbol, new Insets(5, 0, 0, 8));
+            }
+
+            for (CheckListItem checkListItem: state.getChecklist()){
+                Label item = new Label();
+                item.setText(checkListItem.getChecklistitem());
+                item.setStyle("-fx-font-style: Bold; -fx-font-size: 10");
+                statePane.getChildren().add(item);
+                StackPane.setMargin(item, new Insets(checklistTopMargin, 0, 0, 15));
+                checklistTopMargin += 12;
+            }
+            checklistTopMargin = 68;
+
+            Label stateAlpha = new Label();
+            stateAlpha.setText(discussionAlpha.getAlpha());
+            stateAlpha.setStyle("-fx-font-style: Bold; -fx-font-size: 16");
+            statePane.getChildren().add(stateAlpha);
+            StackPane.setMargin(stateAlpha, new Insets(7, 0, 0, 50));
+
+            Label stateName = new Label();
+            stateName.setText(state.getName());
+            stateName.setStyle("-fx-font-style: Bold; -fx-font-size: 16");
+            statePane.getChildren().add(stateName);
+            StackPane.setMargin(stateName, new Insets(42, 0, 0, 50));
+
+            GridPane.setConstraints(button, handPos, 0);
+
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    stateCounter(state.getStateOrder());
+                    System.out.println(state.getStateOrder());
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Next Participant");
+                    alert.setHeaderText("Next player");
+
+                    alert.show();
+                }
+            });
+
+            button.setGraphic(statePane);
+            button.setPadding( new Insets( 0, 0, 0, 0));
+
+            hand.getChildren().add(button);
+            handPos += 1;
+        }
+        handPos = 0;
+    }
+
+    public void endPokerDiscussion() throws IOException, InterruptedException {
+        Scene scene = mainStage.getScene();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Results");
+        alert.setHeaderText("Results of discussion:");
+
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+        if (discussionAlpha.getStates().get(0) != null){
+            pieChartData.add(new PieChart.Data(discussionAlpha.getStates().get(0).getName(), stateCounterOne));
+        }
+        if (discussionAlpha.getStates().get(1) != null){
+            pieChartData.add(new PieChart.Data(discussionAlpha.getStates().get(1).getName(), stateCounterTwo));
+        }
+        if (discussionAlpha.getStates().get(2) != null){
+            pieChartData.add(new PieChart.Data(discussionAlpha.getStates().get(2).getName(), stateCounterThree));
+        }
+        if (discussionAlpha.getStates().get(3) != null){
+            pieChartData.add(new PieChart.Data(discussionAlpha.getStates().get(3).getName(), stateCounterFour));
+        }
+        if (discussionAlpha.getStates().get(4) != null){
+            pieChartData.add(new PieChart.Data(discussionAlpha.getStates().get(4).getName(), stateCounterFive));
+        }
+        if (discussionAlpha.getStates().get(5) != null){
+            pieChartData.add(new PieChart.Data(discussionAlpha.getStates().get(5).getName(), stateCounterSix));
+        }
+
+        PieChart pieChart = new PieChart(pieChartData);
+
+        alert.setGraphic(pieChart);
+        alert.showAndWait();
     }
 
 
