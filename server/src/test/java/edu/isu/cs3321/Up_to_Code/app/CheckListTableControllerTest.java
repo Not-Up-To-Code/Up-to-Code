@@ -17,4 +17,11 @@ public class CheckListTableControllerTest {
         c.setChecklistID(id);
         Assertions.assertEquals(id, c.getChecklistID());
     }
+    @Test
+    public void testToString(){
+        ChecklistTableController c1 = new ChecklistTableController("item");
+        String item = c1.toString();
+        String name = c1.getChecklistItem();
+        Assertions.assertTrue(item.contains("checklistItem=" + "'" + name + "'"));
+    }
 }

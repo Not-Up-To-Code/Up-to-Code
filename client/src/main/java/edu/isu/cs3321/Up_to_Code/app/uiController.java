@@ -90,12 +90,12 @@ public class uiController {
     }
 
     @FXML
-    public void playChaseTheStateButton(ActionEvent event) throws IOException{
+    public void playChaseTheStateButton(ActionEvent event) throws IOException, InterruptedException {
         app.showChaseTheState();
     }
 
     @FXML
-    public void playObjectiveGoButton(ActionEvent event) throws IOException{
+    public void playObjectiveGoButton(ActionEvent event) throws IOException, InterruptedException {
         app.showObjectiveGo();
     }
 
@@ -139,9 +139,40 @@ public class uiController {
         app.startPokerDiscussion();
     }
     @FXML
-    public void pokerEndButton(ActionEvent event) throws IOException{
+    public void pokerEndButton(ActionEvent event) throws IOException, InterruptedException {
+        app.endPokerDiscussion();
+    }
+
+    /**
+     *Buttons for chase the state
+     */
+    @FXML
+    public void chaseAddAlpha() throws IOException, InterruptedException{
+        app.chaseTheStateAddAlpha();
+    }
+    @FXML
+    public void endChaseDiscussion() throws IOException, InterruptedException{
 
     }
+
+    /**
+     * buttons for objective go
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    @FXML
+    public void objectiveAddAlpha() throws IOException, InterruptedException{
+        app.objectiveGoAddAlpha();
+    }
+    @FXML
+    public void endObjectiveDiscussion() throws IOException, InterruptedException{
+
+    }
+
+    /**
+     * buttons for checkpoint Construction
+     */
+
 
     /**
      * Controlls for practice maker
@@ -265,7 +296,7 @@ public class uiController {
                 }
                 Scene scene = new Scene(root, getX() + 10, getY() + 10);
                 WritableImage imgReturn = scene.snapshot(null);
-                File file = new File("tempPractices/" + userInput.getText() + ".png");
+                File file = new File("tempPractices/" + userInput.getText().trim() + ".png");
                 ImageIO.write(SwingFXUtils.fromFXImage(imgReturn, null), "png", file);
                 for (Node node : components) {
                     practiceAnchor.getChildren().add(node);

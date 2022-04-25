@@ -6,6 +6,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+
 public class HibernateController {
     private static StandardServiceRegistry registry;
     private static SessionFactory sessionFactory;

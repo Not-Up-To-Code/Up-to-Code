@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.times;
 
 public class AlphaExportTest {
-    @Test
+    /*@Test
     public void cardTemplateTest() throws IOException, NoSuchFieldException, ClassNotFoundException, IllegalAccessException {
         Alpha alpha=new Alpha("alpha","briefDesc","detailedDesc","red",false,3);
         Integer id = 3;
@@ -27,7 +27,7 @@ public class AlphaExportTest {
 
 
 
-    }
+    }*/
     @Test
     private void compareRasterImages(BufferedImage expectedPngIo, BufferedImage actualPngIo) throws AssertionError {
         int minX = expectedPngIo.getMinX();

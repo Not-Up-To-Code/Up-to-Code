@@ -2,6 +2,9 @@ package edu.isu.cs3321.Up_to_Code.app;
 
 import java.util.*;
 
+/**
+ * This class works as a duplicate of the Alpha class contained in the client portion of the project. We use this to convert into the JPA version of Alpha
+ */
 public class Alpha {
     private String alpha;
     private String briefDesc;
