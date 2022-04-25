@@ -21,8 +21,6 @@ public class AlphaExportTest {
         AlphaExport alphaExport=new AlphaExport();
         alphaExport.cardTemplate(alpha,id);
         AlphaExport alphaExport1= Mockito.mock(AlphaExport.class);
-
-
         doNothing().when(alphaExport1).cardTemplate(any(),anyInt());
         alphaExport1.cardTemplate(alpha,id);
         verify(alphaExport1,times(1)).cardTemplate(alpha,3);

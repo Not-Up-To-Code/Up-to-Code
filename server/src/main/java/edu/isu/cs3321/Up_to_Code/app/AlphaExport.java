@@ -100,10 +100,8 @@ public class AlphaExport {
         //graphics2D.drawString("☆",40,60);
 
         graphics2D.dispose();
-        file=new File("Wide Cards Saving\\"+alpha.getAlpha()+"widecard.png");
+        file=new File(alpha.getAlpha()+"widecard.png");
         ImageIO.write(bufferedImage,"png",file);
-
-
     }
 
 

@@ -82,7 +82,7 @@ public class StatesExport {
                     graphics2D.drawString(i+1 + " / " +eachalpha.getStates().size()+1, 200, 530);
 
                     graphics2D.dispose();
-                    file = new File("Small Cards Saving \\"+alpha.getAlpha()+eachalpha.getStates().get(i).getName()+" "+i + " smallcard.png");
+                    file = new File(alpha.getAlpha()+eachalpha.getStates().get(i).getName()+" "+i + " smallcard.png");
                     ImageIO.write(bufferedImage, "png", file);
 
                 }
