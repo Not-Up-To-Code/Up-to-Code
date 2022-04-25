@@ -81,13 +81,6 @@ public class App {
         //card creator - passes alpha and states to server for db storage
         app.post("/api/card/save", ctx -> addAlpha(serialize(clientToServerConverter(deSerializeClientAlpha(ctx.body())))));
 
-
-        //games - need list of all available alphas, needs json payload with selected alpha and associated state cards
-        app.get("/api/card/list", ctx -> ctx.html("Hello World!"));
-
-        //chase the state - needs to provide server with array of played state card values to generate charts
-        app.get("/api/card/retrieve", ctx -> ctx.html("Hello World!"));
-
         app.get("/api/status", ctx -> ctx.result("Online"));
 
 

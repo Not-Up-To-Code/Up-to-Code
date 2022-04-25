@@ -111,6 +111,14 @@ public class Connection {
                 .asString();
     }
 
+    public void downloadCards(Alpha alpha) throws IOException, InterruptedException{
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String output = gson.toJson(alpha);
+
+        HttpRequest request = createPost(saveCard_call, output);
+        client.send(request, HttpResponse.BodyHandlers.ofString());
+    }
+
     public HttpRequest createGet(String call) {
         return HttpRequest
                 .newBuilder()
