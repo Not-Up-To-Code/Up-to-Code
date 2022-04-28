@@ -7,6 +7,8 @@ This project is a digital library of Essentialized practices that will allow the
 ## How to Run
 Open gradle project in console\
 Run Gradle Server with ```Gradle :server:run```\
+
+Ensure that the "tempPractices" folder is present in the root of client.
 Run Gradle Client with ```Gradle run```
 
 ## How to Run web application
