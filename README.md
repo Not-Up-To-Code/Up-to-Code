@@ -18,7 +18,7 @@ run  ```npm run serve ```\
 Go to the web path
 
 ## Help
-For assistance and other inquiries, please contact one of the develops using the emails below
+For assistance and other inquiries, please contact one of the developers using the emails below
 
 ## Authors
 Benjamin Keninger - kenibenj@isu.edu\
